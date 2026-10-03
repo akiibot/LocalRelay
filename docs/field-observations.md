@@ -13,6 +13,6 @@ Origin: https://localrelay-test.vercel.app. Request: `#CYUN39.1`; manual entry; 
 | Recovery | App displayed the missing enquiry-send-report guard. User reported success after instructions to use the explicit matching-reply recovery checkbox. | Independent screenshot/receipt-state export. |
 | Acceptance | User supplied `#CYUN39.1 4 11-10-26 02:56 1500`. | Explicit helper receipt confirmation and exact native message pair. |
 | Acknowledgement | User reported Agreement recorded appearing after instructions to record `#CYUN39.1 5 11-10-26 02:56 1500`. | Exact native acknowledgement receipt; helper confirmation and delivery log. |
-| Saved receipt after offline close/reopen | Pending. | User to reopen Outbox and the same request. |
+| Saved receipt after offline close/reopen | User confirmed that Agreement recorded and all details remained in Outbox after the offline close/reopen instructions: `#CYUN39.1`, 11 October 2026, 02:56, BDT 1500. | User-reported result; independent device inspection and receipt export not supplied. |
 
 No formal physical SMS checklist item is complete on this record alone. The 20-message target, phone/carrier logs, independent Bangla review and human evaluation gates remain open. The structured physical SMS log remains blank until actual observation fields are supplied. Browser simulation results stay separate.

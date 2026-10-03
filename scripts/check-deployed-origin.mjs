@@ -195,6 +195,66 @@ try {
     page.getByRole("heading", { name: "Ready to send" }),
   ).toBeVisible();
   results.offlineUncertainRoutingManualFallback = "passed";
+  const storedRequestLinks = second.locator(
+    'a[href^="/request/"]:not([href^="/request/new"])',
+  );
+  await second.reload();
+  const beforeUnsupported = await storedRequestLinks.count();
+  expect(beforeUnsupported).toBe(2);
+  await page.goto(new URL("/request/new?mode=form", origin).href);
+  await page.getByLabel("Date", { exact: true }).fill(date);
+  await page.getByLabel("Time", { exact: true }).fill("02:56");
+  await page.getByLabel("Adults", { exact: true }).fill("2");
+  await page.getByLabel("Children (").fill("1");
+  await page.getByLabel("Vegetarian meals (").fill("1");
+  await page.getByLabel("Every guest receives").check();
+  await page.getByLabel("I verified the exact").check();
+  const queueButton = page.getByRole("button", {
+    name: "Preview and queue locally",
+  });
+  await expect(queueButton).toBeEnabled();
+  const allergyText = "One guest has a peanut allergy.";
+  await page.getByLabel("Original enquiry").fill(allergyText);
+  await expect(
+    page.getByText("Direct contact required", { exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByText("Health or allergy needs require direct confirmation.", {
+      exact: false,
+    }),
+  ).toBeVisible();
+  await page.getByLabel("I verified the exact").check();
+  await expect(queueButton).toBeDisabled();
+  // Neither switching entry modes nor explicit confirmation may erase the note/block.
+  await page.getByRole("button", { name: "Use English free text" }).click();
+  await expect(page.getByLabel("English enquiry")).toHaveValue(allergyText);
+  await page.getByRole("button", { name: "Analyze enquiry" }).click();
+  await expect(page.getByText("Review and confirm every field")).toBeVisible();
+  await page.getByRole("button", { name: "Use a form instead" }).click();
+  await expect(page.getByLabel("Original enquiry")).toHaveValue(allergyText);
+  await page.getByLabel("Date", { exact: true }).fill(date);
+  await page.getByLabel("Time", { exact: true }).fill("02:56");
+  await page.getByLabel("Adults", { exact: true }).fill("2");
+  await page.getByLabel("Children (").fill("1");
+  await page.getByLabel("Vegetarian meals (").fill("1");
+  await page.getByLabel("Every guest receives").check();
+  await page.getByLabel("I verified the exact").check();
+  await expect(queueButton).toBeDisabled();
+  await expect(
+    page.getByText("Direct contact required", { exact: true }),
+  ).toBeVisible();
+  await second.reload();
+  await expect(storedRequestLinks).toHaveCount(beforeUnsupported);
+  results.offlineUnsupportedAllergy = {
+    text: allergyText,
+    validCardWithoutUnsupportedNoteQueueEnabled: true,
+    warningDisplayed: true,
+    blockedWithValidFieldsAndBothConfirmations: true,
+    noteAndBlockRetainedAcrossAiAndManualSwitch: true,
+    outboxRecordsBefore: beforeUnsupported,
+    outboxRecordsAfter: beforeUnsupported,
+    physicalSms: false,
+  };
   results.cspErrors = cspErrors;
   results.pageErrors = pageErrors;
   results.externalOrPayloadRequests = inputNetwork;
@@ -208,5 +268,5 @@ await writeFile(
   JSON.stringify(results, null, 2) + "\n",
 );
 console.log(
-  `Passed HTTPS route/MIME/hash checks for ${results.assets.length} assets; offline AI, reload, synthetic agreement and new tab. ${origin.origin}`,
+  `Passed HTTPS route/MIME/hash checks for ${results.assets.length} assets; offline AI, reload, synthetic agreement, manual fallback and unsupported allergy blocking. ${origin.origin}`,
 );

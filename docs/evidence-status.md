@@ -54,6 +54,10 @@ Earlier verification found and fixed: a readiness manifest/precache icon mismatc
 
 Use external-verification.md and evaluation-protocol.md to execute these. Do not promote this software checklist to evidence completion or a production-safe booking claim.
 
+## Deployed unsupported-requirement check
+
+The exact synthetic note “One guest has a peanut allergy.” was tested against the HTTPS origin in a fresh desktop Chromium context with network disabled after preparation. A valid card with both confirmations first allowed queueing without the note. Adding the allergy note displayed Direct contact required and the health/allergy confirmation reason, and disabled queueing even after both confirmations were checked again. The note and block persisted through actual AI analysis and switching back to the manual form; the outbox record count did not increase. See deployment-checks.json and the repeatable check-deployed-origin.mjs script. This covers this software case, not general medical/dietary safety, carrier delivery or a phone-side observation.
+
 ## Phone AI regression — 4 October 2026
 
 The user reported a low-confidence “Direct contact required” warning on the offline phone AI test. Quoted input used 2011-10-11 rather than the instructed future 2026-10-11; past dates remain rejected by validation. Actual exported-model reproduction also abstained on the exact instructed future-date sentence (price_query probability .45665 against .55). This is a model-quality failure on a normal supported enquiry, not a successful AI routing test. Correcting the quoted sentence's year alone still abstains (.52546). Model weights/thresholds and the failed .85 release gate are unchanged.

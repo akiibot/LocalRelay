@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-10-03T23:42:07.261Z",
+  "recordedAt": "2026-10-03T23:54:26.786Z",
   "origin": "https://localrelay-test.vercel.app",
   "environment": "Desktop Playwright Chromium, fresh browser context, 360x800",
   "physicalSms": false,
@@ -173,6 +173,16 @@
   "offlineLocalAi": "passed",
   "offlineSyntheticAgreementAndNewTab": "passed",
   "offlineUncertainRoutingManualFallback": "passed",
+  "offlineUnsupportedAllergy": {
+    "text": "One guest has a peanut allergy.",
+    "validCardWithoutUnsupportedNoteQueueEnabled": true,
+    "warningDisplayed": true,
+    "blockedWithValidFieldsAndBothConfirmations": true,
+    "noteAndBlockRetainedAcrossAiAndManualSwitch": true,
+    "outboxRecordsBefore": 2,
+    "outboxRecordsAfter": 2,
+    "physicalSms": false
+  },
   "cspErrors": [],
   "pageErrors": [],
   "externalOrPayloadRequests": []

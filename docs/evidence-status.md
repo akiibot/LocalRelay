@@ -23,6 +23,8 @@
 
 Machine summaries: deployment-checks.json, software-checks.json, browser-tests.json, browser-benchmark.json, artifact-budgets.json, ../ml/evaluation.json and ../ml/parity.json. Local detailed traces/reports/screenshots live in ignored test-results/.
 
+Guided phone pilot: the user reported offline reopening, helper receipt of the enquiry and Agreement recorded for `#CYUN39.1`. See [field-observations.md](field-observations.md) for exact reported observations, the omitted-send-report recovery and missing evidence. These reports are not independently inspected hardware results or a completed formal SMS/human trial; the physical checklist gates remain open.
+
 Earlier verification found and fixed: a readiness manifest/precache icon mismatch, DOMException error-message handling, late/waiting update detection and duplicate reloads, test navigation synchronization, negative/fractional count candidates and stale-tab storage writes. Final results above refer to the corrected implementation.
 
 ## Software checklist

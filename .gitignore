@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.venv/
+__pycache__/
+ml/generated/
+playwright-report/
+test-results/
+.env*
+.DS_Store

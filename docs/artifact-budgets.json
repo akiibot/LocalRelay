@@ -1,0 +1,8 @@
+{
+  "modelBytes": 427800,
+  "uncompressedBytes": 974611,
+  "gzipEstimateBytes": 341162,
+  "modelBudget": 1048576,
+  "offlineBudget": 5242880,
+  "note": "gzip estimate sums per-file gzip sizes; actual network transfer depends on host encoding."
+}

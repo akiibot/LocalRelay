@@ -1,0 +1,67 @@
+{
+  "environment": "Production dist, localhost with Vercel-style routes/CSP, Playwright Chromium desktop, 360x800",
+  "notPhysicalSms": true,
+  "offlineAgreementRuns": 20,
+  "offlineAiEntryRuns": 10,
+  "offlineFormEntryRuns": 10,
+  "tests": [
+    {
+      "title": "20 offline scripted production runs: local model, queue, reload and full agreement",
+      "status": "passed",
+      "durationMs": 20132
+    },
+    {
+      "title": "unsupported requirements block both entry modes",
+      "status": "passed",
+      "durationMs": 3278
+    },
+    {
+      "title": "no configured number disables composer; invalid replies cannot progress",
+      "status": "passed",
+      "durationMs": 3441
+    },
+    {
+      "title": "readiness fails honestly for evicted cache and missing assets are 404 under CSP",
+      "status": "passed",
+      "durationMs": 3188
+    },
+    {
+      "title": "consented local study grades shared workflow and exports no raw text/phones",
+      "status": "passed",
+      "durationMs": 3496
+    },
+    {
+      "title": "model-cache loss fails closed to manual form while offline",
+      "status": "passed",
+      "durationMs": 3290
+    },
+    {
+      "title": "revision atomically supersedes old ID, snapshots stay immutable",
+      "status": "passed",
+      "durationMs": 3499
+    },
+    {
+      "title": "360px and 200% text scaling keep critical fields and controls in viewport",
+      "status": "passed",
+      "durationMs": 3204
+    },
+    {
+      "title": "service-worker update waits for home and keeps existing request snapshot",
+      "status": "passed",
+      "durationMs": 4544
+    },
+    {
+      "title": "diagnostics measures actual desktop worker load and 50 warm calls",
+      "status": "passed",
+      "durationMs": 3178
+    }
+  ],
+  "stats": {
+    "startTime": "2026-10-03T21:41:33.244Z",
+    "duration": 52528.07,
+    "expected": 10,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

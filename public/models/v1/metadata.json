@@ -1,0 +1,56 @@
+{
+  "version": "seed-v1-726dbe51da95",
+  "featureVersion": "fnv1a-8192-v1",
+  "features": 8192,
+  "rows": 13,
+  "byteLength": 426036,
+  "weightsOffset": 0,
+  "biasesOffset": 425984,
+  "sha256": "726dbe51da956c3f33076e0dfe36c7414c3fe1bb41b262ad7e078cb1ba4aa905",
+  "intentLabels": [
+    "booking_request",
+    "availability_query",
+    "price_query",
+    "change_cancel",
+    "directions_transport",
+    "other_tourism",
+    "unsupported"
+  ],
+  "requirementLabels": [
+    "vegetarian",
+    "transport",
+    "accessibility",
+    "allergy_or_medical",
+    "payment_condition",
+    "other_extra_detail"
+  ],
+  "thresholds": [
+    0.45,
+    0.25,
+    0.5,
+    0.45,
+    0.45,
+    0.45
+  ],
+  "intentMin": 0.55,
+  "marginMin": 0.05,
+  "provenance": "Developer-authored synthetic seed only; no native, operator or blind human data",
+  "datasetSha256": "bbd2e8d6c5fbc6069273722a3dfe9df1c65015f082508a1fb29302d03aaff58c",
+  "regularization": {
+    "intent": 10,
+    "requirements": [
+      0.1,
+      10,
+      0.1,
+      0.1,
+      0.1,
+      0.1
+    ]
+  },
+  "trainingVersions": {
+    "python": "3.14.0",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "sklearn": "1.9.1"
+  }
+}

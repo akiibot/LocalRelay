@@ -1,0 +1,13 @@
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+  "firstCallMs": 53.90000009536743,
+  "warmSuccessful": 50,
+  "warmAttempts": 50,
+  "warmFailures": 0,
+  "roundTripP95Ms": 1.5,
+  "inferenceP95Ms": 1.2999999523162842,
+  "note": "First call is only cold if this app session had no previous inference. Round-trip p95 includes failed attempts; inference p95 is available only for successful calls.",
+  "environment": "Playwright Chromium desktop; not a low-end smartphone",
+  "inputSource": "fixed synthetic fixture",
+  "measurementDate": "2026-10-04"
+}

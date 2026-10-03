@@ -1,0 +1,6 @@
+{
+  "fixtureCount": 30,
+  "maxAbsoluteDifference": 2.3314683517128287e-15,
+  "tolerance": 0.0001,
+  "passed": true
+}

@@ -1,0 +1,186 @@
+{
+  "provenance": "SYNTHETIC ONLY; grouped families are not independent human authors",
+  "datasetSha256": "bbd2e8d6c5fbc6069273722a3dfe9df1c65015f082508a1fb29302d03aaff58c",
+  "counts": {
+    "train": 224,
+    "dev": 56,
+    "test": 56
+  },
+  "groups": {
+    "train": 56,
+    "dev": 14,
+    "test": 14
+  },
+  "splitOverlap": false,
+  "intentMacroF1": 0.3208228905597327,
+  "intent": {
+    "booking_request": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 8.0
+    },
+    "availability_query": {
+      "precision": 0.5,
+      "recall": 0.5,
+      "f1-score": 0.5,
+      "support": 8.0
+    },
+    "price_query": {
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1-score": 0.4,
+      "support": 8.0
+    },
+    "change_cancel": {
+      "precision": 0.4,
+      "recall": 0.5,
+      "f1-score": 0.4444444444444444,
+      "support": 8.0
+    },
+    "directions_transport": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 8.0
+    },
+    "other_tourism": {
+      "precision": 0.45454545454545453,
+      "recall": 0.625,
+      "f1-score": 0.5263157894736842,
+      "support": 8.0
+    },
+    "unsupported": {
+      "precision": 0.375,
+      "recall": 0.375,
+      "f1-score": 0.375,
+      "support": 8.0
+    },
+    "accuracy": 0.35714285714285715,
+    "macro avg": {
+      "precision": 0.29469696969696973,
+      "recall": 0.35714285714285715,
+      "f1-score": 0.3208228905597327,
+      "support": 56.0
+    },
+    "weighted avg": {
+      "precision": 0.29469696969696973,
+      "recall": 0.35714285714285715,
+      "f1-score": 0.3208228905597327,
+      "support": 56.0
+    }
+  },
+  "confusionMatrix": [
+    [
+      0,
+      0,
+      8,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      4,
+      4,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      4,
+      4,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      4,
+      0,
+      0,
+      4
+    ],
+    [
+      0,
+      0,
+      0,
+      6,
+      0,
+      1,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      3,
+      5,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      5,
+      3
+    ]
+  ],
+  "requirements": {
+    "vegetarian": {
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8,
+      "positive_count": 2,
+      "n": 56
+    },
+    "transport": {
+      "precision": 0.6875,
+      "recall": 0.7333333333333333,
+      "f1": 0.7096774193548387,
+      "positive_count": 15,
+      "n": 56
+    },
+    "accessibility": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "positive_count": 12,
+      "n": 56
+    },
+    "allergy_or_medical": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "positive_count": 5,
+      "n": 56
+    },
+    "payment_condition": {
+      "precision": 1.0,
+      "recall": 0.7857142857142857,
+      "f1": 0.88,
+      "positive_count": 14,
+      "n": 56
+    },
+    "other_extra_detail": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "positive_count": 5,
+      "n": 56
+    }
+  },
+  "keywordIntentMacroF1": 0.728917021353996,
+  "modelBytes": 426036,
+  "human_metrics": null,
+  "lowEndPhoneP95": null
+}

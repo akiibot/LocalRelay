@@ -168,5 +168,5 @@
       }
     }
   ],
-  "physicalPhoneRetest": "User reported new uncertainty warning and all five correct fields after manual fallback following the offline retest instructions on Samsung Galaxy A55. Local queue check pending; not a successful learned-model routing result."
+  "physicalPhoneRetest": "User reported new uncertainty warning and correct fields after manual fallback on Samsung Galaxy A55. A later screenshot showed an unqueued preview with adults 5; after instructions to use manual mode, restore test count 2 and reconfirm, user reported queueing works. Final queued card not supplied. No successful learned-model routing result or additional physical SMS exchange claimed."
 }

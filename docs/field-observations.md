@@ -1,6 +1,6 @@
 # Guided phone test observations — 4 October 2026 (Asia/Dhaka)
 
-Source: the user's reports during the guided walkthrough. These observations were not independently inspected on the physical phones. Visitor phone: Samsung Galaxy A55; helper phone: Redmi Note 11. The user gave both carriers as “Graminfo”; confirmation of whether this means Grameenphone is pending. OS/browser versions, delivery times and exact native sent/received message pairs have not been recorded. This is a smartphone-to-smartphone pilot, not a basic-phone test or completed formal participant study.
+Source: the user's reports during the guided walkthrough. These observations were not independently inspected on the physical phones. Visitor phone: Samsung Galaxy A55; helper phone: Redmi Note 11. Carrier route: Grameenphone → Grameenphone, explicitly confirmed by the user after initially spelling it “Graminfo”. OS/browser versions, delivery times and exact native sent/received message pairs have not been recorded. This is a smartphone-to-smartphone pilot, not a basic-phone test or completed formal participant study.
 
 Origin: https://localrelay-test.vercel.app. Request: `#CYUN39.1`; manual entry; date 11 October 2026; time 02:56, explicitly confirmed by the user; test offer total BDT 1500.
 
@@ -8,7 +8,7 @@ Origin: https://localrelay-test.vercel.app. Request: `#CYUN39.1`; manual entry; 
 |---|---|---|
 | Online preparation | Ready for offline use appeared after the Android/Chrome instructions. | Physical device/browser identification and cache observations. |
 | Offline reopening | User reported reopening successfully and seeing Ready for offline use after the Wi-Fi/mobile-data-off instructions. | Independent device inspection; low-end hardware/performance/assistive-use tests. |
-| Enquiry | User explicitly reported that the helper received it and could understand the Bangla, but found it insufficiently organized/professional. | Exact received text, field-by-field unassisted comprehension, rendering, confirmed carrier, segment count and delay. Layout/wording feedback remains open. |
+| Enquiry | User explicitly reported that the helper received it and could understand the Bangla, but found it insufficiently organized/professional. | Exact received text, field-by-field unassisted comprehension, rendering, segment count and delay. Layout/wording feedback remains open. |
 | Offer review | User reported the reply-recording flow working after instructions for `#CYUN39.1 1 1500`. | Exact native offer receipt and sender verification log. |
 | Recovery | App displayed the missing enquiry-send-report guard. User reported success after instructions to use the explicit matching-reply recovery checkbox. | Independent screenshot/receipt-state export. |
 | Acceptance | User supplied `#CYUN39.1 4 11-10-26 02:56 1500`. | Explicit helper receipt confirmation and exact native message pair. |
@@ -31,3 +31,5 @@ The current renderer uses compact counts with no colon separators and “মো�
 ```
 
 Measured after NFC normalization: 64 UTF-16 units for these values, compared with 53 for the existing renderer. This exceeds the 60-unit warning target but fits the 70-unit hard limit. New values/revision lengths must always be checked separately. No meaning, professional-quality or native-review approval is claimed from the unit count.
+
+Additional actual software check: used the existing smsSize/validateTemplate functions on this candidate for every supported adult/child/vegetarian-count combination in the two bundled profiles, with revision suffixes 1, 9, 10, 99, 100 and 999 (4,584 cases). All passed the hard limit and estimated one Unicode segment; maximum 68 units, with 4,368 cases above the 60-unit warning target. This is a candidate encoding sweep, not a carrier segment/charge measurement, exhaustive revision-length proof or native readability review. No live template was changed.

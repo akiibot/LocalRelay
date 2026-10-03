@@ -170,6 +170,31 @@ try {
   await second.goto(new URL("/outbox", origin).href);
   await expect(second.getByText(/Agreement recorded/)).toHaveCount(1);
   results.offlineSyntheticAgreementAndNewTab = "passed";
+  await page.goto(new URL("/request/new", origin).href);
+  const uncertainText = `Please tell me the total fee. Two adults and one child on ${date} at 2:56 am. One vegetarian meal.`;
+  await page.getByLabel("English enquiry").fill(uncertainText);
+  await page.getByRole("button", { name: "Analyze enquiry" }).click();
+  await expect(
+    page.getByText("AI needs manual review", { exact: true }),
+  ).toBeVisible();
+  await expect(page.getByLabel("Date", { exact: true })).toHaveValue(date);
+  await expect(page.getByLabel("Time", { exact: true })).toHaveValue("02:56");
+  await expect(page.getByLabel("Adults", { exact: true })).toHaveValue("2");
+  await expect(page.getByLabel("Children (")).toHaveValue("1");
+  await expect(page.getByLabel("Vegetarian meals (")).toHaveValue("1");
+  await page.getByLabel("Every guest receives").check();
+  await page.getByLabel("I verified the exact").check();
+  await expect(
+    page.getByRole("button", { name: "Preview and queue locally" }),
+  ).toBeDisabled();
+  await page.getByRole("button", { name: "Use a form instead" }).click();
+  await expect(page.getByLabel("Original enquiry")).toHaveValue(uncertainText);
+  await page.getByLabel("I verified the exact").check();
+  await page.getByRole("button", { name: "Preview and queue locally" }).click();
+  await expect(
+    page.getByRole("heading", { name: "Ready to send" }),
+  ).toBeVisible();
+  results.offlineUncertainRoutingManualFallback = "passed";
   results.cspErrors = cspErrors;
   results.pageErrors = pageErrors;
   results.externalOrPayloadRequests = inputNetwork;

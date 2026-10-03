@@ -222,6 +222,43 @@ test("model-cache loss fails closed to manual form while offline", async ({
   await page.getByRole("button", { name: "Use a form instead" }).click();
   await expect(page.getByLabel("Adults", { exact: true })).toBeVisible();
 });
+
+test("real worker uncertainty allows safe offline manual fallback and ISO date extraction", async ({
+  page,
+  context,
+}) => {
+  await prepared(page);
+  await context.setOffline(true);
+  await page.goto("/request/new");
+  const date = nextDate();
+  const text = `Please tell me the total fee. Two adults and one child on ${date} at 2:56 am. One vegetarian meal.`;
+  await page.getByLabel("English enquiry").fill(text);
+  await page.getByRole("button", { name: "Analyze enquiry" }).click();
+  await expect(
+    page.getByText("AI needs manual review", { exact: true }),
+  ).toBeVisible();
+  await expect(page.getByLabel("Date", { exact: true })).toHaveValue(date);
+  await expect(page.getByLabel("Time", { exact: true })).toHaveValue("02:56");
+  await expect(page.getByLabel("Adults", { exact: true })).toHaveValue("2");
+  await expect(page.getByLabel("Children (")).toHaveValue("1");
+  await expect(page.getByLabel("Vegetarian meals (")).toHaveValue("1");
+  await page.getByLabel("Every guest receives").check();
+  await page.getByLabel("I verified the exact").check();
+  await expect(
+    page.getByRole("button", { name: "Preview and queue locally" }),
+  ).toBeDisabled();
+  await page.getByRole("button", { name: "Use a form instead" }).click();
+  await expect(page.getByLabel("Original enquiry")).toHaveValue(text);
+  await page.getByLabel("I verified the exact").check();
+  await page.getByRole("button", { name: "Preview and queue locally" }).click();
+  await expect(
+    page.getByRole("heading", { name: "Ready to send" }),
+  ).toBeVisible();
+  await page.reload();
+  await expect(
+    page.getByRole("heading", { name: "Ready to send" }),
+  ).toBeVisible();
+});
 test("revision atomically supersedes old ID, snapshots stay immutable", async ({
   page,
 }) => {

@@ -33,3 +33,7 @@ The current renderer uses compact counts with no colon separators and “মো�
 Measured after NFC normalization: 64 UTF-16 units for these values, compared with 53 for the existing renderer. This exceeds the 60-unit warning target but fits the 70-unit hard limit. New values/revision lengths must always be checked separately. No meaning, professional-quality or native-review approval is claimed from the unit count.
 
 Additional actual software check: used the existing smsSize/validateTemplate functions on this candidate for every supported adult/child/vegetarian-count combination in the two bundled profiles, with revision suffixes 1, 9, 10, 99, 100 and 999 (4,584 cases). All passed the hard limit and estimated one Unicode segment; maximum 68 units, with 4,368 cases above the 60-unit warning target. This is a candidate encoding sweep, not a carrier segment/charge measurement, exhaustive revision-length proof or native readability review. No live template was changed.
+
+## Offline AI attempt
+
+The user reported a “Direct contact required” warning with “The local model cannot route this inquiry reliably” after the instructed AI test. Their quoted enquiry included 2011-10-11, while the guide used 2026-10-11. This attempt is recorded as AI abstention, not successful routing/extraction. Reproduction on the original future-date sentence also abstained, so the warning cannot be attributed solely to the year difference. See ai-routing-regression.json and evidence-status.md for the parser/manual-fallback fixes. Actual phone retest after the update is pending.

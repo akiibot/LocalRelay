@@ -46,6 +46,34 @@ export function fixture(): RelayRequest {
   };
 }
 describe("bounded workflow", () => {
+  it("keeps ISO date separators separate from actual count ranges", () => {
+    const text =
+      "Please tell me the total fee. Two adults and one child on 2026-10-11 at 2:56 am. One vegetarian meal.";
+    const parsed = parseFields(text, now);
+    expect(parsed.fields).toEqual({
+      localDate: "2026-10-11",
+      localTime: "02:56",
+      adults: 2,
+      children: 1,
+      vegetarianMeals: 1,
+    });
+    expect(parsed.clarifications).toEqual([]);
+    expect(
+      parsed.spans.every((s) => text.slice(s.start, s.end) === s.text),
+    ).toBe(true);
+    const range = parseFields(
+      "2-3 adults and one child on 2026-10-11 at 2:56 am. One vegetarian meal.",
+      now,
+    );
+    expect(range.fields.localDate).toBe("2026-10-11");
+    expect(range.fields.adults).toBeUndefined();
+    expect(range.clarifications.join(" ")).toContain("explicit choices");
+    const past = parseFields(text.replace("2026-10-11", "2011-10-11"), now);
+    expect(past.fields.localDate).toBe("2011-10-11");
+    expect(
+      validateCard({ ...card, ...past.fields }, p, now).length,
+    ).toBeGreaterThan(0);
+  });
   it("validates bounds, future schedule and required explicit meal counts", () => {
     expect(validateCard(card, p, now)).toEqual([]);
     for (const change of [

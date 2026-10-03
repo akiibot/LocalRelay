@@ -172,9 +172,11 @@ export function parseFields(text: string, now = new Date()): Parsed {
   }
   const noChildren = /\b(no children|no kids|zero children)\b/i.exec(text);
   if (noChildren) offer("children", 0, noChildren);
+  // Date separators are not alternatives such as "2-3 adults".
+  const ambiguityText = text.replace(/\b\d{4}-\d{2}-\d{2}\b/g, " ");
   const ambiguous =
     /\b(?:around|about|maybe|perhaps)\b|\b(?:\d+|one|two|three|four|five|ten)\s*(?:or|to|-)\s*(?:\d+|one|two|three|four|five|ten)\b|\bnot\s+(?:\d+|one|two|three|four)\b/i.test(
-      text,
+      ambiguityText,
     );
   if (ambiguous) {
     clarifications.push(

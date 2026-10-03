@@ -27,3 +27,9 @@ When account access/publishing authorization is available:
 - Vercel automatically connected GitHub. Its production branch is currently main, which still has only the handoff README until PR #1 is merged. Deploy app changes from codex/localrelay with the CLI until then; do not redeploy main before merging the implementation.
 
 Physical Android install/reopen, native SMS and human evidence remain pending. Unreviewed Bangla and failed AI quality gates remain explicit even if a preview is deployed.
+
+## Parser/manual-fallback update — 4 October 2026
+
+Deployed dpl_4ueW97wMKmJjSNuLkq6jAszGheJq to the same https://localrelay-test.vercel.app alias after 36 unit/component and 11 production-browser tests passed. ISO dates no longer erase count/time candidates; low-confidence AI queueing stays blocked while explicit manual fallback retains original text and all unsupported requirement flags. Model coefficients/thresholds and saved agreement snapshots are unchanged. The deployed-origin checker now includes this actual-worker offline fallback regression.
+
+For existing installed clients: reconnect, return Home, wait for the update notice, choose **Activate update and reload**, then wait for Ready for offline use before disconnecting again. Copy any unsaved enquiry text first; previously saved requests remain in IndexedDB. Actual phone retest is pending.

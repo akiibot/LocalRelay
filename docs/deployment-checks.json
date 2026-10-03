@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-10-03T22:39:52.337Z",
+  "recordedAt": "2026-10-03T23:42:07.261Z",
   "origin": "https://localrelay-test.vercel.app",
   "environment": "Desktop Playwright Chromium, fresh browser context, 360x800",
   "physicalSms": false,
@@ -58,18 +58,18 @@
   ],
   "assets": [
     {
-      "path": "/assets/index-CnMBhtiT.css",
-      "bytes": 3525,
-      "sha256": "c24e93e175abcf9e9f730f3fa659745f134972bb820716e4a51b43c4716dcb8f",
-      "contentType": "text/css; charset=utf-8",
+      "path": "/assets/index-Br400tT_.js",
+      "bytes": 419211,
+      "sha256": "912f37553af780f034004088f0ddab6e309a5ecf293dcf39a1118a5f645bdfff",
+      "contentType": "application/javascript; charset=utf-8",
       "cacheControl": "public, max-age=31536000, immutable",
       "contentEncoding": "br"
     },
     {
-      "path": "/assets/index-jhCAt06A.js",
-      "bytes": 418854,
-      "sha256": "e81781e622424015821178acf675f0f2a28d61d78eb7351a248d8bff7fd8e7f9",
-      "contentType": "application/javascript; charset=utf-8",
+      "path": "/assets/index-CnMBhtiT.css",
+      "bytes": 3525,
+      "sha256": "c24e93e175abcf9e9f730f3fa659745f134972bb820716e4a51b43c4716dcb8f",
+      "contentType": "text/css; charset=utf-8",
       "cacheControl": "public, max-age=31536000, immutable",
       "contentEncoding": "br"
     },
@@ -124,7 +124,7 @@
     {
       "path": "/index.html",
       "bytes": 560,
-      "sha256": "b9bcbb29759d5b2c825f8a185f5aaf50ac92c942475f5531a479ae1dfa2e3685",
+      "sha256": "5afa771832ae7342ee312d1ab2dfe278866c0a3d08794b2a13bc4638e21a69b3",
       "contentType": "text/html; charset=utf-8",
       "cacheControl": "public, max-age=0, must-revalidate",
       "contentEncoding": null
@@ -172,6 +172,7 @@
   "offlineReload": "passed",
   "offlineLocalAi": "passed",
   "offlineSyntheticAgreementAndNewTab": "passed",
+  "offlineUncertainRoutingManualFallback": "passed",
   "cspErrors": [],
   "pageErrors": [],
   "externalOrPayloadRequests": []

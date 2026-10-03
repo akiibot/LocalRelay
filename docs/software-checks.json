@@ -7,12 +7,12 @@
   "typecheck": "passed",
   "lint": "passed",
   "unitComponentTests": {
-    "passed": 32,
+    "passed": 36,
     "failed": 0,
     "files": 4
   },
   "productionBrowserTests": {
-    "passed": 10,
+    "passed": 11,
     "failed": 0,
     "offlineAgreementRuns": 20
   },
@@ -29,11 +29,12 @@
   "retrainingReproducedSha256": "726dbe51da956c3f33076e0dfe36c7414c3fe1bb41b262ad7e078cb1ba4aa905",
   "budgets": {
     "modelBytes": 427800,
-    "uncompressedBytes": 974611,
-    "gzipEstimateBytes": 341162,
+    "uncompressedBytes": 974968,
+    "gzipEstimateBytes": 341267,
     "modelBudget": 1048576,
     "offlineBudget": 5242880,
     "note": "gzip estimate sums per-file gzip sizes; actual network transfer depends on host encoding."
   },
-  "externalEvidence": "Physical SMS, human tests and deployed origin pending"
+  "externalEvidence": "Deployed HTTPS origin verified in desktop Chromium. User-reported Galaxy A55/Redmi Note 11 Grameenphone pilot recorded separately; basic-phone route, formal SMS logs, native review and human studies pending.",
+  "routingRegression": "ISO date preserves count/time candidates; uncertain AI requires explicit manual fallback; lexical and learned unsupported flags stay blocking. Model coefficients and thresholds unchanged."
 }

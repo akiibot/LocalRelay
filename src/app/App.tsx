@@ -332,7 +332,8 @@ function NewRequest() {
     [complete, setComplete] = useState(false),
     [mealOk, setMealOk] = useState(false),
     [busy, setBusy] = useState(false),
-    [scores, setScores] = useState<Scores | null>(null);
+    [scores, setScores] = useState<Scores | null>(null),
+    [routingUncertain, setRoutingUncertain] = useState(false);
   const [values, setValues] = useState<Record<string, string>>({
     localDate: "",
     localTime: "",
@@ -406,16 +407,10 @@ function NewRequest() {
           reason: `Model routes this as ${result.topIntent}. Use direct contact for changes or unsupported enquiries.`,
           critical: true,
         });
-      if (
+      setRoutingUncertain(
         result.intent[result.topIntent] < result.intentMin ||
-        result.margin < result.marginMin
-      )
-        p.flags.push({
-          text,
-          reason:
-            "The local model cannot route this enquiry reliably. Rewrite in English or use the manual form.",
-          critical: true,
-        });
+          result.margin < result.marginMin,
+      );
       for (const [k, score] of Object.entries(result.requirements)) {
         if (
           k !== "vegetarian" &&
@@ -475,6 +470,10 @@ function NewRequest() {
   async function queue() {
     setError("");
     try {
+      if (!manual && routingUncertain)
+        throw new Error(
+          "The model is uncertain. Use a form instead and confirm every field.",
+        );
       if (flags.length)
         throw new Error(
           "Unresolved unsupported requirements require direct contact. Correct the original input if misclassified.",
@@ -596,6 +595,7 @@ function NewRequest() {
             setReview(false);
             setScores(null);
             setComplete(false);
+            setRoutingUncertain(false);
           }}
           placeholder={
             manual
@@ -612,6 +612,16 @@ function NewRequest() {
         <button disabled={!text.trim() || busy} onClick={() => void analyze()}>
           {busy ? "Analyzing on this device…" : "Analyze enquiry"}
         </button>
+      )}
+      {!manual && routingUncertain && (
+        <Warning>
+          <b>AI needs manual review</b>
+          <p>
+            The local model cannot route this enquiry reliably. Select “Use a
+            form instead” and confirm every field. Your original enquiry is
+            retained; unsupported requirements still require direct contact.
+          </p>
+        </Warning>
       )}
       {flags.length > 0 && (
         <Warning>
@@ -774,6 +784,7 @@ function NewRequest() {
             disabled={
               !complete ||
               flags.length > 0 ||
+              (!manual && routingUncertain) ||
               (operator.mealIncluded && !mealOk) ||
               liveErrors.length > 0 ||
               liveSize.blocked

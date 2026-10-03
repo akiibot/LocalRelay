@@ -8,58 +8,63 @@
     {
       "title": "20 offline scripted production runs: local model, queue, reload and full agreement",
       "status": "passed",
-      "durationMs": 20132
+      "durationMs": 24386
     },
     {
       "title": "unsupported requirements block both entry modes",
       "status": "passed",
-      "durationMs": 3278
+      "durationMs": 3569
     },
     {
       "title": "no configured number disables composer; invalid replies cannot progress",
       "status": "passed",
-      "durationMs": 3441
+      "durationMs": 3583
     },
     {
       "title": "readiness fails honestly for evicted cache and missing assets are 404 under CSP",
       "status": "passed",
-      "durationMs": 3188
+      "durationMs": 3299
     },
     {
       "title": "consented local study grades shared workflow and exports no raw text/phones",
       "status": "passed",
-      "durationMs": 3496
+      "durationMs": 3827
     },
     {
       "title": "model-cache loss fails closed to manual form while offline",
       "status": "passed",
-      "durationMs": 3290
+      "durationMs": 3584
+    },
+    {
+      "title": "real worker uncertainty allows safe offline manual fallback and ISO date extraction",
+      "status": "passed",
+      "durationMs": 3608
     },
     {
       "title": "revision atomically supersedes old ID, snapshots stay immutable",
       "status": "passed",
-      "durationMs": 3499
+      "durationMs": 3744
     },
     {
       "title": "360px and 200% text scaling keep critical fields and controls in viewport",
       "status": "passed",
-      "durationMs": 3204
+      "durationMs": 3444
     },
     {
       "title": "service-worker update waits for home and keeps existing request snapshot",
       "status": "passed",
-      "durationMs": 4544
+      "durationMs": 4858
     },
     {
       "title": "diagnostics measures actual desktop worker load and 50 warm calls",
       "status": "passed",
-      "durationMs": 3178
+      "durationMs": 12192
     }
   ],
   "stats": {
-    "startTime": "2026-10-03T21:41:33.244Z",
-    "duration": 52528.07,
-    "expected": 10,
+    "startTime": "2026-10-03T23:39:29.602Z",
+    "duration": 73258.505,
+    "expected": 11,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

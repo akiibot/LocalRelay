@@ -1,0 +1,178 @@
+{
+  "recordedAt": "2026-10-03T22:39:52.337Z",
+  "origin": "https://localrelay-test.vercel.app",
+  "environment": "Desktop Playwright Chromium, fresh browser context, 360x800",
+  "physicalSms": false,
+  "physicalAndroid": false,
+  "routes": [
+    {
+      "path": "/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/operators",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/operators/demo-riverside",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/request/new",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/request/test",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/outbox",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/reply/test",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/evaluation",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/diagnostics",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/simulate",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    }
+  ],
+  "assets": [
+    {
+      "path": "/assets/index-CnMBhtiT.css",
+      "bytes": 3525,
+      "sha256": "c24e93e175abcf9e9f730f3fa659745f134972bb820716e4a51b43c4716dcb8f",
+      "contentType": "text/css; charset=utf-8",
+      "cacheControl": "public, max-age=31536000, immutable",
+      "contentEncoding": "br"
+    },
+    {
+      "path": "/assets/index-jhCAt06A.js",
+      "bytes": 418854,
+      "sha256": "e81781e622424015821178acf675f0f2a28d61d78eb7351a248d8bff7fd8e7f9",
+      "contentType": "application/javascript; charset=utf-8",
+      "cacheControl": "public, max-age=31536000, immutable",
+      "contentEncoding": "br"
+    },
+    {
+      "path": "/assets/inference.worker-CuESR5mf.js",
+      "bytes": 92603,
+      "sha256": "adde5b0cd9c654c0c353dbca355fd2bfbb7961035c5c6967d22e3d76fbbf714a",
+      "contentType": "application/javascript; charset=utf-8",
+      "cacheControl": "public, max-age=31536000, immutable",
+      "contentEncoding": "br"
+    },
+    {
+      "path": "/assets/workbox-window.prod.es5-Bd17z0YL.js",
+      "bytes": 5653,
+      "sha256": "17bcc17d60dc78f927834b880c39649b03af46fd1f5cdbb8c42c5ae2b515dce9",
+      "contentType": "application/javascript; charset=utf-8",
+      "cacheControl": "public, max-age=31536000, immutable",
+      "contentEncoding": "br"
+    },
+    {
+      "path": "/data/operators/demo.json",
+      "bytes": 854,
+      "sha256": "48079bd047cb052cea6b4bf523c94fd2c4365aa90b9188c1f6f8a356346b9240",
+      "contentType": "application/json; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentEncoding": null
+    },
+    {
+      "path": "/icons/icon-192.png",
+      "bytes": 880,
+      "sha256": "f6459407d5ca068f247a0af549a4cb5cbd1117c33c9204375655972a47262d56",
+      "contentType": "image/png",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentEncoding": null
+    },
+    {
+      "path": "/icons/icon-512.png",
+      "bytes": 3567,
+      "sha256": "540d42779456d14db8b8a264159f2985905ee30b5298c0f77c2c97ba5026e120",
+      "contentType": "image/png",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentEncoding": null
+    },
+    {
+      "path": "/icons/icon.svg",
+      "bytes": 227,
+      "sha256": "43c0c0441e56bd15e236bd36085a2c32a451536092f92716f45146b71ba98425",
+      "contentType": "image/svg+xml",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentEncoding": null
+    },
+    {
+      "path": "/index.html",
+      "bytes": 560,
+      "sha256": "b9bcbb29759d5b2c825f8a185f5aaf50ac92c942475f5531a479ae1dfa2e3685",
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentEncoding": null
+    },
+    {
+      "path": "/manifest.webmanifest",
+      "bytes": 463,
+      "sha256": "ccc8d8159b8d791088c6c2658826042778024bea38ec65a3dd8b2716d7c9bd3b",
+      "contentType": "application/manifest+json; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentEncoding": null
+    },
+    {
+      "path": "/models/v1/feature-spec.json",
+      "bytes": 592,
+      "sha256": "98264d59ee0393215b45183604589f4990c025b9eb4ad78c57817bc701de26e4",
+      "contentType": "application/json; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentEncoding": null
+    },
+    {
+      "path": "/models/v1/metadata.json",
+      "bytes": 1172,
+      "sha256": "5f1aed415026d95a45dde12d1cc2eab3d4bc3156026e0d6f0ec1ba6926031354",
+      "contentType": "application/json; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentEncoding": "br"
+    },
+    {
+      "path": "/models/v1/weights.bin",
+      "bytes": 426036,
+      "sha256": "726dbe51da956c3f33076e0dfe36c7414c3fe1bb41b262ad7e078cb1ba4aa905",
+      "contentType": "application/octet-stream",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentEncoding": "br"
+    }
+  ],
+  "missingModelStatus": 404,
+  "serviceWorker": {
+    "status": 200,
+    "contentType": "application/javascript; charset=utf-8",
+    "cacheControl": "public, max-age=0, must-revalidate"
+  },
+  "onlineReadiness": "passed",
+  "offlineReload": "passed",
+  "offlineLocalAi": "passed",
+  "offlineSyntheticAgreementAndNewTab": "passed",
+  "cspErrors": [],
+  "pageErrors": [],
+  "externalOrPayloadRequests": []
+}

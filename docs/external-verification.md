@@ -1,4 +1,4 @@
-# External verification checklist — all pending
+# External verification checklist
 
 - [ ] Recruit ≥5 actual operators; test whether communication causes lost enquiries, SMS versus calls, response-code learning, single-service profile and visitor SIM assumptions. Record consented notes without identifiers.
 - [ ] Two independent native Bangla reviewers: every template and operator card, exact semantics, date/numeral conventions, standard meals and full price, blind back-translation where possible. No approval claim until both completed.
@@ -10,7 +10,7 @@
 - [ ] Real smartphone + Bangla basic phone + consented SIMs, one carrier path minimum, two models/carriers/cross-carrier stronger. ≥20 varied request messages; full offer/acceptance/acknowledgement, raw sent/received text and delays.
 - [ ] Actual Bangla conjunct/vowel mark rendering; maximum supported requests and single-segment route behaviour; separate 70/71-unit boundary fixtures; carrier charges and total exchange segment count.
 - [ ] Cancel native composer, delayed/duplicate replies, temporary signal loss, copy fallback, sender check and mismatched acknowledgement on physical phones.
-- [ ] Vercel account import/preview/production, correct root/framework/Node, route refresh, missing-model 404, actual CSP/MIME/cache headers, deployed-origin offline startup. No deployed URL yet.
+- [x] Vercel test-project deployment: https://localrelay-test.vercel.app, repository root/Vite/Node 24.x, successful remote npm ci/build. Actual route responses, missing-model 404, CSP/MIME/cache headers and offline startup/local AI/agreement checked in fresh desktop Chromium. Physical Android reopening remains pending separately; evidence in deployment-checks.json.
 - [ ] Physical demonstration recording, including a clarification/failure case; no simulator passed off as real carrier exchange.
 
-Blank logs are provided alongside this file. Software/browser/model-fixture results cannot check off these items.
+Blank logs are provided alongside this file. Software/browser/model-fixture results cannot check off physical or human evidence items. The hosting item records deployed desktop-browser verification only.

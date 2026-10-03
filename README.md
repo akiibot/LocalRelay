@@ -4,7 +4,7 @@
 
 Standalone React/TypeScript/Vite PWA, prepared for Vercel. English visitor input → explicitly reviewed bounded fields → draft Bangla SMS → strict offer/acceptance/acknowledgement protocol. The trained classical Small AI runs in a Web Worker on the visitor’s smartphone. No inference server, SMS gateway, hosted translator, account or booking database.
 
-**Status: executable development/pilot candidate, not field-validated.** Bangla templates are unreviewed. Synthetic intent macro-F1 is **0.321**, below the 0.85 target; keyword baseline is **0.729** on the same grouped test split. AI is optional/experimental; use the manual form as the pilot default. No hardware/human results or deployed URL exist. See [evidence checklist](docs/evidence-status.md) and [model card](ml/model-card.md).
+**Status: executable development/pilot candidate, not field-validated.** Bangla templates are unreviewed. Synthetic intent macro-F1 is **0.321**, below the 0.85 target; keyword baseline is **0.729** on the same grouped test split. AI is optional/experimental; use the manual form as the pilot default. No hardware/human results exist. HTTPS test deployment: [localrelay-test.vercel.app](https://localrelay-test.vercel.app), verified in desktop Chromium; see [deployment checks](docs/deployment-checks.json). See [evidence checklist](docs/evidence-status.md) and [model card](ml/model-card.md).
 
 ## Run
 
@@ -71,4 +71,4 @@ See [ml/README.md](ml/README.md). Shared TypeScript features, group-isolated tra
 - [External verification checklist](docs/external-verification.md)
 - [Demo script](docs/demo-script.md)
 
-The supplied implementation plan is preserved as LOCALRELAY_IMPLEMENTATION_PLAN.md. The implementation branch is `codex/localrelay` for review. Public Vercel deployment is still pending. Existing parent workspace files were preserved.
+The supplied implementation plan is preserved as LOCALRELAY_IMPLEMENTATION_PLAN.md. The implementation branch is `codex/localrelay` for review. The separate Vercel test project is deployed at https://localrelay-test.vercel.app; physical Android/SMS verification remains pending. Existing parent workspace files were preserved.

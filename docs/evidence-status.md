@@ -19,9 +19,9 @@
 | Size budgets | Model package 427,800 bytes (binary 426,036) <1MiB; complete dist 974,611 bytes <5MiB. Per-file gzip sum estimate 341,162 bytes; actual hosted compressed transfer pending. See artifact-budgets.json. |
 | Performance | Actual desktop Chromium 50-run benchmark in browser-benchmark.json, with first-call time and successful/failed warm denominators. **Low-end Android timing pending.** Desktop p95 is not a handset claim. |
 | Accessibility | 360px viewport and 200% text layout checked in production; focus/labels/keyboard/native controls/reduced-motion styles implemented. Real Android screen-reader/manual assistive-use audit pending. |
-| Hosting | Vercel static build, explicit route rewrites, CSP/cache/MIME configuration and CI prepared. Local tests verify missing-model 404/binary MIME/CSP. **No deployed URL tested.** |
+| Hosting | Vercel static build, explicit route rewrites, CSP/cache/MIME configuration and CI prepared. Local tests verify missing-model 404/binary MIME/CSP. **HTTPS origin verified:** https://localrelay-test.vercel.app. Vercel build passed; 10 route responses/CSP, 13 asset hashes/sizes/MIME/cache headers, missing-model 404 and service worker checked. Fresh desktop Chromium passed readiness, offline reload/local AI/queued synthetic agreement/new tab. See deployment-checks.json. Physical Android remains pending. |
 
-Machine summaries: software-checks.json, browser-tests.json, browser-benchmark.json, artifact-budgets.json, ../ml/evaluation.json and ../ml/parity.json. Local detailed traces/reports/screenshots live in ignored test-results/.
+Machine summaries: deployment-checks.json, software-checks.json, browser-tests.json, browser-benchmark.json, artifact-budgets.json, ../ml/evaluation.json and ../ml/parity.json. Local detailed traces/reports/screenshots live in ignored test-results/.
 
 Earlier verification found and fixed: a readiness manifest/precache icon mismatch, DOMException error-message handling, late/waiting update detection and duplicate reloads, test navigation synchronization, negative/fractional count candidates and stale-tab storage writes. Final results above refer to the corrected implementation.
 
@@ -36,7 +36,7 @@ Earlier verification found and fixed: a readiness manifest/precache icon mismatc
 - [x] Isolated simulator; local consented study tools; docs, cards, guides, commands, CI and Vercel build artifact.
 - [ ] Independent ML quality targets; blind parser precision/coverage and unsupported false-acceptance rates (not established by curated fixtures).
 - [ ] Actual low-end Android install/reopen/performance and manual assistive-use audit.
-- [ ] Public deployed-origin verification.
+- [x] Public deployed-origin verification in desktop Chromium; physical Android verification remains separate.
 
 ## External evidence checklist
 

@@ -1,6 +1,6 @@
 # Guided phone test observations — 4 October 2026 (Asia/Dhaka)
 
-Source: the user's reports during the guided walkthrough. These observations were not independently inspected on the physical phones. Device models, OS/browser versions, carrier route, delivery times and exact native sent/received message pairs have not been recorded. This is one partial pilot record, not a completed formal SMS trial or participant study.
+Source: the user's reports during the guided walkthrough. These observations were not independently inspected on the physical phones. Visitor phone: Samsung Galaxy A55; helper phone: Redmi Note 11. The user gave both carriers as “Graminfo”; confirmation of whether this means Grameenphone is pending. OS/browser versions, delivery times and exact native sent/received message pairs have not been recorded. This is a smartphone-to-smartphone pilot, not a basic-phone test or completed formal participant study.
 
 Origin: https://localrelay-test.vercel.app. Request: `#CYUN39.1`; manual entry; date 11 October 2026; time 02:56, explicitly confirmed by the user; test offer total BDT 1500.
 
@@ -8,11 +8,26 @@ Origin: https://localrelay-test.vercel.app. Request: `#CYUN39.1`; manual entry; 
 |---|---|---|
 | Online preparation | Ready for offline use appeared after the Android/Chrome instructions. | Physical device/browser identification and cache observations. |
 | Offline reopening | User reported reopening successfully and seeing Ready for offline use after the Wi-Fi/mobile-data-off instructions. | Independent device inspection; low-end hardware/performance/assistive-use tests. |
-| Enquiry | User explicitly reported that the helper received it. | Exact native sent/received text, Bangla rendering/comprehension, carrier, segment count and delay. |
+| Enquiry | User explicitly reported that the helper received it and could understand the Bangla, but found it insufficiently organized/professional. | Exact received text, field-by-field unassisted comprehension, rendering, confirmed carrier, segment count and delay. Layout/wording feedback remains open. |
 | Offer review | User reported the reply-recording flow working after instructions for `#CYUN39.1 1 1500`. | Exact native offer receipt and sender verification log. |
 | Recovery | App displayed the missing enquiry-send-report guard. User reported success after instructions to use the explicit matching-reply recovery checkbox. | Independent screenshot/receipt-state export. |
 | Acceptance | User supplied `#CYUN39.1 4 11-10-26 02:56 1500`. | Explicit helper receipt confirmation and exact native message pair. |
 | Acknowledgement | User reported Agreement recorded appearing after instructions to record `#CYUN39.1 5 11-10-26 02:56 1500`. | Exact native acknowledgement receipt; helper confirmation and delivery log. |
 | Saved receipt after offline close/reopen | User confirmed that Agreement recorded and all details remained in Outbox after the offline close/reopen instructions: `#CYUN39.1`, 11 October 2026, 02:56, BDT 1500. | User-reported result; independent device inspection and receipt export not supplied. |
+| Physical sending | User confirmed that all four messages were actually sent. | Only enquiry receipt was explicitly confirmed; retain exact native sent/received pairs for all four messages and delivery times. |
 
-No formal physical SMS checklist item is complete on this record alone. The 20-message target, phone/carrier logs, independent Bangla review and human evaluation gates remain open. The structured physical SMS log remains blank until actual observation fields are supplied. Browser simulation results stay separate.
+No formal physical SMS checklist item is complete on this record alone. The 20-message target, carrier/version/message-pair logs, basic-phone route, independent Bangla review and human evaluation gates remain open. The structured physical SMS log remains blank until actual message observations are supplied. This informal helper feedback is not one of the required two native reviewer approvals or the structured comprehension study. Browser simulation results stay separate.
+
+## Presentation feedback — candidate for review
+
+The current renderer uses compact counts with no colon separators and “মোট দাম?”. The following candidate separates the request ID, guest counts and vegetarian count and uses a more formal price phrase. It has not been adopted by the renderer or deployed. The exact received enquiry is still requested to distinguish source layout from any changes in the SMS app/carrier path. Both native reviewer approvals remain pending.
+
+```text
+#CYUN39.1
+11-10-26 02:56
+বড়:2 শিশু:1
+নিরামিষ:1
+মোট মূল্য জানান।
+```
+
+Measured after NFC normalization: 64 UTF-16 units for these values, compared with 53 for the existing renderer. This exceeds the 60-unit warning target but fits the 70-unit hard limit. New values/revision lengths must always be checked separately. No meaning, professional-quality or native-review approval is claimed from the unit count.

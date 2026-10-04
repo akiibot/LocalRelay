@@ -8,70 +8,81 @@
     {
       "title": "20 offline scripted production runs: local model, queue, reload and full agreement",
       "status": "passed",
-      "durationMs": 23499
+      "durationMs": 83915,
+      "initialStatus": "timedOut",
+      "initialDurationMs": 97407
     },
     {
       "title": "unsupported requirements block both entry modes",
       "status": "passed",
-      "durationMs": 3833
+      "durationMs": 5296
     },
     {
       "title": "no configured number disables composer; invalid replies cannot progress",
       "status": "passed",
-      "durationMs": 3721
+      "durationMs": 6557
     },
     {
       "title": "readiness fails honestly for evicted cache and missing assets are 404 under CSP",
       "status": "passed",
-      "durationMs": 3575
+      "durationMs": 4361
     },
     {
       "title": "consented local study grades shared workflow and exports no raw text/phones",
       "status": "passed",
-      "durationMs": 3459
+      "durationMs": 5924
     },
     {
       "title": "model-cache loss fails closed to manual form while offline",
       "status": "passed",
-      "durationMs": 3390
+      "durationMs": 4493
     },
     {
       "title": "real worker uncertainty allows safe offline manual fallback and ISO date extraction",
       "status": "passed",
-      "durationMs": 3637
+      "durationMs": 4551
     },
     {
       "title": "revision atomically supersedes old ID, snapshots stay immutable",
       "status": "passed",
-      "durationMs": 3710
+      "durationMs": 5120
     },
     {
       "title": "360px and 200% text scaling keep critical fields and controls in viewport",
       "status": "passed",
-      "durationMs": 3572
+      "durationMs": 4182
     },
     {
       "title": "keyboard skip link moves focus to content and queue is keyboard operable",
       "status": "passed",
-      "durationMs": 3469
+      "durationMs": 5982
     },
     {
       "title": "service-worker update waits for home and keeps existing request snapshot",
       "status": "passed",
-      "durationMs": 4924
+      "durationMs": 9148
     },
     {
       "title": "diagnostics measures actual desktop worker load and 50 warm calls",
       "status": "passed",
-      "durationMs": 3474
+      "durationMs": 5366
     }
   ],
   "stats": {
-    "startTime": "2026-10-04T00:31:33.493Z",
-    "duration": 65865.664,
-    "expected": 12,
+    "startTime": "2026-10-04T03:27:06.803Z",
+    "duration": 184100.817,
+    "expected": 11,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "rerunStats": {
+    "startTime": "2026-10-04T03:30:28.698Z",
+    "duration": 91720.403,
+    "expected": 1,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
-  }
+  },
+  "note": "Initial 60-second overall test timeout during the 20-agreement loop on a heavily loaded host; 11 other checks passed. All 20 agreements passed in an isolated rerun with a 180-second overall limit. Source/CI time limits unchanged."
 }

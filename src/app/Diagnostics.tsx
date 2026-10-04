@@ -4,6 +4,7 @@ import { loadModel } from "../ai/model";
 import type { Scores } from "../ai/features";
 import type { Model } from "../ai/model";
 import report from "../../ml/evaluation.json";
+import RetestGuide from "./RetestGuide";
 export default function Diagnostics() {
   const [meta, setMeta] = useState<Model["metadata"] | null>(null),
     [timing, setTiming] = useState<unknown>(null),
@@ -14,6 +15,7 @@ export default function Diagnostics() {
   return (
     <>
       <h1>Model diagnostics & evidence</h1>
+      <RetestGuide />
       <p>
         This is classical learned logistic regression, not a generative language
         model or Bangla understanding model. Inputs are processed in a worker on
@@ -126,10 +128,10 @@ export default function Diagnostics() {
       <section>
         <h2>External evidence remains pending</h2>
         <p>
-          Physical Android offline restart, low-end phone performance, two
-          native Bangla reviews, native comprehension, real feature-phone SMS
-          exchange, visitor comparison, operator interviews and deployed-origin
-          checks.
+          Formal target-Android offline restart and performance, two native
+          Bangla reviews, native comprehension, real basic-phone SMS exchange,
+          visitor comparison and operator interviews. Automated desktop checks
+          and a reported smartphone SMS pilot do not complete these studies.
         </p>
         <p>
           Template bn-draft-1: unreviewed, zero reviewers. Local stored SMS

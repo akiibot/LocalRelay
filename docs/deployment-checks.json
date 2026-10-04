@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-10-04T00:33:34.827Z",
+  "recordedAt": "2026-10-04T03:31:44.714Z",
   "origin": "https://localrelay-test.vercel.app",
   "environment": "Desktop Playwright Chromium, fresh browser context, 360x800",
   "physicalSms": false,
@@ -58,17 +58,17 @@
   ],
   "assets": [
     {
-      "path": "/assets/index-BnNCvst-.js",
-      "bytes": 419223,
-      "sha256": "0c3916740fbc3cd5cd6f9cff1eefb1f143c4bfeb5abe406f6f74794e62781203",
+      "path": "/assets/index-B9i4YHxA.js",
+      "bytes": 421591,
+      "sha256": "f208cdaa352aa0485994ad184ca48c4415c9a50c78c575814e3a831722e86b49",
       "contentType": "application/javascript; charset=utf-8",
       "cacheControl": "public, max-age=31536000, immutable",
       "contentEncoding": "br"
     },
     {
-      "path": "/assets/index-C6PvGA2I.css",
-      "bytes": 3597,
-      "sha256": "448b55b89bcb9a6b639dd7a178e1530718604c0832ea7675fa7de007923684e6",
+      "path": "/assets/index-CP6o_ci8.css",
+      "bytes": 3620,
+      "sha256": "153950fea4f8237bca014f4e8f7c3afa5d373159032a49167150ba179f74344c",
       "contentType": "text/css; charset=utf-8",
       "cacheControl": "public, max-age=31536000, immutable",
       "contentEncoding": "br"
@@ -124,7 +124,7 @@
     {
       "path": "/index.html",
       "bytes": 560,
-      "sha256": "90b9fd55d6faf60cc3c0c8ce97bfe1e9c5a989b735bb42e0af1dd093cbb3766c",
+      "sha256": "7adfb2ea81e9d95ecbd752e018684ff3b788638666872c88fac7dcf15997a594",
       "contentType": "text/html; charset=utf-8",
       "cacheControl": "public, max-age=0, must-revalidate",
       "contentEncoding": null
@@ -172,16 +172,16 @@
     "acceptEncoding": "br, gzip, deflate",
     "files": [
       {
-        "path": "/assets/index-BnNCvst-.js",
+        "path": "/assets/index-B9i4YHxA.js",
         "encoding": "br",
-        "encodedBytes": 132840,
-        "decodedBytes": 419223
+        "encodedBytes": 133639,
+        "decodedBytes": 421591
       },
       {
-        "path": "/assets/index-C6PvGA2I.css",
+        "path": "/assets/index-CP6o_ci8.css",
         "encoding": "br",
-        "encodedBytes": 1464,
-        "decodedBytes": 3597
+        "encodedBytes": 1462,
+        "decodedBytes": 3620
       },
       {
         "path": "/assets/inference.worker-CuESR5mf.js",
@@ -252,13 +252,13 @@
       {
         "path": "/offline-assets.json",
         "encoding": "br",
-        "encodedBytes": 865,
+        "encodedBytes": 870,
         "decodedBytes": 2110
       },
       {
         "path": "/sw.js",
         "encoding": "br",
-        "encodedBytes": 1145,
+        "encodedBytes": 1143,
         "decodedBytes": 2403
       },
       {
@@ -268,13 +268,20 @@
         "decodedBytes": 15112
       }
     ],
-    "encodedPayloadBytes": 370863,
-    "decodedPayloadBytes": 975052,
+    "encodedPayloadBytes": 371663,
+    "decodedPayloadBytes": 977443,
     "note": "Actual encoded response bodies for each static offline file once, measured with a desktop HTTPS client. Excludes HTTP/TLS overhead, duplicate requests, cache negotiation and browser-specific install traffic; not a handset transfer measurement."
   },
   "onlineReadiness": "passed",
   "keyboardSkipToContent": "passed",
   "offlineReload": "passed",
+  "offlineRetestGuide": {
+    "homeLink": "passed",
+    "profileLink": "passed",
+    "offlineReload": "passed",
+    "largeTextAt360px": "passed: 200% text, system-ui, Verdana, monospace",
+    "note": "Static guidance; does not write test evidence or send SMS."
+  },
   "offlineLocalAi": "passed",
   "offlineSyntheticAgreementAndNewTab": "passed",
   "offlineUncertainRoutingManualFallback": "passed",

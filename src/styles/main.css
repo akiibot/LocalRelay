@@ -48,6 +48,7 @@ nav a.active {
 }
 main {
   max-width: 900px;
+  overflow-wrap: anywhere;
   min-height: 75vh;
   margin: auto;
   padding: 36px 24px 56px;

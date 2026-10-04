@@ -1,0 +1,29 @@
+{
+  "recordedAt": "2026-10-04T03:27:13.184Z",
+  "environment": "Desktop Chromium, local production build, 360x800",
+  "homeLink": "passed",
+  "profileLink": "passed",
+  "offlineGuideReload": "passed",
+  "largeTextGuide": "passed: 200% system-ui/Verdana/monospace",
+  "writesTestEvidence": false,
+  "physicalSms": false,
+  "regressionSuite": {
+    "firstRun": {
+      "startTime": "2026-10-04T03:27:06.803Z",
+      "duration": 184100.817,
+      "expected": 11,
+      "skipped": 0,
+      "unexpected": 1,
+      "flaky": 0
+    },
+    "repeatedAgreementTest": {
+      "startTime": "2026-10-04T03:30:28.698Z",
+      "duration": 91720.403,
+      "expected": 1,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "note": "Initial 60-second overall test timeout during the 20-agreement loop on a heavily loaded host; 11 other checks passed. All 20 agreements passed in an isolated rerun with a 180-second overall limit. Source/CI time limits unchanged."
+  }
+}

@@ -212,6 +212,15 @@ function Home() {
         </button>
         <p role="status">{error}</p>
       </section>
+      <section>
+        <h2>Do I need to test again?</h2>
+        <p>
+          A successful test does not expire just because time has passed.
+          Recheck affected steps after app or message changes, when using a
+          different phone or carrier, or if offline files are lost.
+        </p>
+        <Link to="/diagnostics">When to retest</Link>
+      </section>
     </>
   );
 }
@@ -316,6 +325,9 @@ function Profile() {
         directly before a field pilot. This app does not verify inventory,
         delivery or payment.
       </Warning>
+      <p>
+        <Link to="/diagnostics">See when to retest</Link>
+      </p>
     </>
   );
 }

@@ -59,6 +59,8 @@ Production Playwright tests include **20 scripted offline agreement workflows**,
 
 ## Training and evaluation
 
+Retesting guidance is available under **Diagnostics → When to retest**, with links on Home and operator profiles. Repeat affected checks after app/message changes, new phones/carriers, or lost offline files; elapsed time alone does not require another SMS test. The guide works offline and does not record or approve physical/human evidence.
+
 New independent-data tooling: [corpus-workflow.md](docs/corpus-workflow.md) explains reviewed source labels, frozen author/family partitions, isolated candidate training, Python/JS parity and source-stratified learned/keyword evaluation. Run `npm run check:corpus` with the development Python environment for its repeatable positive/refusal checks. Candidate files stay under ignored `ml/generated/`; the deployed seed is preserved. [remaining-work.md](docs/remaining-work.md) maps unfinished evidence gates to the people/devices/data they require.
 
 See [ml/README.md](ml/README.md). Shared TypeScript features, group-isolated train/dev/test splits, development-only C/threshold tuning, genuine multinomial and six binary logistic regressions, little-endian float32 export, hash validation and Python/JS parity. The current corpus has 336 developer-authored synthetic examples; human collection and blind-author validation remain pending. Do not interpret synthetic scores as visitor performance.

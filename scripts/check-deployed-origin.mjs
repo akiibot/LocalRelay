@@ -210,6 +210,44 @@ try {
     page.getByText("Ready for offline use", { exact: true }),
   ).toBeVisible({ timeout: 20000 });
   results.offlineReload = "passed";
+  await page.getByRole("link", { name: "When to retest", exact: true }).click();
+  await expect(
+    page.getByRole("heading", { name: "When to retest", exact: true }),
+  ).toBeVisible();
+  await page.reload();
+  await expect(
+    page.getByRole("heading", { name: "When to retest", exact: true }),
+  ).toBeVisible();
+  for (const font of ["system-ui", "Verdana", "monospace"]) {
+    await page.evaluate((font) => {
+      document.documentElement.style.fontSize = "34px";
+      document.documentElement.style.fontFamily = font;
+    }, font);
+    if (
+      !(await page.evaluate(
+        () => document.documentElement.scrollWidth <= window.innerWidth + 1,
+      ))
+    )
+      throw new Error(`Retest guide large-text overflow: ${font}`);
+  }
+  await page.evaluate(() => {
+    document.documentElement.style.fontSize = "";
+    document.documentElement.style.fontFamily = "";
+  });
+  await page.goto(new URL("/operators/demo-craft", origin).href);
+  await page
+    .getByRole("link", { name: "See when to retest", exact: true })
+    .click();
+  await expect(
+    page.getByRole("heading", { name: "When to retest", exact: true }),
+  ).toBeVisible();
+  results.offlineRetestGuide = {
+    homeLink: "passed",
+    profileLink: "passed",
+    offlineReload: "passed",
+    largeTextAt360px: "passed: 200% text, system-ui, Verdana, monospace",
+    note: "Static guidance; does not write test evidence or send SMS.",
+  };
   const date = new Date(Date.now() + 6 * 3600000 + 7 * 86400000)
     .toISOString()
     .slice(0, 10);

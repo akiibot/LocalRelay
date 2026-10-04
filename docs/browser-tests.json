@@ -1,0 +1,91 @@
+{
+  "environment": "Production dist, localhost with Vercel-style routes/CSP, Playwright Chromium desktop, 360x800",
+  "notPhysicalSms": true,
+  "offlineAgreementRuns": 20,
+  "offlineAiEntryRuns": 10,
+  "offlineFormEntryRuns": 10,
+  "tests": [
+    {
+      "title": "offline native-review form locks interpretation and exports adverse answers without approval",
+      "status": "passed",
+      "durationMs": 12166
+    },
+    {
+      "title": "20 offline scripted production runs: local model, queue, reload and full agreement",
+      "status": "passed",
+      "durationMs": 70061
+    },
+    {
+      "title": "unsupported requirements block both entry modes",
+      "status": "passed",
+      "durationMs": 4332
+    },
+    {
+      "title": "no configured number disables composer; invalid replies cannot progress",
+      "status": "passed",
+      "durationMs": 6265
+    },
+    {
+      "title": "readiness fails honestly for evicted cache and missing assets are 404 under CSP",
+      "status": "passed",
+      "durationMs": 6434
+    },
+    {
+      "title": "consented local study grades shared workflow and exports no raw text/phones",
+      "status": "passed",
+      "durationMs": 5034
+    },
+    {
+      "title": "model-cache loss fails closed to manual form while offline",
+      "status": "passed",
+      "durationMs": 4942
+    },
+    {
+      "title": "real worker uncertainty allows safe offline manual fallback and ISO date extraction",
+      "status": "passed",
+      "durationMs": 5288
+    },
+    {
+      "title": "revision atomically supersedes old ID, snapshots stay immutable",
+      "status": "passed",
+      "durationMs": 5435
+    },
+    {
+      "title": "360px and 200% text scaling keep critical fields and controls in viewport",
+      "status": "passed",
+      "durationMs": 7112
+    },
+    {
+      "title": "keyboard skip link moves focus to content and queue is keyboard operable",
+      "status": "passed",
+      "durationMs": 4604
+    },
+    {
+      "title": "service-worker update waits for home and keeps existing request snapshot",
+      "status": "passed",
+      "durationMs": 6633
+    },
+    {
+      "title": "diagnostics measures actual desktop worker load and 50 warm calls",
+      "status": "passed",
+      "durationMs": 4255
+    }
+  ],
+  "stats": {
+    "startTime": "2026-10-04T04:14:18.996Z",
+    "duration": 151829.164,
+    "expected": 13,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "note": "Full 13-test production run passed. A final component focus change was checked with the native-review and real service-worker update tests; both passed. Initial failures and corrections retained in bangla-review-checks.json.",
+  "finalFocusAndUpdateRun": {
+    "startTime": "2026-10-04T04:17:36.901Z",
+    "duration": 16305.983,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

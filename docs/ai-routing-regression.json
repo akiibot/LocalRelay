@@ -1,0 +1,172 @@
+{
+  "recordedAt": "2026-10-03T23:40:22.262Z",
+  "modelChanged": false,
+  "confidenceThresholdChanged": false,
+  "modelVersion": "seed-v1-726dbe51da95",
+  "environment": "Node 22.19.0 verified exported model coefficients and shared parser; production worker regression tested separately",
+  "cases": [
+    {
+      "text": "Please tell me the total fee. Two adults and one child on 2026-10-11 at 2:56 am. One vegetarian meal.",
+      "topIntent": "price_query",
+      "confidence": 0.45665145006180097,
+      "threshold": 0.55,
+      "margin": 0.31206420599307866,
+      "routeAbstains": true,
+      "beforeFields": {
+        "localDate": "2026-10-11"
+      },
+      "afterParsed": {
+        "fields": {
+          "localDate": "2026-10-11",
+          "localTime": "02:56",
+          "adults": 2,
+          "children": 1,
+          "vegetarianMeals": 1
+        },
+        "spans": [
+          {
+            "start": 58,
+            "end": 68,
+            "text": "2026-10-11",
+            "field": "localDate"
+          },
+          {
+            "start": 72,
+            "end": 79,
+            "text": "2:56 am",
+            "field": "localTime"
+          },
+          {
+            "start": 30,
+            "end": 40,
+            "text": "Two adults",
+            "field": "adults"
+          },
+          {
+            "start": 45,
+            "end": 54,
+            "text": "one child",
+            "field": "children"
+          },
+          {
+            "start": 81,
+            "end": 100,
+            "text": "One vegetarian meal",
+            "field": "vegetarianMeals"
+          }
+        ],
+        "clarifications": [],
+        "flags": []
+      }
+    },
+    {
+      "text": "Please tell me the total fee for 2 adults and 1 child on 2011-10-11 at 2:56 am, with 1 vegetarian meal.",
+      "topIntent": "price_query",
+      "confidence": 0.44763945567290025,
+      "threshold": 0.55,
+      "margin": 0.24784112274068773,
+      "routeAbstains": true,
+      "beforeFields": {
+        "localDate": "2011-10-11"
+      },
+      "afterParsed": {
+        "fields": {
+          "localDate": "2011-10-11",
+          "localTime": "02:56",
+          "adults": 2,
+          "children": 1,
+          "vegetarianMeals": 1
+        },
+        "spans": [
+          {
+            "start": 57,
+            "end": 67,
+            "text": "2011-10-11",
+            "field": "localDate"
+          },
+          {
+            "start": 71,
+            "end": 78,
+            "text": "2:56 am",
+            "field": "localTime"
+          },
+          {
+            "start": 33,
+            "end": 41,
+            "text": "2 adults",
+            "field": "adults"
+          },
+          {
+            "start": 46,
+            "end": 53,
+            "text": "1 child",
+            "field": "children"
+          },
+          {
+            "start": 85,
+            "end": 102,
+            "text": "1 vegetarian meal",
+            "field": "vegetarianMeals"
+          }
+        ],
+        "clarifications": [],
+        "flags": []
+      }
+    },
+    {
+      "text": "Please tell me the total fee for 2 adults and 1 child on 2026-10-11 at 2:56 am, with 1 vegetarian meal.",
+      "topIntent": "price_query",
+      "confidence": 0.5254585247500981,
+      "threshold": 0.55,
+      "margin": 0.36101512608434894,
+      "routeAbstains": true,
+      "beforeFields": {
+        "localDate": "2026-10-11"
+      },
+      "afterParsed": {
+        "fields": {
+          "localDate": "2026-10-11",
+          "localTime": "02:56",
+          "adults": 2,
+          "children": 1,
+          "vegetarianMeals": 1
+        },
+        "spans": [
+          {
+            "start": 57,
+            "end": 67,
+            "text": "2026-10-11",
+            "field": "localDate"
+          },
+          {
+            "start": 71,
+            "end": 78,
+            "text": "2:56 am",
+            "field": "localTime"
+          },
+          {
+            "start": 33,
+            "end": 41,
+            "text": "2 adults",
+            "field": "adults"
+          },
+          {
+            "start": 46,
+            "end": 53,
+            "text": "1 child",
+            "field": "children"
+          },
+          {
+            "start": 85,
+            "end": 102,
+            "text": "1 vegetarian meal",
+            "field": "vegetarianMeals"
+          }
+        ],
+        "clarifications": [],
+        "flags": []
+      }
+    }
+  ],
+  "physicalPhoneRetest": "User reported new uncertainty warning and correct fields after manual fallback on Samsung Galaxy A55. A later screenshot showed an unqueued preview with adults 5; after instructions to use manual mode, restore test count 2 and reconfirm, user reported queueing works. Final queued card not supplied. No successful learned-model routing result or additional physical SMS exchange claimed."
+}

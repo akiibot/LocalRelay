@@ -1,0 +1,1327 @@
+{
+  "recordedAt": "2026-10-04T06:48:11.840Z",
+  "version": "developer-challenges-1",
+  "provenance": "32 developer-authored synthetic QA cases; not blind, human, native reviewer, operator or physical SMS evidence; not used for training/tuning",
+  "fixedParserClock": "2026-10-04T10:00:00.000Z",
+  "modelVersion": "seed-v1-726dbe51da95",
+  "modelChanged": false,
+  "softwareContracts": {
+    "passed": 32,
+    "failed": [],
+    "total": 32
+  },
+  "syntheticParserCandidates": {
+    "correct": 145,
+    "predicted": 145,
+    "precision": 1,
+    "extractedKnownFields": 145,
+    "knownFields": 145,
+    "coverage": 1
+  },
+  "syntheticSupportedModelReview": {
+    "allowed": 0,
+    "total": 12,
+    "limitation": "Uncalibrated synthetic QA; compulsory visitor review remains. Not an AI routing-quality release result."
+  },
+  "blockedNonSupported": {
+    "blocked": 20,
+    "total": 20
+  },
+  "cases": [
+    {
+      "id": "price-night",
+      "kind": "supported",
+      "text": "Please tell me the total fee. Two adults and one child on 2026-10-11 at 2:56 am. One vegetarian meal.",
+      "expectedFields": {
+        "localDate": "2026-10-11",
+        "localTime": "02:56",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "actualFields": {
+        "localDate": "2026-10-11",
+        "localTime": "02:56",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "clarifications": [],
+      "flags": [],
+      "validationErrors": [],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "price_query",
+        "probability": 0.45665145006180097,
+        "threshold": 0.55,
+        "margin": 0.31206420599307866,
+        "routingAccepted": false,
+        "learnedBlocks": [],
+        "candidateReviewAllowed": false
+      },
+      "sms": {
+        "body": "#TEST01.1 11-10-26 02:56\nবড়2 শিশু1 নিরামিষ1\nমোট দাম?",
+        "encoding": "Unicode",
+        "units": 53,
+        "segments": 1,
+        "warning": false,
+        "blocked": false
+      }
+    },
+    {
+      "id": "book-word-date",
+      "kind": "supported",
+      "text": "Can we book for four adults and two children on 12 October 2026 at 11 am? Two vegetarian meals.",
+      "expectedFields": {
+        "localDate": "2026-10-12",
+        "localTime": "11:00",
+        "adults": 4,
+        "children": 2,
+        "vegetarianMeals": 2
+      },
+      "actualFields": {
+        "localDate": "2026-10-12",
+        "localTime": "11:00",
+        "adults": 4,
+        "children": 2,
+        "vegetarianMeals": 2
+      },
+      "clarifications": [],
+      "flags": [],
+      "validationErrors": [],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.4313441821218636,
+        "threshold": 0.55,
+        "margin": 0.11857109382584019,
+        "routingAccepted": false,
+        "learnedBlocks": [],
+        "candidateReviewAllowed": false
+      },
+      "sms": {
+        "body": "#TEST01.1 12-10-26 11:00\nবড়4 শিশু2 নিরামিষ2\nমোট দাম?",
+        "encoding": "Unicode",
+        "units": 53,
+        "segments": 1,
+        "warning": false,
+        "blocked": false
+      }
+    },
+    {
+      "id": "availability-midnight",
+      "kind": "supported",
+      "text": "Are there places for one adult and zero children on 13 October 2026 at 12 am? Zero vegetarian meals.",
+      "expectedFields": {
+        "localDate": "2026-10-13",
+        "localTime": "00:00",
+        "adults": 1,
+        "children": 0,
+        "vegetarianMeals": 0
+      },
+      "actualFields": {
+        "localDate": "2026-10-13",
+        "localTime": "00:00",
+        "adults": 1,
+        "children": 0,
+        "vegetarianMeals": 0
+      },
+      "clarifications": [],
+      "flags": [],
+      "validationErrors": [],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.26909444504636415,
+        "threshold": 0.55,
+        "margin": 0.02479948782313307,
+        "routingAccepted": false,
+        "learnedBlocks": [],
+        "candidateReviewAllowed": false
+      },
+      "sms": {
+        "body": "#TEST01.1 13-10-26 00:00\nবড়1 শিশু0 নিরামিষ0\nমোট দাম?",
+        "encoding": "Unicode",
+        "units": 53,
+        "segments": 1,
+        "warning": false,
+        "blocked": false
+      }
+    },
+    {
+      "id": "uppercase-noon",
+      "kind": "supported",
+      "text": "WHAT IS THE PRICE? TWO ADULTS AND ONE CHILD ON 2026-10-14 AT 12 PM. ONE VEGETARIAN MEAL.",
+      "expectedFields": {
+        "localDate": "2026-10-14",
+        "localTime": "12:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "actualFields": {
+        "localDate": "2026-10-14",
+        "localTime": "12:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "clarifications": [],
+      "flags": [],
+      "validationErrors": [],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "price_query",
+        "probability": 0.30810619787525156,
+        "threshold": 0.55,
+        "margin": 0.11040812123815522,
+        "routingAccepted": false,
+        "learnedBlocks": [],
+        "candidateReviewAllowed": false
+      },
+      "sms": {
+        "body": "#TEST01.1 14-10-26 12:00\nবড়2 শিশু1 নিরামিষ1\nমোট দাম?",
+        "encoding": "Unicode",
+        "units": 53,
+        "segments": 1,
+        "warning": false,
+        "blocked": false
+      }
+    },
+    {
+      "id": "explicit-no-children",
+      "kind": "supported",
+      "text": "What is the cost for two adults and no children on 2026-10-11 at 3 pm? Zero vegetarian meals.",
+      "expectedFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 0,
+        "vegetarianMeals": 0
+      },
+      "actualFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "vegetarianMeals": 0,
+        "children": 0
+      },
+      "clarifications": [],
+      "flags": [],
+      "validationErrors": [],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "price_query",
+        "probability": 0.38517394436249114,
+        "threshold": 0.55,
+        "margin": 0.12586960955750426,
+        "routingAccepted": false,
+        "learnedBlocks": [
+          "other_extra_detail"
+        ],
+        "candidateReviewAllowed": false
+      },
+      "sms": {
+        "body": "#TEST01.1 11-10-26 15:00\nবড়2 শিশু0 নিরামিষ0\nমোট দাম?",
+        "encoding": "Unicode",
+        "units": 53,
+        "segments": 1,
+        "warning": false,
+        "blocked": false
+      }
+    },
+    {
+      "id": "maximum-party",
+      "kind": "supported",
+      "text": "Price for 12 adults and 0 children on 2026-10-11 at 15:00. 12 vegetarian meals.",
+      "expectedFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 12,
+        "children": 0,
+        "vegetarianMeals": 12
+      },
+      "actualFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 12,
+        "children": 0,
+        "vegetarianMeals": 12
+      },
+      "clarifications": [],
+      "flags": [],
+      "validationErrors": [],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.3195852050446823,
+        "threshold": 0.55,
+        "margin": 0.0757224980353026,
+        "routingAccepted": false,
+        "learnedBlocks": [],
+        "candidateReviewAllowed": false
+      },
+      "sms": {
+        "body": "#TEST01.1 11-10-26 15:00\nবড়12 শিশু0 নিরামিষ12\nমোট দাম?",
+        "encoding": "Unicode",
+        "units": 55,
+        "segments": 1,
+        "warning": false,
+        "blocked": false
+      }
+    },
+    {
+      "id": "dhaka-tomorrow",
+      "kind": "supported",
+      "text": "Two adults and one child tomorrow at 3 pm. One vegetarian meal. Total price?",
+      "expectedFields": {
+        "localDate": "2026-10-05",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "actualFields": {
+        "localDate": "2026-10-05",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "clarifications": [],
+      "flags": [],
+      "validationErrors": [],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "price_query",
+        "probability": 0.2628849651815078,
+        "threshold": 0.55,
+        "margin": 0.0808470732407501,
+        "routingAccepted": false,
+        "learnedBlocks": [],
+        "candidateReviewAllowed": false
+      },
+      "sms": {
+        "body": "#TEST01.1 05-10-26 15:00\nবড়2 শিশু1 নিরামিষ1\nমোট দাম?",
+        "encoding": "Unicode",
+        "units": 53,
+        "segments": 1,
+        "warning": false,
+        "blocked": false
+      }
+    },
+    {
+      "id": "unqualified-weekday",
+      "kind": "supported",
+      "text": "Are you available Friday at 9 am for three adults and one child? Two vegetarian meals.",
+      "expectedFields": {
+        "localDate": "2026-10-09",
+        "localTime": "09:00",
+        "adults": 3,
+        "children": 1,
+        "vegetarianMeals": 2
+      },
+      "actualFields": {
+        "localDate": "2026-10-09",
+        "localTime": "09:00",
+        "adults": 3,
+        "children": 1,
+        "vegetarianMeals": 2
+      },
+      "clarifications": [],
+      "flags": [],
+      "validationErrors": [],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "other_tourism",
+        "probability": 0.21803327286809354,
+        "threshold": 0.55,
+        "margin": 0.0069237932592820794,
+        "routingAccepted": false,
+        "learnedBlocks": [],
+        "candidateReviewAllowed": false
+      },
+      "sms": {
+        "body": "#TEST01.1 09-10-26 09:00\nবড়3 শিশু1 নিরামিষ2\nমোট দাম?",
+        "encoding": "Unicode",
+        "units": 53,
+        "segments": 1,
+        "warning": false,
+        "blocked": false
+      }
+    },
+    {
+      "id": "no-meal-profile",
+      "kind": "supported",
+      "text": "Can we book for two adults and no children on 2026-10-11 at 3 pm?",
+      "expectedFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 0
+      },
+      "actualFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 0
+      },
+      "clarifications": [],
+      "flags": [],
+      "validationErrors": [],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.36980385582059044,
+        "threshold": 0.55,
+        "margin": 0.08685472259111582,
+        "routingAccepted": false,
+        "learnedBlocks": [
+          "other_extra_detail"
+        ],
+        "candidateReviewAllowed": false
+      },
+      "sms": {
+        "body": "#TEST01.1 11-10-26 15:00\nবড়2 শিশু0\nমোট দাম?",
+        "encoding": "Unicode",
+        "units": 44,
+        "segments": 1,
+        "warning": false,
+        "blocked": false
+      }
+    },
+    {
+      "id": "24-hour-evening",
+      "kind": "supported",
+      "text": "Quote a total for three adults and three children on 2026-10-15 at 18:45. Zero vegetarian meals.",
+      "expectedFields": {
+        "localDate": "2026-10-15",
+        "localTime": "18:45",
+        "adults": 3,
+        "children": 3,
+        "vegetarianMeals": 0
+      },
+      "actualFields": {
+        "localDate": "2026-10-15",
+        "localTime": "18:45",
+        "adults": 3,
+        "children": 3,
+        "vegetarianMeals": 0
+      },
+      "clarifications": [],
+      "flags": [],
+      "validationErrors": [],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "price_query",
+        "probability": 0.30394126253871795,
+        "threshold": 0.55,
+        "margin": 0.12205441449653673,
+        "routingAccepted": false,
+        "learnedBlocks": [
+          "other_extra_detail"
+        ],
+        "candidateReviewAllowed": false
+      },
+      "sms": {
+        "body": "#TEST01.1 15-10-26 18:45\nবড়3 শিশু3 নিরামিষ0\nমোট দাম?",
+        "encoding": "Unicode",
+        "units": 53,
+        "segments": 1,
+        "warning": false,
+        "blocked": false
+      }
+    },
+    {
+      "id": "late-evening",
+      "kind": "supported",
+      "text": "Price for one adult and two children on 2026-10-20 at 23:59. One vegetarian meal.",
+      "expectedFields": {
+        "localDate": "2026-10-20",
+        "localTime": "23:59",
+        "adults": 1,
+        "children": 2,
+        "vegetarianMeals": 1
+      },
+      "actualFields": {
+        "localDate": "2026-10-20",
+        "localTime": "23:59",
+        "adults": 1,
+        "children": 2,
+        "vegetarianMeals": 1
+      },
+      "clarifications": [],
+      "flags": [],
+      "validationErrors": [],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.246113219339084,
+        "threshold": 0.55,
+        "margin": 0.06808563690973285,
+        "routingAccepted": false,
+        "learnedBlocks": [],
+        "candidateReviewAllowed": false
+      },
+      "sms": {
+        "body": "#TEST01.1 20-10-26 23:59\nবড়1 শিশু2 নিরামিষ1\nমোট দাম?",
+        "encoding": "Unicode",
+        "units": 53,
+        "segments": 1,
+        "warning": false,
+        "blocked": false
+      }
+    },
+    {
+      "id": "line-breaks",
+      "kind": "supported",
+      "text": "Can we book?\n2 adults\n1 child\n2026-10-11 at 15:00\n1 vegetarian meal.",
+      "expectedFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "actualFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "clarifications": [],
+      "flags": [],
+      "validationErrors": [],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "directions_transport",
+        "probability": 0.272523636571269,
+        "threshold": 0.55,
+        "margin": 0.1135728705275888,
+        "routingAccepted": false,
+        "learnedBlocks": [],
+        "candidateReviewAllowed": false
+      },
+      "sms": {
+        "body": "#TEST01.1 11-10-26 15:00\nবড়2 শিশু1 নিরামিষ1\nমোট দাম?",
+        "encoding": "Unicode",
+        "units": 53,
+        "segments": 1,
+        "warning": false,
+        "blocked": false
+      }
+    },
+    {
+      "id": "count-range",
+      "kind": "clarify",
+      "text": "2-3 adults and one child on 2026-10-11 at 3 pm. One vegetarian meal.",
+      "expectedFields": {
+        "localDate": "2026-10-11"
+      },
+      "actualFields": {
+        "localDate": "2026-10-11"
+      },
+      "clarifications": [
+        "Negative, fractional or punctuated adults must be entered explicitly as a nonnegative integer.",
+        "Approximate, alternative or corrected counts/times require explicit choices.",
+        "How many vegetarian meals?",
+        "Confirm localTime.",
+        "Confirm adults.",
+        "Confirm children."
+      ],
+      "flags": [],
+      "validationErrors": [
+        "Complete every required field with valid whole numbers."
+      ],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.33002489533637325,
+        "threshold": 0.55,
+        "margin": 0.1406868737448358,
+        "routingAccepted": false,
+        "learnedBlocks": [],
+        "candidateReviewAllowed": false
+      },
+      "sms": null
+    },
+    {
+      "id": "conflicting-times",
+      "kind": "clarify",
+      "text": "Two adults and one child on 2026-10-11 at 3 pm or 4 pm. One vegetarian meal.",
+      "expectedFields": {
+        "localDate": "2026-10-11",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "actualFields": {
+        "localDate": "2026-10-11",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "clarifications": [
+        "Conflicting localTime; choose explicitly.",
+        "Confirm localTime."
+      ],
+      "flags": [],
+      "validationErrors": [
+        "Complete every required field with valid whole numbers."
+      ],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.298535858431451,
+        "threshold": 0.55,
+        "margin": 0.10859536734989023,
+        "routingAccepted": false,
+        "learnedBlocks": [],
+        "candidateReviewAllowed": false
+      },
+      "sms": null
+    },
+    {
+      "id": "conflicting-adults",
+      "kind": "clarify",
+      "text": "2 adults and 3 adults and one child on 2026-10-11 at 3 pm. One vegetarian meal.",
+      "expectedFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "actualFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "clarifications": [
+        "Conflicting adults; choose explicitly.",
+        "Confirm adults."
+      ],
+      "flags": [],
+      "validationErrors": [
+        "Complete every required field with valid whole numbers."
+      ],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.3672355077963487,
+        "threshold": 0.55,
+        "margin": 0.1453192485284155,
+        "routingAccepted": false,
+        "learnedBlocks": [],
+        "candidateReviewAllowed": false
+      },
+      "sms": null
+    },
+    {
+      "id": "slash-date",
+      "kind": "clarify",
+      "text": "Two adults and one child on 11/10/2026 at 3 pm. One vegetarian meal.",
+      "expectedFields": {
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "actualFields": {
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "clarifications": [
+        "Numeric slash dates are ambiguous; use the date picker.",
+        "Confirm localDate."
+      ],
+      "flags": [],
+      "validationErrors": [
+        "Complete every required field with valid whole numbers."
+      ],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.32788085929332145,
+        "threshold": 0.55,
+        "margin": 0.10079069540483293,
+        "routingAccepted": false,
+        "learnedBlocks": [],
+        "candidateReviewAllowed": false
+      },
+      "sms": null
+    },
+    {
+      "id": "next-weekday",
+      "kind": "clarify",
+      "text": "Two adults and one child on next Friday at 3 pm. One vegetarian meal.",
+      "expectedFields": {
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "actualFields": {
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "clarifications": [
+        "“Next/this weekday” is ambiguous; choose the exact date.",
+        "Confirm localDate."
+      ],
+      "flags": [],
+      "validationErrors": [
+        "Complete every required field with valid whole numbers."
+      ],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.22686164817513424,
+        "threshold": 0.55,
+        "margin": 0.05137600026073286,
+        "routingAccepted": false,
+        "learnedBlocks": [],
+        "candidateReviewAllowed": false
+      },
+      "sms": null
+    },
+    {
+      "id": "approximate-count",
+      "kind": "clarify",
+      "text": "About two adults and one child on 2026-10-11 at 3 pm. One vegetarian meal.",
+      "expectedFields": {
+        "localDate": "2026-10-11"
+      },
+      "actualFields": {
+        "localDate": "2026-10-11"
+      },
+      "clarifications": [
+        "Approximate, alternative or corrected counts/times require explicit choices.",
+        "How many vegetarian meals?",
+        "Confirm localTime.",
+        "Confirm adults.",
+        "Confirm children."
+      ],
+      "flags": [],
+      "validationErrors": [
+        "Complete every required field with valid whole numbers."
+      ],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.2710009131000136,
+        "threshold": 0.55,
+        "margin": 0.08113130825785136,
+        "routingAccepted": false,
+        "learnedBlocks": [],
+        "candidateReviewAllowed": false
+      },
+      "sms": null
+    },
+    {
+      "id": "negative-adults",
+      "kind": "clarify",
+      "text": "-2 adults and one child on 2026-10-11 at 3 pm. One vegetarian meal.",
+      "expectedFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "actualFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "clarifications": [
+        "Negative, fractional or punctuated adults must be entered explicitly as a nonnegative integer.",
+        "Confirm adults."
+      ],
+      "flags": [],
+      "validationErrors": [
+        "Complete every required field with valid whole numbers."
+      ],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.3227290133037624,
+        "threshold": 0.55,
+        "margin": 0.12969207687070358,
+        "routingAccepted": false,
+        "learnedBlocks": [],
+        "candidateReviewAllowed": false
+      },
+      "sms": null
+    },
+    {
+      "id": "fractional-adults",
+      "kind": "clarify",
+      "text": "2.5 adults and one child on 2026-10-11 at 3 pm. One vegetarian meal.",
+      "expectedFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "actualFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "clarifications": [
+        "Negative, fractional or punctuated adults must be entered explicitly as a nonnegative integer.",
+        "Confirm adults."
+      ],
+      "flags": [],
+      "validationErrors": [
+        "Complete every required field with valid whole numbers."
+      ],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.3218213693243461,
+        "threshold": 0.55,
+        "margin": 0.13265671370650206,
+        "routingAccepted": false,
+        "learnedBlocks": [],
+        "candidateReviewAllowed": false
+      },
+      "sms": null
+    },
+    {
+      "id": "allergy",
+      "kind": "unsupported",
+      "text": "Two adults and one child on 2026-10-11 at 3 pm. One vegetarian meal. One guest has a peanut allergy.",
+      "expectedFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "actualFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "clarifications": [],
+      "flags": [
+        {
+          "text": "peanut",
+          "reason": "Health or allergy needs require direct confirmation.",
+          "critical": true
+        }
+      ],
+      "validationErrors": [],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.20101830549537755,
+        "threshold": 0.55,
+        "margin": 0.010577361511829503,
+        "routingAccepted": false,
+        "learnedBlocks": [
+          "allergy_or_medical"
+        ],
+        "candidateReviewAllowed": false
+      },
+      "sms": null
+    },
+    {
+      "id": "accessibility",
+      "kind": "unsupported",
+      "text": "Two adults and one child on 2026-10-11 at 3 pm. One vegetarian meal. We need wheelchair access.",
+      "expectedFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "actualFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "clarifications": [],
+      "flags": [
+        {
+          "text": "wheelchair",
+          "reason": "Accessibility cannot be guaranteed by this format.",
+          "critical": true
+        }
+      ],
+      "validationErrors": [],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.23433348657326467,
+        "threshold": 0.55,
+        "margin": 0.054091496872037625,
+        "routingAccepted": false,
+        "learnedBlocks": [
+          "accessibility"
+        ],
+        "candidateReviewAllowed": false
+      },
+      "sms": null
+    },
+    {
+      "id": "vegan",
+      "kind": "unsupported",
+      "text": "Two adults and one child on 2026-10-11 at 3 pm. One vegetarian meal. One guest needs vegan food.",
+      "expectedFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "actualFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "clarifications": [],
+      "flags": [
+        {
+          "text": "vegan",
+          "reason": "Dietary or package changes require direct contact; vegetarian is a separate field.",
+          "critical": true
+        }
+      ],
+      "validationErrors": [],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.2795088808129448,
+        "threshold": 0.55,
+        "margin": 0.11473264438306602,
+        "routingAccepted": false,
+        "learnedBlocks": [],
+        "candidateReviewAllowed": false
+      },
+      "sms": null
+    },
+    {
+      "id": "transport",
+      "kind": "unsupported",
+      "text": "Two adults and one child on 2026-10-11 at 3 pm. One vegetarian meal. Arrange a taxi pickup.",
+      "expectedFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "actualFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "clarifications": [],
+      "flags": [
+        {
+          "text": "taxi",
+          "reason": "Transport, conditions or extra requests are not encoded in this pilot.",
+          "critical": true
+        }
+      ],
+      "validationErrors": [],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.2381684794143007,
+        "threshold": 0.55,
+        "margin": 0.07338751778226446,
+        "routingAccepted": false,
+        "learnedBlocks": [
+          "transport"
+        ],
+        "candidateReviewAllowed": false
+      },
+      "sms": null
+    },
+    {
+      "id": "payment",
+      "kind": "unsupported",
+      "text": "Two adults and one child on 2026-10-11 at 3 pm. One vegetarian meal. Can we pay by card and get a refund?",
+      "expectedFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "actualFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "clarifications": [],
+      "flags": [
+        {
+          "text": "pay by",
+          "reason": "Payment, cancellation or changed terms require direct contact.",
+          "critical": true
+        }
+      ],
+      "validationErrors": [],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.3378739663392663,
+        "threshold": 0.55,
+        "margin": 0.16177388253583472,
+        "routingAccepted": false,
+        "learnedBlocks": [
+          "payment_condition"
+        ],
+        "candidateReviewAllowed": false
+      },
+      "sms": null
+    },
+    {
+      "id": "conditional",
+      "kind": "unsupported",
+      "text": "Two adults and one child on 2026-10-11 at 3 pm. One vegetarian meal. We will come if it rains.",
+      "expectedFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "actualFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "clarifications": [],
+      "flags": [
+        {
+          "text": "if ",
+          "reason": "Transport, conditions or extra requests are not encoded in this pilot.",
+          "critical": true
+        }
+      ],
+      "validationErrors": [],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.24710545979917434,
+        "threshold": 0.55,
+        "margin": 0.06229169420984515,
+        "routingAccepted": false,
+        "learnedBlocks": [],
+        "candidateReviewAllowed": false
+      },
+      "sms": null
+    },
+    {
+      "id": "package",
+      "kind": "unsupported",
+      "text": "Two adults and one child on 2026-10-11 at 3 pm. One vegetarian meal. No meal for the child.",
+      "expectedFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "actualFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "clarifications": [],
+      "flags": [
+        {
+          "text": "No meal",
+          "reason": "Dietary or package changes require direct contact; vegetarian is a separate field.",
+          "critical": true
+        }
+      ],
+      "validationErrors": [],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.25061267610928023,
+        "threshold": 0.55,
+        "margin": 0.07895214739079423,
+        "routingAccepted": false,
+        "learnedBlocks": [
+          "other_extra_detail"
+        ],
+        "candidateReviewAllowed": false
+      },
+      "sms": null
+    },
+    {
+      "id": "extra",
+      "kind": "unsupported",
+      "text": "Two adults and one child on 2026-10-11 at 3 pm. One vegetarian meal. We want a birthday guide.",
+      "expectedFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "actualFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "clarifications": [],
+      "flags": [
+        {
+          "text": "birthday",
+          "reason": "Transport, conditions or extra requests are not encoded in this pilot.",
+          "critical": true
+        }
+      ],
+      "validationErrors": [],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.231474892280534,
+        "threshold": 0.55,
+        "margin": 0.07614000913307661,
+        "routingAccepted": false,
+        "learnedBlocks": [
+          "other_extra_detail"
+        ],
+        "candidateReviewAllowed": false
+      },
+      "sms": null
+    },
+    {
+      "id": "past-date",
+      "kind": "invalid",
+      "text": "Two adults and one child on 2011-10-11 at 3 pm. One vegetarian meal.",
+      "expectedFields": {
+        "localDate": "2011-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "actualFields": {
+        "localDate": "2011-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "clarifications": [],
+      "flags": [],
+      "validationErrors": [
+        "The visit must be in the future."
+      ],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.28242093410904057,
+        "threshold": 0.55,
+        "margin": 0.12049560939789378,
+        "routingAccepted": false,
+        "learnedBlocks": [],
+        "candidateReviewAllowed": false
+      },
+      "sms": null
+    },
+    {
+      "id": "too-many-guests",
+      "kind": "invalid",
+      "text": "13 adults and one child on 2026-10-11 at 3 pm. One vegetarian meal.",
+      "expectedFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 13,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "actualFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 13,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "clarifications": [],
+      "flags": [],
+      "validationErrors": [
+        "At most 12 guests are supported."
+      ],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.31445864669718987,
+        "threshold": 0.55,
+        "margin": 0.11301693001260246,
+        "routingAccepted": false,
+        "learnedBlocks": [],
+        "candidateReviewAllowed": false
+      },
+      "sms": null
+    },
+    {
+      "id": "too-many-meals",
+      "kind": "invalid",
+      "text": "Two adults and one child on 2026-10-11 at 3 pm. 4 vegetarian meals.",
+      "expectedFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 4
+      },
+      "actualFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 2,
+        "children": 1,
+        "vegetarianMeals": 4
+      },
+      "clarifications": [],
+      "flags": [],
+      "validationErrors": [
+        "Confirm meal inclusion and a vegetarian count no greater than the party size."
+      ],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.2964211975713914,
+        "threshold": 0.55,
+        "margin": 0.0769396329799274,
+        "routingAccepted": false,
+        "learnedBlocks": [],
+        "candidateReviewAllowed": false
+      },
+      "sms": null
+    },
+    {
+      "id": "zero-adults",
+      "kind": "invalid",
+      "text": "0 adults and one child on 2026-10-11 at 3 pm. One vegetarian meal.",
+      "expectedFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 0,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "actualFields": {
+        "localDate": "2026-10-11",
+        "localTime": "15:00",
+        "adults": 0,
+        "children": 1,
+        "vegetarianMeals": 1
+      },
+      "clarifications": [],
+      "flags": [],
+      "validationErrors": [
+        "Complete every required field with valid whole numbers."
+      ],
+      "parserExact": true,
+      "spansValid": true,
+      "contractPass": true,
+      "model": {
+        "topIntent": "booking_request",
+        "probability": 0.3184290938861116,
+        "threshold": 0.55,
+        "margin": 0.13640453285924842,
+        "routingAccepted": false,
+        "learnedBlocks": [],
+        "candidateReviewAllowed": false
+      },
+      "sms": null
+    }
+  ]
+}

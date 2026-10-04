@@ -1,0 +1,563 @@
+{
+  "at": "2026-10-04T06:00:53.382Z",
+  "environment": "Desktop Chromium; live deployed old and local production new; no physical SMS; synthetic input",
+  "versions": [
+    {
+      "version": "old",
+      "origin": "https://localrelay-test.vercel.app",
+      "checks": [
+        {
+          "name": "Keyboard skip link",
+          "passed": true
+        },
+        {
+          "name": "Offline home reload",
+          "passed": true
+        },
+        {
+          "name": "Complete manual request through normal navigation",
+          "passed": true
+        },
+        {
+          "name": "Exact message copy",
+          "passed": true
+        },
+        {
+          "name": "Offline saved request reload",
+          "passed": true
+        },
+        {
+          "name": "Sender verification invalidates previously reviewed reply",
+          "passed": false,
+          "error": "expect(received).toBe(expected) // Object.is equality\n\nExpected: false\nReceived: true"
+        },
+        {
+          "name": "Full offer/acceptance/acknowledgement journey",
+          "passed": true
+        },
+        {
+          "name": "Missing revision fails closed",
+          "passed": false,
+          "error": "expect(received).toBe(expected) // Object.is equality\n\nExpected: false\nReceived: true"
+        },
+        {
+          "name": "Reflow at six widths and 200% text",
+          "passed": true
+        },
+        {
+          "name": "Unsupported allergy requirement blocks saving",
+          "passed": true
+        }
+      ],
+      "errors": [],
+      "screenshots": [
+        "ml/generated/ui-comparison/old-home-viewport.png",
+        "ml/generated/ui-comparison/old-details-viewport.png",
+        "ml/generated/ui-comparison/old-saved-viewport.png",
+        "ml/generated/ui-comparison/old-agreement-viewport.png",
+        "ml/generated/ui-comparison/old-home-desktop.png"
+      ],
+      "metrics": {
+        "home": {
+          "height": 2375,
+          "width": 390,
+          "viewport": 844,
+          "primaryAction": {
+            "top": 1202.796875,
+            "bottom": 1250.890625,
+            "visibleWithoutScrolling": false
+          }
+        },
+        "routeHeadingFocused": false,
+        "blankForm": {
+          "children": "",
+          "vegetarian": "",
+          "saveOrReviewEnabled": false
+        },
+        "review": {
+          "standardMealVisible": true,
+          "dedicatedReviewStep": false
+        },
+        "saveVisibility": {
+          "top": 581.75,
+          "bottom": 629.84375,
+          "viewport": 844,
+          "unobscured": true
+        },
+        "savedUrl": "https://localrelay-test.vercel.app/request/78e4dc9c-ab78-4b46-87f1-c0616dd58cf8",
+        "body": "#KS62JE.1 11-10-26 15:00\n\u09ac\u09a1\u09bc2 \u09b6\u09bf\u09b6\u09c10 \u09a8\u09bf\u09b0\u09be\u09ae\u09bf\u09b70\n\u09ae\u09cb\u099f \u09a6\u09be\u09ae?",
+        "taskPrimaryActivations": 4,
+        "copyFeedbackRole": "alert",
+        "senderUncheckedCanCommit": true,
+        "missingRevisionExposesForm": true,
+        "reflow": [
+          {
+            "width": 320,
+            "percent": 100,
+            "scrollWidth": 320,
+            "passed": true
+          },
+          {
+            "width": 320,
+            "percent": 200,
+            "scrollWidth": 320,
+            "passed": true
+          },
+          {
+            "width": 360,
+            "percent": 100,
+            "scrollWidth": 360,
+            "passed": true
+          },
+          {
+            "width": 360,
+            "percent": 200,
+            "scrollWidth": 360,
+            "passed": true
+          },
+          {
+            "width": 390,
+            "percent": 100,
+            "scrollWidth": 390,
+            "passed": true
+          },
+          {
+            "width": 390,
+            "percent": 200,
+            "scrollWidth": 390,
+            "passed": true
+          },
+          {
+            "width": 412,
+            "percent": 100,
+            "scrollWidth": 412,
+            "passed": true
+          },
+          {
+            "width": 412,
+            "percent": 200,
+            "scrollWidth": 412,
+            "passed": true
+          },
+          {
+            "width": 768,
+            "percent": 100,
+            "scrollWidth": 768,
+            "passed": true
+          },
+          {
+            "width": 768,
+            "percent": 200,
+            "scrollWidth": 768,
+            "passed": true
+          },
+          {
+            "width": 1440,
+            "percent": 100,
+            "scrollWidth": 1440,
+            "passed": true
+          },
+          {
+            "width": 1440,
+            "percent": 200,
+            "scrollWidth": 1440,
+            "passed": true
+          }
+        ],
+        "assets": {
+          "count": 13,
+          "decodedBytes": 977615,
+          "modelHashes": [
+            {
+              "path": "/models/v1/feature-spec.json",
+              "sha256": "98264d59ee0393215b45183604589f4990c025b9eb4ad78c57817bc701de26e4"
+            },
+            {
+              "path": "/models/v1/metadata.json",
+              "sha256": "5f1aed415026d95a45dde12d1cc2eab3d4bc3156026e0d6f0ec1ba6926031354"
+            },
+            {
+              "path": "/models/v1/weights.bin",
+              "sha256": "726dbe51da956c3f33076e0dfe36c7414c3fe1bb41b262ad7e078cb1ba4aa905"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "version": "new",
+      "origin": "http://127.0.0.1:4173",
+      "checks": [
+        {
+          "name": "Keyboard skip link",
+          "passed": true
+        },
+        {
+          "name": "Offline home reload",
+          "passed": true
+        },
+        {
+          "name": "Complete manual request through normal navigation",
+          "passed": true
+        },
+        {
+          "name": "Exact message copy",
+          "passed": true
+        },
+        {
+          "name": "Offline saved request reload",
+          "passed": true
+        },
+        {
+          "name": "Sender verification invalidates previously reviewed reply",
+          "passed": true
+        },
+        {
+          "name": "Full offer/acceptance/acknowledgement journey",
+          "passed": true
+        },
+        {
+          "name": "Missing revision fails closed",
+          "passed": true
+        },
+        {
+          "name": "Reflow at six widths and 200% text",
+          "passed": true
+        },
+        {
+          "name": "Unsupported allergy requirement blocks saving",
+          "passed": true
+        }
+      ],
+      "errors": [],
+      "screenshots": [
+        "ml/generated/ui-comparison/new-home-viewport.png",
+        "ml/generated/ui-comparison/new-details-viewport.png",
+        "ml/generated/ui-comparison/new-review-viewport.png",
+        "ml/generated/ui-comparison/new-saved-viewport.png",
+        "ml/generated/ui-comparison/new-agreement-viewport.png",
+        "ml/generated/ui-comparison/new-home-desktop.png"
+      ],
+      "metrics": {
+        "home": {
+          "height": 3127,
+          "width": 390,
+          "viewport": 844,
+          "primaryAction": {
+            "top": 342.859375,
+            "bottom": 390.953125,
+            "visibleWithoutScrolling": true
+          }
+        },
+        "routeHeadingFocused": true,
+        "blankForm": {
+          "children": "",
+          "vegetarian": "",
+          "saveOrReviewEnabled": true
+        },
+        "review": {
+          "standardMealVisible": true,
+          "dedicatedReviewStep": true
+        },
+        "saveVisibility": {
+          "top": 615.40625,
+          "bottom": 663.5,
+          "viewport": 844,
+          "unobscured": true
+        },
+        "savedUrl": "http://127.0.0.1:4173/request/6acc87a7-fc4e-4de9-bd6b-68cc0ea83e3a",
+        "body": "#5JLDB7.1 11-10-26 15:00\n\u09ac\u09a1\u09bc2 \u09b6\u09bf\u09b6\u09c10 \u09a8\u09bf\u09b0\u09be\u09ae\u09bf\u09b70\n\u09ae\u09cb\u099f \u09a6\u09be\u09ae?",
+        "taskPrimaryActivations": 5,
+        "copyFeedbackRole": "status",
+        "senderUncheckedCanCommit": false,
+        "missingRevisionExposesForm": false,
+        "reflow": [
+          {
+            "width": 320,
+            "percent": 100,
+            "scrollWidth": 320,
+            "passed": true
+          },
+          {
+            "width": 320,
+            "percent": 200,
+            "scrollWidth": 320,
+            "passed": true
+          },
+          {
+            "width": 360,
+            "percent": 100,
+            "scrollWidth": 360,
+            "passed": true
+          },
+          {
+            "width": 360,
+            "percent": 200,
+            "scrollWidth": 360,
+            "passed": true
+          },
+          {
+            "width": 390,
+            "percent": 100,
+            "scrollWidth": 390,
+            "passed": true
+          },
+          {
+            "width": 390,
+            "percent": 200,
+            "scrollWidth": 390,
+            "passed": true
+          },
+          {
+            "width": 412,
+            "percent": 100,
+            "scrollWidth": 412,
+            "passed": true
+          },
+          {
+            "width": 412,
+            "percent": 200,
+            "scrollWidth": 412,
+            "passed": true
+          },
+          {
+            "width": 768,
+            "percent": 100,
+            "scrollWidth": 768,
+            "passed": true
+          },
+          {
+            "width": 768,
+            "percent": 200,
+            "scrollWidth": 768,
+            "passed": true
+          },
+          {
+            "width": 1440,
+            "percent": 100,
+            "scrollWidth": 1440,
+            "passed": true
+          },
+          {
+            "width": 1440,
+            "percent": 200,
+            "scrollWidth": 1440,
+            "passed": true
+          }
+        ],
+        "assets": {
+          "count": 13,
+          "decodedBytes": 1012312,
+          "modelHashes": [
+            {
+              "path": "/models/v1/feature-spec.json",
+              "sha256": "98264d59ee0393215b45183604589f4990c025b9eb4ad78c57817bc701de26e4"
+            },
+            {
+              "path": "/models/v1/metadata.json",
+              "sha256": "5f1aed415026d95a45dde12d1cc2eab3d4bc3156026e0d6f0ec1ba6926031354"
+            },
+            {
+              "path": "/models/v1/weights.bin",
+              "sha256": "726dbe51da956c3f33076e0dfe36c7414c3fe1bb41b262ad7e078cb1ba4aa905"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "assessment": {
+    "winner": "new local redesign",
+    "basis": "Matched functional checks and observed layout/focus/feedback behavior, not a human usability study",
+    "matchedChecks": 10,
+    "oldPassed": 8,
+    "oldFailed": 2,
+    "newPassed": 10,
+    "newFailed": 0,
+    "tradeoffs": [
+      "One extra navigation/save action for explicit review (4 old, 5 new; excluding field edits and two confirmation checkboxes)",
+      "Homepage is longer at 390x844 (2375px old, 3127px new)",
+      "13 manifest-verified assets total 977615 decoded bytes old, 1012312 new (+34697 bytes, 3.55%)",
+      "Saved screen introduces progress before exact SMS; old exact message appears earlier"
+    ],
+    "recommendation": "Prefer new design; shorten low-priority homepage material and make saved-request progress more compact while retaining explicit review and corrected guards",
+    "limitations": [
+      "Desktop Chromium emulation; no physical SMS or assistive technology user study",
+      "Local versus remote origins prevent a fair page-load latency comparison",
+      "No measured human task times, comprehension, conversion or error rates",
+      "AI model file hashes are identical; redesign does not increase model accuracy"
+    ],
+    "viewportWidths": [
+      320,
+      360,
+      390,
+      412,
+      768,
+      1440
+    ],
+    "textScalesPercent": [
+      100,
+      200
+    ]
+  },
+  "comparisonScope": "The matched old-versus-new comparison precedes the authorized compact refinements; the following measurements describe those later local changes.",
+  "subsequentCompactRefinements": {
+    "at": "2026-10-04T06:08:32.641Z",
+    "home": {
+      "height": 1944,
+      "width": 390
+    },
+    "beforeHomeHeight": 3127,
+    "homeReductionPercent": 37.83178765590022,
+    "collapsedProgressHeight": 95,
+    "messageTop": 629.109375,
+    "smsTop": 729.484375,
+    "widths": [
+      {
+        "width": 320,
+        "percent": 100,
+        "open": false,
+        "scrollWidth": 320
+      },
+      {
+        "width": 320,
+        "percent": 100,
+        "open": true,
+        "scrollWidth": 320
+      },
+      {
+        "width": 320,
+        "percent": 200,
+        "open": false,
+        "scrollWidth": 320
+      },
+      {
+        "width": 320,
+        "percent": 200,
+        "open": true,
+        "scrollWidth": 320
+      },
+      {
+        "width": 360,
+        "percent": 100,
+        "open": false,
+        "scrollWidth": 360
+      },
+      {
+        "width": 360,
+        "percent": 100,
+        "open": true,
+        "scrollWidth": 360
+      },
+      {
+        "width": 360,
+        "percent": 200,
+        "open": false,
+        "scrollWidth": 360
+      },
+      {
+        "width": 360,
+        "percent": 200,
+        "open": true,
+        "scrollWidth": 360
+      },
+      {
+        "width": 390,
+        "percent": 100,
+        "open": false,
+        "scrollWidth": 390
+      },
+      {
+        "width": 390,
+        "percent": 100,
+        "open": true,
+        "scrollWidth": 390
+      },
+      {
+        "width": 390,
+        "percent": 200,
+        "open": false,
+        "scrollWidth": 390
+      },
+      {
+        "width": 390,
+        "percent": 200,
+        "open": true,
+        "scrollWidth": 390
+      },
+      {
+        "width": 412,
+        "percent": 100,
+        "open": false,
+        "scrollWidth": 412
+      },
+      {
+        "width": 412,
+        "percent": 100,
+        "open": true,
+        "scrollWidth": 412
+      },
+      {
+        "width": 412,
+        "percent": 200,
+        "open": false,
+        "scrollWidth": 412
+      },
+      {
+        "width": 412,
+        "percent": 200,
+        "open": true,
+        "scrollWidth": 412
+      },
+      {
+        "width": 768,
+        "percent": 100,
+        "open": false,
+        "scrollWidth": 768
+      },
+      {
+        "width": 768,
+        "percent": 100,
+        "open": true,
+        "scrollWidth": 768
+      },
+      {
+        "width": 768,
+        "percent": 200,
+        "open": false,
+        "scrollWidth": 768
+      },
+      {
+        "width": 768,
+        "percent": 200,
+        "open": true,
+        "scrollWidth": 768
+      },
+      {
+        "width": 1440,
+        "percent": 100,
+        "open": false,
+        "scrollWidth": 1440
+      },
+      {
+        "width": 1440,
+        "percent": 100,
+        "open": true,
+        "scrollWidth": 1440
+      },
+      {
+        "width": 1440,
+        "percent": 200,
+        "open": false,
+        "scrollWidth": 1440
+      },
+      {
+        "width": 1440,
+        "percent": 200,
+        "open": true,
+        "scrollWidth": 1440
+      }
+    ],
+    "errors": []
+  }
+}

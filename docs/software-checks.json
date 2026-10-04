@@ -1,0 +1,263 @@
+{
+  "recordedDate": "2026-10-04 Asia/Dhaka",
+  "node": "22.19.0",
+  "npm": "10.9.3",
+  "python": "3.14.0",
+  "cleanInstall": "npm ci --offline: passed",
+  "typecheck": "passed",
+  "lint": "passed",
+  "unitComponentTests": {
+    "passed": 45,
+    "failed": 0,
+    "files": 6
+  },
+  "productionBrowserTests": {
+    "passed": 13,
+    "failed": 0,
+    "offlineAgreementRuns": 20,
+    "note": "Full 13-test production run passed. A final component focus change was checked with the native-review and real service-worker update tests; both passed. Initial failures and corrections retained in bangla-review-checks.json."
+  },
+  "updateRepetitions": {
+    "passed": 3,
+    "failed": 0
+  },
+  "modelParity": {
+    "fixtureCount": 30,
+    "maxAbsoluteDifference": 2.3314683517128287e-15,
+    "tolerance": 0.0001,
+    "passed": true
+  },
+  "retrainingReproducedSha256": "726dbe51da956c3f33076e0dfe36c7414c3fe1bb41b262ad7e078cb1ba4aa905",
+  "budgets": {
+    "modelBytes": 427800,
+    "uncompressedBytes": 997255,
+    "gzipEstimateBytes": 347811,
+    "modelBudget": 1048576,
+    "offlineBudget": 5242880,
+    "note": "gzip estimate sums per-file gzip sizes; actual network transfer depends on host encoding."
+  },
+  "externalEvidence": "Deployed HTTPS origin verified in desktop Chromium. User-reported Galaxy A55/Redmi Note 11 Grameenphone pilot recorded separately; basic-phone route, formal SMS logs, native review and human studies pending.",
+  "routingRegression": "ISO date preserves count/time candidates; uncertain AI requires explicit manual fallback; lexical and learned unsupported flags stay blocking. Model coefficients and thresholds unchanged.",
+  "recordedAt": "2026-10-04T00:27:43.614073+00:00",
+  "smsMatrix": {
+    "recordedAt": "2026-10-04T00:21:30.576Z",
+    "templateVersion": "bn-draft-1",
+    "revisions": [
+      1,
+      9,
+      10,
+      99,
+      100,
+      999
+    ],
+    "profiles": [
+      {
+        "profile": "demo-craft",
+        "cases": 4368,
+        "maxUnits": 57,
+        "warnings": 0
+      },
+      {
+        "profile": "demo-weaving",
+        "cases": 216,
+        "maxUnits": 46,
+        "warnings": 0
+      }
+    ],
+    "totalCases": 4584,
+    "passed": true,
+    "note": "Exhaustive supported count combinations for bundled demo profiles at sampled revision digit lengths. Software encoding estimate only; no physical segmentation, rendering or carrier evidence."
+  },
+  "corpusTools": {
+    "checks": 12,
+    "passed": true,
+    "independentHumanData": 0,
+    "deployedModelChanged": false
+  },
+  "keyboard": "Skip-to-content focus and keyboard queue activation passed in production Chromium.",
+  "hostedVerification": {
+    "deployment": "dpl_3AyBeA8Mm1pKaUJ8WQCmr2JaZ7Wp",
+    "passed": true,
+    "encodedStaticPayloadBytes": 377829,
+    "decodedStaticPayloadBytes": 997255,
+    "files": 16,
+    "note": "Actual encoded response bodies for each static offline file once, measured with a desktop HTTPS client. Excludes HTTP/TLS overhead, duplicate requests, cache negotiation and browser-specific install traffic; not a handset transfer measurement."
+  },
+  "layoutRegression": "Linux CI exposed an unwrappable brand and native-control minimum widths at 200% text. Fixed wrapping and zero-minimum grid/input widths; local production regression now includes system-ui, Verdana and monospace at 360px.",
+  "retestGuide": {
+    "recordedAt": "2026-10-04T03:27:13.184Z",
+    "environment": "Desktop Chromium, local production build, 360x800",
+    "homeLink": "passed",
+    "profileLink": "passed",
+    "offlineGuideReload": "passed",
+    "largeTextGuide": "passed: 200% system-ui/Verdana/monospace",
+    "writesTestEvidence": false,
+    "physicalSms": false,
+    "regressionSuite": {
+      "firstRun": {
+        "startTime": "2026-10-04T03:27:06.803Z",
+        "duration": 184100.817,
+        "expected": 11,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "repeatedAgreementTest": {
+        "startTime": "2026-10-04T03:30:28.698Z",
+        "duration": 91720.403,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "note": "Initial 60-second overall test timeout during the 20-agreement loop on a heavily loaded host; 11 other checks passed. All 20 agreements passed in an isolated rerun with a 180-second overall limit. Source/CI time limits unchanged."
+    }
+  },
+  "banglaReview": {
+    "recordedAt": "2026-10-04T04:18:50.878Z",
+    "reviewVersion": "bangla-review-1",
+    "templateVersion": "bn-draft-1",
+    "route": "/evaluation?review=bangla",
+    "nativeReviewersCollected": 0,
+    "physicalSms": false,
+    "liveSmsWordingChanged": false,
+    "materialSha256": "95a4d46c83795490abf1d60a4263cccbab2d6c9320fe6607fd06fc07bb473036",
+    "items": [
+      {
+        "id": "meal-example",
+        "kind": "current_sms",
+        "units": 53
+      },
+      {
+        "id": "meal-maximum",
+        "kind": "current_sms",
+        "units": 57
+      },
+      {
+        "id": "meal-zero",
+        "kind": "current_sms",
+        "units": 53
+      },
+      {
+        "id": "no-meal",
+        "kind": "current_sms",
+        "units": 44
+      },
+      {
+        "id": "organized-candidate",
+        "kind": "candidate_sms",
+        "units": 64
+      },
+      {
+        "id": "operator-guide",
+        "kind": "operator_guide",
+        "units": null
+      }
+    ],
+    "unitComponentTests": {
+      "passed": 44,
+      "failed": 0,
+      "files": 6
+    },
+    "initialBrowserRun": {
+      "startTime": "2026-10-04T04:09:53.556Z",
+      "duration": 190557.19999999998,
+      "expected": 11,
+      "skipped": 0,
+      "unexpected": 2,
+      "flaky": 0
+    },
+    "initialFailures": [
+      "Offline review-query reload rejected: corrected the evaluation navigation fallback to accept query strings.",
+      "60-second aggregate deadline for 20 complete UI agreements: extended only that coverage test to 180 seconds. Inference latency targets and failure assertions unchanged."
+    ],
+    "fullProductionBrowserRun": {
+      "startTime": "2026-10-04T04:14:18.996Z",
+      "duration": 151829.164,
+      "expected": 13,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "finalFocusAndUpdateRun": {
+      "startTime": "2026-10-04T04:17:36.901Z",
+      "duration": 16305.983,
+      "expected": 2,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "softwareChecks": [
+      "Consent and independent/native confirmations required",
+      "First interpretation locked before intended meaning is revealed",
+      "All six distinct items and adverse comments retained",
+      "SHA-256 of exact exported material verified",
+      "Fresh offline query reload and 200% text at 360px, three fonts",
+      "Focus moves to each next item",
+      "Synthetic exports leave template approval pending and zero reviewers"
+    ],
+    "note": "All entered answers are explicitly synthetic software QA, not native reviews or physical/human observations.",
+    "deployedOrigin": {
+      "deployment": "dpl_EtWLNyrtEHnqDnpic1R1MWrnnk5D",
+      "url": "https://localrelay-test.vercel.app/evaluation?review=bangla",
+      "queryRouteStatus": 200,
+      "browserRun": {
+        "startTime": "2026-10-04T04:19:04.491Z",
+        "duration": 10676.151,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "physicalAndroid": false,
+      "nativeReviews": false
+    }
+  },
+  "demoReview": {
+    "recordedAt": "2026-10-04T05:06:17.778Z",
+    "route": "/evaluation?review=bangla&demo=1",
+    "dataSource": "synthetic_demo",
+    "demoExamples": 2,
+    "answersPerExample": 6,
+    "humanReviewerCount": 0,
+    "liveSmsWordingChanged": false,
+    "physicalSms": false,
+    "unitTests": {
+      "passed": 45,
+      "failed": 0,
+      "files": 6
+    },
+    "localBrowserChecks": {
+      "startTime": "2026-10-04T05:05:23.401Z",
+      "duration": 15260.435,
+      "expected": 3,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "checks": [
+      "Fresh offline demo query reload",
+      "Two demo examples, all six filled items",
+      "Synthetic labels in page and export filename/document",
+      "Zero human count and false human attestations",
+      "Exported exact material hash",
+      "Blank human form/consent after returning",
+      "200% text at 360px in three fonts",
+      "Existing human review export and controlled update remain working"
+    ],
+    "hostedChecks": {
+      "deployment": "dpl_3AyBeA8Mm1pKaUJ8WQCmr2JaZ7Wp",
+      "origin": "https://localrelay-test.vercel.app/evaluation?review=bangla&demo=1",
+      "queryRouteStatus": 200,
+      "browser": {
+        "startTime": "2026-10-04T05:07:04.714Z",
+        "duration": 11047.922,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "physicalAndroid": false
+    }
+  }
+}

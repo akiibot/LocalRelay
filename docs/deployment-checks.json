@@ -1,0 +1,329 @@
+{
+  "recordedAt": "2026-10-04T06:49:22.251Z",
+  "origin": "https://localrelay-test.vercel.app",
+  "environment": "Desktop Playwright Chromium, fresh browser context, 360x800",
+  "physicalSms": false,
+  "physicalAndroid": false,
+  "routes": [
+    {
+      "path": "/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/operators",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/operators/demo-craft",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/request/new",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/request/test",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/outbox",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/reply/test",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/evaluation",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/diagnostics",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/simulate",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/demo",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    }
+  ],
+  "assets": [
+    {
+      "path": "/assets/index-1X2_Mk5o.js",
+      "bytes": 484347,
+      "sha256": "2493343a4466d472565a2b7f7095d0a295d18313ead932f976d6b5cfbb6c4107",
+      "contentType": "application/javascript; charset=utf-8",
+      "cacheControl": "public, max-age=31536000, immutable",
+      "contentEncoding": "br"
+    },
+    {
+      "path": "/assets/index-B8aWa7SZ.css",
+      "bytes": 19054,
+      "sha256": "a08c704cdc4321c80f79b32749640ac36742a8346f7fd3728cdd861a4c85d9a4",
+      "contentType": "text/css; charset=utf-8",
+      "cacheControl": "public, max-age=31536000, immutable",
+      "contentEncoding": "br"
+    },
+    {
+      "path": "/assets/inference.worker-CuESR5mf.js",
+      "bytes": 92603,
+      "sha256": "adde5b0cd9c654c0c353dbca355fd2bfbb7961035c5c6967d22e3d76fbbf714a",
+      "contentType": "application/javascript; charset=utf-8",
+      "cacheControl": "public, max-age=31536000, immutable",
+      "contentEncoding": "br"
+    },
+    {
+      "path": "/assets/workbox-window.prod.es5-Bd17z0YL.js",
+      "bytes": 5653,
+      "sha256": "17bcc17d60dc78f927834b880c39649b03af46fd1f5cdbb8c42c5ae2b515dce9",
+      "contentType": "application/javascript; charset=utf-8",
+      "cacheControl": "public, max-age=31536000, immutable",
+      "contentEncoding": "br"
+    },
+    {
+      "path": "/data/operators/demo.json",
+      "bytes": 854,
+      "sha256": "48079bd047cb052cea6b4bf523c94fd2c4365aa90b9188c1f6f8a356346b9240",
+      "contentType": "application/json; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentEncoding": null
+    },
+    {
+      "path": "/icons/icon-192.png",
+      "bytes": 880,
+      "sha256": "f6459407d5ca068f247a0af549a4cb5cbd1117c33c9204375655972a47262d56",
+      "contentType": "image/png",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentEncoding": null
+    },
+    {
+      "path": "/icons/icon-512.png",
+      "bytes": 3567,
+      "sha256": "540d42779456d14db8b8a264159f2985905ee30b5298c0f77c2c97ba5026e120",
+      "contentType": "image/png",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentEncoding": null
+    },
+    {
+      "path": "/icons/icon.svg",
+      "bytes": 227,
+      "sha256": "43c0c0441e56bd15e236bd36085a2c32a451536092f92716f45146b71ba98425",
+      "contentType": "image/svg+xml",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentEncoding": null
+    },
+    {
+      "path": "/index.html",
+      "bytes": 560,
+      "sha256": "99267a0adf922afbefe03270a4d16824d1ff29a8a26b7bf641172ed2d1c8d3d6",
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentEncoding": null
+    },
+    {
+      "path": "/manifest.webmanifest",
+      "bytes": 463,
+      "sha256": "ccc8d8159b8d791088c6c2658826042778024bea38ec65a3dd8b2716d7c9bd3b",
+      "contentType": "application/manifest+json; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentEncoding": null
+    },
+    {
+      "path": "/models/v1/feature-spec.json",
+      "bytes": 592,
+      "sha256": "98264d59ee0393215b45183604589f4990c025b9eb4ad78c57817bc701de26e4",
+      "contentType": "application/json; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentEncoding": null
+    },
+    {
+      "path": "/models/v1/metadata.json",
+      "bytes": 1172,
+      "sha256": "5f1aed415026d95a45dde12d1cc2eab3d4bc3156026e0d6f0ec1ba6926031354",
+      "contentType": "application/json; charset=utf-8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentEncoding": "br"
+    },
+    {
+      "path": "/models/v1/weights.bin",
+      "bytes": 426036,
+      "sha256": "726dbe51da956c3f33076e0dfe36c7414c3fe1bb41b262ad7e078cb1ba4aa905",
+      "contentType": "application/octet-stream",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentEncoding": "br"
+    }
+  ],
+  "missingModelStatus": 404,
+  "serviceWorker": {
+    "status": 200,
+    "contentType": "application/javascript; charset=utf-8",
+    "cacheControl": "public, max-age=0, must-revalidate"
+  },
+  "hostedTransfer": {
+    "acceptEncoding": "br, gzip, deflate",
+    "files": [
+      {
+        "path": "/assets/index-1X2_Mk5o.js",
+        "encoding": "br",
+        "encodedBytes": 150472,
+        "decodedBytes": 484347
+      },
+      {
+        "path": "/assets/index-B8aWa7SZ.css",
+        "encoding": "br",
+        "encodedBytes": 5368,
+        "decodedBytes": 19054
+      },
+      {
+        "path": "/assets/inference.worker-CuESR5mf.js",
+        "encoding": "br",
+        "encodedBytes": 26398,
+        "decodedBytes": 92603
+      },
+      {
+        "path": "/assets/workbox-window.prod.es5-Bd17z0YL.js",
+        "encoding": "br",
+        "encodedBytes": 2275,
+        "decodedBytes": 5653
+      },
+      {
+        "path": "/data/operators/demo.json",
+        "encoding": "identity",
+        "encodedBytes": 854,
+        "decodedBytes": 854
+      },
+      {
+        "path": "/icons/icon-192.png",
+        "encoding": "identity",
+        "encodedBytes": 880,
+        "decodedBytes": 880
+      },
+      {
+        "path": "/icons/icon-512.png",
+        "encoding": "identity",
+        "encodedBytes": 3567,
+        "decodedBytes": 3567
+      },
+      {
+        "path": "/icons/icon.svg",
+        "encoding": "identity",
+        "encodedBytes": 227,
+        "decodedBytes": 227
+      },
+      {
+        "path": "/index.html",
+        "encoding": "identity",
+        "encodedBytes": 560,
+        "decodedBytes": 560
+      },
+      {
+        "path": "/manifest.webmanifest",
+        "encoding": "identity",
+        "encodedBytes": 463,
+        "decodedBytes": 463
+      },
+      {
+        "path": "/models/v1/feature-spec.json",
+        "encoding": "identity",
+        "encodedBytes": 592,
+        "decodedBytes": 592
+      },
+      {
+        "path": "/models/v1/metadata.json",
+        "encoding": "br",
+        "encodedBytes": 636,
+        "decodedBytes": 1172
+      },
+      {
+        "path": "/models/v1/weights.bin",
+        "encoding": "br",
+        "encodedBytes": 192652,
+        "decodedBytes": 426036
+      },
+      {
+        "path": "/offline-assets.json",
+        "encoding": "br",
+        "encodedBytes": 862,
+        "decodedBytes": 2111
+      },
+      {
+        "path": "/sw.js",
+        "encoding": "br",
+        "encodedBytes": 1159,
+        "decodedBytes": 2423
+      },
+      {
+        "path": "/workbox-9c191d2f.js",
+        "encoding": "br",
+        "encodedBytes": 5445,
+        "decodedBytes": 15112
+      }
+    ],
+    "encodedPayloadBytes": 392410,
+    "decodedPayloadBytes": 1055654,
+    "note": "Actual encoded response bodies for each static offline file once, measured with a desktop HTTPS client. Excludes HTTP/TLS overhead, duplicate requests, cache negotiation and browser-specific install traffic; not a handset transfer measurement."
+  },
+  "onlineReadiness": "passed",
+  "keyboardSkipToContent": "passed",
+  "offlineReload": "passed",
+  "offlineRetestGuide": {
+    "homeLink": "passed",
+    "profileLink": "passed",
+    "offlineReload": "passed",
+    "largeTextAt360px": "passed: 200% text, system-ui, Verdana, monospace",
+    "note": "Static guidance; does not write test evidence or send SMS."
+  },
+  "offlineLocalAi": "passed",
+  "offlineSyntheticAgreementAndNewTab": "passed",
+  "offlineUncertainRoutingManualFallback": "passed",
+  "offlineUnsupportedAllergy": {
+    "text": "One guest has a peanut allergy.",
+    "validCardWithoutUnsupportedNoteQueueEnabled": true,
+    "warningDisplayed": true,
+    "blockedWithValidFieldsAndBothConfirmations": true,
+    "noteAndBlockRetainedAcrossAiAndManualSwitch": true,
+    "outboxRecordsBefore": 2,
+    "outboxRecordsAfter": 2,
+    "physicalSms": false
+  },
+  "offlineProtocolBranches": {
+    "missingSendReportBlockedAndExplicitRecoveryAllowed": "passed",
+    "decline": "passed",
+    "staleRevisionRejected": "passed",
+    "alternativeOffer": "passed",
+    "duplicateOffer": "passed",
+    "prematureAcknowledgementBlocked": "passed",
+    "mismatchedAcknowledgementRejected": "passed",
+    "matchingAlternativeAcknowledgementAndReload": "passed",
+    "conflictingOfferStopsProgress": "passed",
+    "physicalSms": false
+  },
+  "offlineLargeTextLayout": {
+    "status": "passed",
+    "viewportWidth": 360,
+    "rootFontSize": 34,
+    "fonts": [
+      "system-ui",
+      "Verdana",
+      "monospace"
+    ],
+    "physicalAssistiveAudit": false
+  },
+  "cspErrors": [],
+  "pageErrors": [],
+  "externalOrPayloadRequests": []
+}

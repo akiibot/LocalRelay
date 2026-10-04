@@ -1,0 +1,28 @@
+# External verification checklist
+
+- [ ] Recruit ≥5 actual operators; test whether communication causes lost enquiries, SMS versus calls, response-code learning, single-service profile and visitor SIM assumptions. Record consented notes without identifiers.
+- [ ] Two independent native Bangla reviewers: every template and operator card, exact semantics, date/numeral conventions, standard meals and full price, blind back-translation where possible. No approval claim until both completed.
+- [ ] Native comprehension: ≥8 participants ×6 messages on target basic phone, no English source, standardized onboarding/random order, unassisted answers/replies/help/timing/confident errors. Record raw denominators.
+- [ ] Visitor baseline: ≥16 participants ×4 tasks, two per mode, counterbalanced order, matched scenarios, complete timing including typing, blinded correctness, failures included.
+- [ ] Independent ML corpus: 400–600 consented/deidentified or independently authored messages, 8–12 authors, 60–100 blind unseen-author records; group isolation; source-stratified results; improve failed intent target using new data.
+- [ ] Target low-end Android: HTTPS install, preparation, airplane-mode full close/reopen, 20 complete scripted flows, cached worker/model startup, storage denial/eviction/update recovery.
+- [ ] ≥50 cold/warm performance observations on named low-end Android; keep failures and separate worker load/RPC/inference; warm p95 target <500ms.
+- [ ] Real smartphone + Bangla basic phone + consented SIMs, one carrier path minimum, two models/carriers/cross-carrier stronger. ≥20 varied request messages; full offer/acceptance/acknowledgement, raw sent/received text and delays.
+- [ ] Actual Bangla conjunct/vowel mark rendering; maximum supported requests and single-segment route behaviour; separate 70/71-unit boundary fixtures; carrier charges and total exchange segment count.
+- [ ] Cancel native composer, delayed/duplicate replies, temporary signal loss, copy fallback, sender check and mismatched acknowledgement on physical phones.
+- [x] Vercel test-project deployment: https://localrelay-test.vercel.app, repository root/Vite/Node 24.x, successful remote npm ci/build. Actual route responses, missing-model 404, CSP/MIME/cache headers and offline startup/local AI/agreement checked in fresh desktop Chromium. Physical Android reopening remains pending separately; evidence in deployment-checks.json.
+- [ ] Physical demonstration recording, including a clarification/failure case; no simulator passed off as real carrier exchange.
+
+Blank logs are provided alongside this file. Software/browser/model-fixture results cannot check off physical or human evidence items. The hosting item records deployed desktop-browser verification only.
+
+## Next step: two independent Bangla reviews
+
+1. Give each reviewer the same link: https://localrelay-test.vercel.app/evaluation?review=bangla. If an installed app shows the older evaluation page, return Home online and activate the available update first. Use two different native speakers, able to compare the English intended meanings. Each works on their own device without seeing the other’s answers. Do not include these reviewers in the later comprehension participant count.
+2. Use pseudonyms R1 and R2, optionally record the device/browser, and confirm native language, independent review and export consent. No automatic submission or upload occurs. Prepare the app online first if working offline.
+3. Review all six items: the current meal message, maximum-count message, zero-count message, no-meal message, proposed organized candidate and the complete operator guide. Fixed dates are sample material, not requests to send. Write the interpretation in Bangla or English before revealing the intended meaning; that first interpretation is locked. Then assess meaning and naturalness, record concerns and optional corrected wording. The sequential review teaches conventions; it is not a blinded comprehension study.
+4. Download the JSON before leaving/reloading/closing. Answers are held only in the open page. Check that the file exists in Downloads and give it to the project owner separately from the other reviewer’s file. Do not include real names, phone numbers or sensitive details in free-text answers.
+5. Preserve both original files. Compare material hashes, template/review versions, first interpretations and adverse comments. Native/independence confirmations are reviewer self-reports, not authenticated identity evidence. Resolve critical misunderstandings and review revised wording again before adopting it. Neither export nor a favourable answer automatically approves the live template.
+
+Current version `bangla-review-1` uses the exact `bn-draft-1` renderer plus a separate candidate. The full source materials and intended meanings are embedded in each export with their SHA-256. Browser QA uses explicitly synthetic responses and contributes zero native reviewers. The existing template-review-log.csv remains blank until real results are supplied. This page does not send SMS or create outbox requests.
+
+For presenting the site without participants, use the separate filled demo at https://localrelay-test.vercel.app/evaluation?review=bangla&demo=1. Its DEMO-A/DEMO-B answers are generated from intended meanings, not independent human interpretations. The export is `synthetic_review_demo`, with synthetic flags, zero human reviewers, false human attestations and unchanged approval. These examples must not be entered in the native review log or reported as real study results. Actual reviewers should not study these sample answers before their own first interpretation.

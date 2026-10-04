@@ -1,0 +1,115 @@
+{
+  "date": "2026-10-04",
+  "route": "/demo",
+  "localPreview": "http://127.0.0.1:4173/demo",
+  "deployed": true,
+  "environment": "Local production Vite PWA; desktop Chromium with emulated viewports",
+  "scenarios": [
+    "Standard offer: 15:00, 1500 BDT",
+    "Alternative offer: 16:00, 1600 BDT",
+    "Decline: exchange stops without agreement"
+  ],
+  "implementation": {
+    "realLocalAiWorker": true,
+    "ruleFieldExtraction": true,
+    "realRendererParserAndStateGuards": true,
+    "explicitPresetFallback": true,
+    "simulatorProvenance": true,
+    "stateInMemory": true,
+    "typingRequired": false,
+    "nativeSmsComposerOpened": false,
+    "realSmsSent": false,
+    "realRequestsSaved": false,
+    "demoClicksCountAsStudyTaps": false,
+    "offlineRoute": true,
+    "reducedMotion": true,
+    "restartInvalidatesPendingAi": true
+  },
+  "checks": {
+    "typecheck": "passed",
+    "lint": "passed",
+    "formatting": "passed",
+    "build": "passed",
+    "budgets": "passed",
+    "unitComponent": {
+      "passed": 59,
+      "failed": 0,
+      "files": 8
+    },
+    "fullProductionBrowserSuite": {
+      "passed": 23,
+      "failed": 0,
+      "newDemoChecks": 4
+    },
+    "scriptedRealAppOfflineAgreements": 20,
+    "widths": [
+      320,
+      360,
+      390,
+      412,
+      768,
+      1440
+    ],
+    "textScalesPercent": [
+      100,
+      200
+    ],
+    "keyboard": "passed"
+  },
+  "budgets": {
+    "modelBytes": 427800,
+    "uncompressedBytes": 1055654,
+    "gzipEstimateBytes": 361934,
+    "modelBudget": 1048576,
+    "offlineBudget": 5242880,
+    "note": "gzip estimate sums per-file gzip sizes; actual network transfer depends on host encoding."
+  },
+  "limitations": [
+    "No physical carrier SMS, handset or human usability study performed.",
+    "AI accuracy target remains unmet; demo exposes actual scores and explicit manual fallback.",
+    "Bangla templates remain draft and unreviewed.",
+    "Demo state resets on refresh or restart."
+  ],
+  "localArtifacts": "ml/generated/interactive-demo/ (ignored): full-suite-results.json and screenshots",
+  "hostedUrl": "https://localrelay-test.vercel.app/demo",
+  "deploymentId": "dpl_D4ZFY9Q3hPqMKiWEWbT5SPaNuMiV",
+  "deployedSourceCommit": "1a09a6219aecf2354131128c7ca1ffe178dc64bf",
+  "hostedVerification": {
+    "origin": "https://localrelay-test.vercel.app",
+    "deploymentId": "dpl_D4ZFY9Q3hPqMKiWEWbT5SPaNuMiV",
+    "deployedSourceCommit": "1a09a6219aecf2354131128c7ca1ffe178dc64bf",
+    "hostedBrowserSuite": {
+      "passed": 22,
+      "failed": 0,
+      "skipped": 1,
+      "skipReason": "The SW-update test modifies local dist/sw.js; it is tested locally, not against an immutable remote deployment."
+    },
+    "localAffectedTests": {
+      "passed": 2,
+      "failed": 0,
+      "scope": "20 offline agreements and real service-worker update"
+    },
+    "assetManifestMatchesLocal": true,
+    "routeResponsesPassed": 11,
+    "verifiedAssets": 13,
+    "hostedProtocolAndOfflineChecker": "passed",
+    "encodedStaticBytes": 392410,
+    "decodedStaticBytes": 1055654,
+    "linuxCi": {
+      "sourceCommit": "1a09a6219aecf2354131128c7ca1ffe178dc64bf",
+      "push": "https://github.com/akiibot/LocalRelay/actions/runs/37183880237",
+      "pullRequest": "https://github.com/akiibot/LocalRelay/actions/runs/37183882408",
+      "software": "passed",
+      "corpusTools": "passed"
+    },
+    "initialHostedRun": {
+      "passed": 21,
+      "failed": 2,
+      "causes": [
+        "Test network-origin assertion was hard-coded to localhost, so cached same-origin HTTPS requests were incorrectly flagged.",
+        "Update test modifies a local service-worker file; immutable remote assets did not change."
+      ],
+      "productRuntimeChangedAfterDeployment": false
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { analyzeLocal } from "../ai/client";
 import { loadModel } from "../ai/model";
 import type { Scores } from "../ai/features";
@@ -137,6 +138,9 @@ export default function Diagnostics() {
           Template bn-draft-1: unreviewed, zero reviewers. Local stored SMS
           entries are not authenticated carrier receipts.
         </p>
+        <Link to="/evaluation?review=bangla">
+          Start independent Bangla review
+        </Link>
       </section>
       {error && (
         <p role="alert" className="error">

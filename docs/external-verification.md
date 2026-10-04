@@ -14,3 +14,13 @@
 - [ ] Physical demonstration recording, including a clarification/failure case; no simulator passed off as real carrier exchange.
 
 Blank logs are provided alongside this file. Software/browser/model-fixture results cannot check off physical or human evidence items. The hosting item records deployed desktop-browser verification only.
+
+## Next step: two independent Bangla reviews
+
+1. Give each reviewer the same link: https://localrelay-test.vercel.app/evaluation?review=bangla. If an installed app shows the older evaluation page, return Home online and activate the available update first. Use two different native speakers, able to compare the English intended meanings. Each works on their own device without seeing the other’s answers. Do not include these reviewers in the later comprehension participant count.
+2. Use pseudonyms R1 and R2, optionally record the device/browser, and confirm native language, independent review and export consent. No automatic submission or upload occurs. Prepare the app online first if working offline.
+3. Review all six items: the current meal message, maximum-count message, zero-count message, no-meal message, proposed organized candidate and the complete operator guide. Fixed dates are sample material, not requests to send. Write the interpretation in Bangla or English before revealing the intended meaning; that first interpretation is locked. Then assess meaning and naturalness, record concerns and optional corrected wording. The sequential review teaches conventions; it is not a blinded comprehension study.
+4. Download the JSON before leaving/reloading/closing. Answers are held only in the open page. Check that the file exists in Downloads and give it to the project owner separately from the other reviewer’s file. Do not include real names, phone numbers or sensitive details in free-text answers.
+5. Preserve both original files. Compare material hashes, template/review versions, first interpretations and adverse comments. Native/independence confirmations are reviewer self-reports, not authenticated identity evidence. Resolve critical misunderstandings and review revised wording again before adopting it. Neither export nor a favourable answer automatically approves the live template.
+
+Current version `bangla-review-1` uses the exact `bn-draft-1` renderer plus a separate candidate. The full source materials and intended meanings are embedded in each export with their SHA-256. Browser QA uses explicitly synthetic responses and contributes zero native reviewers. The existing template-review-log.csv remains blank until real results are supplied. This page does not send SMS or create outbox requests.

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import BanglaReview from "./BanglaReview";
 import {
   beginStudy,
   finishStudy,
@@ -24,6 +25,14 @@ function exportData(data: unknown, name: string) {
   URL.revokeObjectURL(url);
 }
 export default function Evaluation() {
+  const [params] = useSearchParams();
+  return params.get("review") === "bangla" ? (
+    <BanglaReview />
+  ) : (
+    <VisitorEvaluation />
+  );
+}
+function VisitorEvaluation() {
   const navigate = useNavigate();
   const [consent, setConsent] = useState(false),
     [participant, setParticipant] = useState(""),
@@ -240,6 +249,11 @@ export default function Evaluation() {
       </section>
       <section>
         <h2>Native comprehension and hardware logs</h2>
+        <p>
+          <Link to="/evaluation?review=bangla">
+            Start independent Bangla review
+          </Link>
+        </p>
         <p>
           Use the repository’s protocol and blank CSV files. Two independent
           reviewers first, then at least 8 native speakers × 6 messages, on the

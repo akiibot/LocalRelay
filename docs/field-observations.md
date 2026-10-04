@@ -20,7 +20,7 @@ No formal physical SMS checklist item is complete on this record alone. The 20-m
 
 ## Presentation feedback — candidate for review
 
-The current renderer uses compact counts with no colon separators and “মোট দাম?”. The following candidate separates the request ID, guest counts and vegetarian count and uses a more formal price phrase. It has not been adopted by the renderer or deployed. The exact received enquiry is still requested to distinguish source layout from any changes in the SMS app/carrier path. Both native reviewer approvals remain pending.
+The current renderer uses compact counts with no colon separators and “মোট দাম?”. The following candidate separates the request ID, guest counts and vegetarian count and uses a more formal price phrase. It has not been adopted by the live SMS renderer. It is shown only as an unapproved candidate in the independent-review page. The exact received enquiry is still requested to distinguish source layout from any changes in the SMS app/carrier path. Both native reviewer approvals remain pending.
 
 ```text
 #CYUN39.1

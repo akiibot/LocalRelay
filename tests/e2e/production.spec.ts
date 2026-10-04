@@ -42,6 +42,8 @@ test("20 offline scripted production runs: local model, queue, reload and full a
   page,
   context,
 }) => {
+  // This covers 20 complete UI exchanges, not the separate inference latency gate.
+  test.setTimeout(180000);
   await prepared(page);
   await context.setOffline(true);
   const network: string[] = [];

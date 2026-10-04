@@ -5,7 +5,7 @@ The application and repeatable developer checks are implemented. The working pil
 | Remaining gate | Prepared software/material | Required external input |
 |---|---|---|
 | Reliable AI routing | Frozen baseline, isolated candidate trainer, hash/group checks, source-stratified parser/model and keyword ablation, parity | New independently collected/reviewed enquiries and unseen-author evaluation; current model fails |
-| Natural, comprehensible Bangla | Current exact template, proposed organized review draft, operator guide, blank review/comprehension logs | Two independent native reviewers, then ≥8 participants ×6 messages on a real target phone |
+| Natural, comprehensible Bangla | Offline independent-review page with six frozen items and pseudonymous JSON export, proposed organized draft, operator guide and blank comprehension log | Two independent native reviewers, then ≥8 participants ×6 messages on a real target phone |
 | Basic-phone/carrier proof | SMS adapters, guarded replies, simulator, encoding checks, physical log | ≥20 varied actual exchanges with basic phones, exact sent/received text, rendering/segment/delay/cancel/copy/signal-loss observations |
 | Visitor benefit | Consented local study UI, four tasks, 2 AI/2 form assignment, timing/scoring/deidentified export | ≥16 visitor-like participants ×4 tasks; retain failures and independently grade critical fields |
 | Operator problem fit | Interview topics and narrow one-service profile | ≥5 consented operator interviews |

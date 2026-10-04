@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-10-04T03:31:44.714Z",
+  "recordedAt": "2026-10-04T04:19:00.804Z",
   "origin": "https://localrelay-test.vercel.app",
   "environment": "Desktop Playwright Chromium, fresh browser context, 360x800",
   "physicalSms": false,
@@ -58,9 +58,9 @@
   ],
   "assets": [
     {
-      "path": "/assets/index-B9i4YHxA.js",
-      "bytes": 421591,
-      "sha256": "f208cdaa352aa0485994ad184ca48c4415c9a50c78c575814e3a831722e86b49",
+      "path": "/assets/index-Bb2vq5rn.js",
+      "bytes": 437379,
+      "sha256": "985a171247de440399f3cb5078b1fb637a81785f056755ca5c28e9bb82f3d6e2",
       "contentType": "application/javascript; charset=utf-8",
       "cacheControl": "public, max-age=31536000, immutable",
       "contentEncoding": "br"
@@ -124,7 +124,7 @@
     {
       "path": "/index.html",
       "bytes": 560,
-      "sha256": "7adfb2ea81e9d95ecbd752e018684ff3b788638666872c88fac7dcf15997a594",
+      "sha256": "a6c2acc048cd42244346bef77ffb81fde0aae2c47b546367fb20834a96f4df86",
       "contentType": "text/html; charset=utf-8",
       "cacheControl": "public, max-age=0, must-revalidate",
       "contentEncoding": null
@@ -172,10 +172,10 @@
     "acceptEncoding": "br, gzip, deflate",
     "files": [
       {
-        "path": "/assets/index-B9i4YHxA.js",
+        "path": "/assets/index-Bb2vq5rn.js",
         "encoding": "br",
-        "encodedBytes": 133639,
-        "decodedBytes": 421591
+        "encodedBytes": 138782,
+        "decodedBytes": 437379
       },
       {
         "path": "/assets/index-CP6o_ci8.css",
@@ -252,14 +252,14 @@
       {
         "path": "/offline-assets.json",
         "encoding": "br",
-        "encodedBytes": 870,
+        "encodedBytes": 863,
         "decodedBytes": 2110
       },
       {
         "path": "/sw.js",
         "encoding": "br",
-        "encodedBytes": 1143,
-        "decodedBytes": 2403
+        "encodedBytes": 1154,
+        "decodedBytes": 2418
       },
       {
         "path": "/workbox-9c191d2f.js",
@@ -268,8 +268,8 @@
         "decodedBytes": 15112
       }
     ],
-    "encodedPayloadBytes": 371663,
-    "decodedPayloadBytes": 977443,
+    "encodedPayloadBytes": 376810,
+    "decodedPayloadBytes": 993246,
     "note": "Actual encoded response bodies for each static offline file once, measured with a desktop HTTPS client. Excludes HTTP/TLS overhead, duplicate requests, cache negotiation and browser-specific install traffic; not a handset transfer measurement."
   },
   "onlineReadiness": "passed",

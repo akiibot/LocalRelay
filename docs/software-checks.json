@@ -7,15 +7,15 @@
   "typecheck": "passed",
   "lint": "passed",
   "unitComponentTests": {
-    "passed": 42,
+    "passed": 44,
     "failed": 0,
-    "files": 5
+    "files": 6
   },
   "productionBrowserTests": {
-    "passed": 12,
+    "passed": 13,
     "failed": 0,
     "offlineAgreementRuns": 20,
-    "note": "Initial 60-second overall test timeout during the 20-agreement loop on a heavily loaded host; 11 other checks passed. All 20 agreements passed in an isolated rerun with a 180-second overall limit. Source/CI time limits unchanged."
+    "note": "Full 13-test production run passed. A final component focus change was checked with the native-review and real service-worker update tests; both passed. Initial failures and corrections retained in bangla-review-checks.json."
   },
   "updateRepetitions": {
     "passed": 3,
@@ -30,8 +30,8 @@
   "retrainingReproducedSha256": "726dbe51da956c3f33076e0dfe36c7414c3fe1bb41b262ad7e078cb1ba4aa905",
   "budgets": {
     "modelBytes": 427800,
-    "uncompressedBytes": 977443,
-    "gzipEstimateBytes": 342026,
+    "uncompressedBytes": 993246,
+    "gzipEstimateBytes": 346702,
     "modelBudget": 1048576,
     "offlineBudget": 5242880,
     "note": "gzip estimate sums per-file gzip sizes; actual network transfer depends on host encoding."
@@ -76,10 +76,10 @@
   },
   "keyboard": "Skip-to-content focus and keyboard queue activation passed in production Chromium.",
   "hostedVerification": {
-    "deployment": "dpl_2pYNhLzH9mb2tA1PjrTWbEPFtSdT",
+    "deployment": "dpl_EtWLNyrtEHnqDnpic1R1MWrnnk5D",
     "passed": true,
-    "encodedStaticPayloadBytes": 371663,
-    "decodedStaticPayloadBytes": 977443,
+    "encodedStaticPayloadBytes": 376810,
+    "decodedStaticPayloadBytes": 993246,
     "files": 16,
     "note": "Actual encoded response bodies for each static offline file once, measured with a desktop HTTPS client. Excludes HTTP/TLS overhead, duplicate requests, cache negotiation and browser-specific install traffic; not a handset transfer measurement."
   },
@@ -111,6 +111,106 @@
         "flaky": 0
       },
       "note": "Initial 60-second overall test timeout during the 20-agreement loop on a heavily loaded host; 11 other checks passed. All 20 agreements passed in an isolated rerun with a 180-second overall limit. Source/CI time limits unchanged."
+    }
+  },
+  "banglaReview": {
+    "recordedAt": "2026-10-04T04:18:50.878Z",
+    "reviewVersion": "bangla-review-1",
+    "templateVersion": "bn-draft-1",
+    "route": "/evaluation?review=bangla",
+    "nativeReviewersCollected": 0,
+    "physicalSms": false,
+    "liveSmsWordingChanged": false,
+    "materialSha256": "95a4d46c83795490abf1d60a4263cccbab2d6c9320fe6607fd06fc07bb473036",
+    "items": [
+      {
+        "id": "meal-example",
+        "kind": "current_sms",
+        "units": 53
+      },
+      {
+        "id": "meal-maximum",
+        "kind": "current_sms",
+        "units": 57
+      },
+      {
+        "id": "meal-zero",
+        "kind": "current_sms",
+        "units": 53
+      },
+      {
+        "id": "no-meal",
+        "kind": "current_sms",
+        "units": 44
+      },
+      {
+        "id": "organized-candidate",
+        "kind": "candidate_sms",
+        "units": 64
+      },
+      {
+        "id": "operator-guide",
+        "kind": "operator_guide",
+        "units": null
+      }
+    ],
+    "unitComponentTests": {
+      "passed": 44,
+      "failed": 0,
+      "files": 6
+    },
+    "initialBrowserRun": {
+      "startTime": "2026-10-04T04:09:53.556Z",
+      "duration": 190557.19999999998,
+      "expected": 11,
+      "skipped": 0,
+      "unexpected": 2,
+      "flaky": 0
+    },
+    "initialFailures": [
+      "Offline review-query reload rejected: corrected the evaluation navigation fallback to accept query strings.",
+      "60-second aggregate deadline for 20 complete UI agreements: extended only that coverage test to 180 seconds. Inference latency targets and failure assertions unchanged."
+    ],
+    "fullProductionBrowserRun": {
+      "startTime": "2026-10-04T04:14:18.996Z",
+      "duration": 151829.164,
+      "expected": 13,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "finalFocusAndUpdateRun": {
+      "startTime": "2026-10-04T04:17:36.901Z",
+      "duration": 16305.983,
+      "expected": 2,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "softwareChecks": [
+      "Consent and independent/native confirmations required",
+      "First interpretation locked before intended meaning is revealed",
+      "All six distinct items and adverse comments retained",
+      "SHA-256 of exact exported material verified",
+      "Fresh offline query reload and 200% text at 360px, three fonts",
+      "Focus moves to each next item",
+      "Synthetic exports leave template approval pending and zero reviewers"
+    ],
+    "note": "All entered answers are explicitly synthetic software QA, not native reviews or physical/human observations.",
+    "deployedOrigin": {
+      "deployment": "dpl_EtWLNyrtEHnqDnpic1R1MWrnnk5D",
+      "url": "https://localrelay-test.vercel.app/evaluation?review=bangla",
+      "queryRouteStatus": 200,
+      "browserRun": {
+        "startTime": "2026-10-04T04:19:04.491Z",
+        "duration": 10676.151,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "physicalAndroid": false,
+      "nativeReviews": false
     }
   }
 }

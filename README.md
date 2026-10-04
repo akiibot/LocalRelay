@@ -1,47 +1,110 @@
 # LocalRelay
 
+### Local experiences. Connected by SMS.
+
 **The visitor’s smartphone does the AI work. The local operator keeps the phone they already own.**
 
-Standalone React/TypeScript/Vite PWA, prepared for Vercel. English visitor input → explicitly reviewed bounded fields → draft Bangla SMS → strict offer/acceptance/acknowledgement protocol. The trained classical Small AI runs in a Web Worker on the visitor’s smartphone. No inference server, SMS gateway, hosted translator, account or booking database.
+LocalRelay helps an English-speaking visitor make a structured enquiry to a Bangla-speaking local business through SMS. It combines a small on-device AI experiment, mandatory human review, compact Bangla message templates, and an explicit offer → acceptance → acknowledgement workflow.
 
-**Status: executable development/pilot candidate, not field-validated.** Bangla templates are unreviewed. Synthetic intent macro-F1 is **0.321**, below the 0.85 target; keyword baseline is **0.729** on the same grouped test split. AI is optional/experimental; use the manual form as the pilot default. A user-reported Android/Grameenphone SMS pilot exists; formal hardware and human studies remain incomplete. HTTPS test deployment: [localrelay-test.vercel.app](https://localrelay-test.vercel.app), verified in desktop Chromium; see [deployment checks](docs/deployment-checks.json). See [evidence checklist](docs/evidence-status.md) and [model card](ml/model-card.md).
+Built by **Team Protos** for the **7th Hack-Nation Global AI Hackathon**.
 
-## Run
+| Try it | Link |
+|---|---|
+| Hosted application | [localrelay-test.vercel.app](https://localrelay-test.vercel.app) |
+| Interactive two-phone demo | [Open the demo](https://localrelay-test.vercel.app/demo) |
+| Full source code | [GitHub repository](https://github.com/akiibot/LocalRelay) |
+| Build and test automation | [GitHub Actions](https://github.com/akiibot/LocalRelay/actions) |
 
-Tested with Node **22.19.0**, npm **10.9.3**, Python **3.14.0** (Python is only needed for development training). Dependency versions are locked in package-lock.json; committed trained artifacts make frontend builds independent of Python/network model downloads.
+**Prototype status:** the working workflow is manual-first; AI routing is optional and experimental. The browser demo simulates SMS exchanges. A user-reported real smartphone SMS pilot is documented separately. Basic-phone compatibility and independent Bangla review remain unverified; model limitations and measured results are detailed below.
+
+## The problem and the idea
+
+A visitor may have internet, a smartphone, and an English-language request. A local operator may use a basic phone and Bangla, with no app to install. Requiring both sides to adopt another smartphone application leaves that operator outside the conversation.
+
+LocalRelay puts the application and computation on the visitor’s device, then uses SMS for the operator-facing exchange. The prototype supports a bounded local experience enquiry: date, time, party size, meal counts where applicable, and a full quoted price in BDT. It is not a general-purpose translator or an automatic booking service.
+
+The distinctive design is the combination of **asymmetric devices**, **reviewed structured messages**, and **explicit agreement states**. The operator needs neither an AI account nor a smartphone app. The visitor can prepare the app online and use its cached workflow offline; sending messages still requires cellular SMS service and may incur carrier charges.
+
+## Try the demo in about a minute
+
+1. Open [the interactive demo](https://localrelay-test.vercel.app/demo). It needs no account, phone number, or typing.
+2. Choose the standard-offer scenario and **Use preset manual form** for the reliable complete path. You can also run the actual local AI to inspect its current result and fallback.
+3. Review the request and Bangla preview, then advance the simulated enquiry to the operator’s phone.
+4. Send the operator’s offer, review and accept its exact terms, then send the visitor’s acceptance.
+5. Send and record the matching operator acknowledgement. The visitor reaches **Agreement recorded** only after that match.
+6. Replay with a different-time offer or a decline to explore the other outcomes.
+
+The demo uses the application’s renderer, reply parser, and protocol guards in an in-memory simulation. It sends **no real SMS**, writes no saved requests, and resets on reload. It works offline after the application files have been prepared.
+
+For the regular app workflow, wait for **Ready for offline use** on Home, select an experience, and choose manual entry. Review and save the exact request locally, then open the native SMS composer or copy the text. Record replies manually after checking the sender in your SMS app. Demo profiles contain no real phone numbers; an owner-consented test number can be entered locally.
+
+## What is implemented
+
+- **Offline PWA:** service-worker caching, asset hash/size checks, readiness reporting, cache-loss handling, and explicit updates.
+- **Visitor workflow:** required date/time/count choices, shared validation, English review and exact Bangla preview, local saved requests, and immutable revisions.
+- **Small AI:** trained classical intent and requirement classifiers running in a Web Worker on the visitor’s device, with confidence-based abstention and manual fallback.
+- **SMS tools:** native composer links, copy fallbacks, Unicode/GSM-7 segment estimates, and strict reply parsing.
+- **Agreement protocol:** correlation IDs and revisions; frozen offers; exact acceptance/acknowledgement matching; duplicate, conflict, decline, expiry, and stale-reply handling.
+- **Inspection and evaluation:** interactive demo, protocol simulator, model diagnostics, consent-based local study tools, independent Bangla-review exports, and clearly labeled synthetic review examples.
+
+Opening the SMS composer does not mean a message was sent. **I sent this** is a user report, not a carrier delivery receipt. Agreement recorded means matching terms were manually entered and checked; it does not guarantee service availability or fulfilment.
+
+## How it is built
+
+```mermaid
+flowchart LR
+    Input[English enquiry or manual form] --> Review[Validate and review fields]
+    Input --> Worker[Optional local AI worker]
+    Worker --> Review
+    Review --> Template[Fixed Bangla SMS template]
+    Template --> Composer[Native SMS composer or copy]
+    Composer --> Operator[Operator's phone]
+    Operator --> Reply[Visitor manually records reply]
+    Reply --> Guards[Strict parser and agreement guards]
+    Guards --> Receipt[Local agreement receipt]
+    Review --> Storage[(IndexedDB snapshots)]
+```
+
+| Layer | Implementation |
+|---|---|
+| Interface | React, TypeScript, React Router, Vite |
+| Validation and storage | Zod contracts; IndexedDB through `idb` |
+| Offline operation | Workbox service worker through `vite-plugin-pwa`; generated asset-readiness manifest |
+| Local inference | Shared TypeScript hashed features; exported float32 logistic-regression weights; Web Worker |
+| Development training | Python, NumPy, SciPy, scikit-learn; grouped train/development/test splits |
+| Quality checks | Vitest, Testing Library, Playwright, Python/JavaScript parity, SMS and artifact checks |
+| Hosting | Static Vercel deployment with route rewrites, CSP, and asset headers |
+
+The AI routes **seven intent classes** and flags **six requirement categories**. It uses word unigrams/bigrams and character 3–5-grams hashed into 8,192 feature bins. Rules extract bounded fields, visitors review them, and fixed templates produce Bangla; the classifier does not generate translations. Model hashes, shape, class order, and numerical compatibility are checked before use.
+
+The inference worker and caching service worker are separate. There is **no inference server, hosted translator, SMS gateway, account system, or booking database**. The initial download needs internet; browser storage eviction can require preparation again. See [architecture](docs/architecture.md) and the [exact SMS protocol](docs/sms-protocol.md).
+
+## Run locally
+
+**Requirements:** Node.js **22.12 or later** and npm. The recorded development checks used Node 22.19.0 and npm 10.9.3. Python is needed only to retrain or run the development corpus pipeline. Frontend builds use committed model artifacts; no API keys or environment variables are required.
 
 ```sh
-git clone --branch codex/localrelay https://github.com/akiibot/LocalRelay.git
+git clone https://github.com/akiibot/LocalRelay.git
 cd LocalRelay
 npm ci
 npm run dev
 ```
 
-The dev server is for development. To review the actual offline PWA and Vercel-style route/CSP behaviour:
+Open the URL Vite prints. For production/offline behaviour:
 
 ```sh
 npm run build
 node scripts/serve-production.mjs
-# http://127.0.0.1:4173
+# Open http://127.0.0.1:4173
 ```
 
-`npm run preview` is also available, but the included production test server is stricter about missing assets and uses the checked-in Vercel CSP. Service workers require HTTPS or localhost. A phone accessing a plain HTTP LAN address cannot prepare the PWA; use a Vercel HTTPS preview or an HTTPS development tunnel you control.
+`npm run preview` is also available. The included production test server additionally applies the checked-in Vercel CSP and stricter missing-asset behaviour. Service workers require HTTPS or localhost; a phone visiting a plain HTTP LAN address cannot prepare the offline PWA. Use the [hosted HTTPS app](https://localrelay-test.vercel.app) for phone testing.
 
-## Review the working flow
+For Vercel, use the repository root, Vite preset, Node 22.x, install command `npm ci`, build command `npm run build`, and output directory `dist`. [Deployment instructions and recorded verification](docs/deployment-vercel.md).
 
-1. Open `/`, wait for **Ready for offline use** (checks service-worker control, actual cached asset sizes/hashes and model compatibility).
-2. `/operators` → demo profile. Every committed phone is null. Optionally enter an owner-consented test number locally; no real message is sent by the application itself.
-3. Choose `/request/new?mode=form` for the recommended baseline. Enter a future Dhaka date/time, adults, children and vegetarian count explicitly, then select **Review request**. Optional requirements are checked locally; unsupported requirements cannot be confirmed away.
-4. Review the English details, recipient and exact Bangla preview. Confirm standard meals and completeness, then **Save request on this device**. This creates an immutable snapshot; it does not send SMS. Reopen it from **Requests** (`/outbox`) or reload its record.
-5. Open the native SMS composer or copy text/number. A cancelled composer leaves only “opened”; **I sent this** records a user report, never a carrier delivery receipt.
-6. Select **Record operator reply** (`/reply/:id`), check the sender in your SMS app, enter and review the strict offer. Accepting prepares an acceptance SMS. Send that back and record sending. Only a matching operator acknowledgement records agreement.
-7. Open `/demo` (also linked from Home) for the click-only two-phone demonstration. Choose a standard offer, different time, or decline. Run the actual local AI or choose a preset manual form, then review, send the simulated enquiry, receive an offer, accept and record matching acknowledgement. No typing, real SMS or outbox writes; state resets on reload. It works offline once application files are prepared.
-8. Use `/simulate` for the technical in-memory protocol sandbox with editable reply text.
-9. `/diagnostics` verifies the trained package, runs local timings and exposes score diagnostics. `/evaluation` provides consented local timing, counterbalanced assignment, scoring and deidentified export.
+## Verify the implementation
 
-Enquiry text, phone numbers and quotes never appear in route parameters. A route ID is local to one browser origin/device. Receipts can be exported; deletion never cancels a service. Unsent/expired data is deleted on an app read seven days after expiry; completed receipts after 30 days. Shared-device users can access IndexedDB; SMS is not end-to-end encrypted.
-
-## Verify
+Run from the repository root:
 
 ```sh
 npm run typecheck
@@ -56,34 +119,40 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-Production Playwright tests include **20 scripted offline agreement workflows**, actual worker inference, hard reload/new-tab reopening, fail-closed cache loss, request revisions, study export, 360px/200% text layout, MIME/404/CSP checks. These are browser software tests with manually entered protocol messages, **not 20 physical SMS tests**. See actual final counts/results in [evidence-status.md](docs/evidence-status.md). An additional 32-case synthetic challenge check verifies parser/validation contracts and records model abstentions in [challenge-evaluation.json](docs/challenge-evaluation.json); it is not blind human evidence. Run `node scripts/check-deployed-origin.mjs https://localrelay-test.vercel.app` for isolated HTTPS/offline checks including allergy blocking, send-report recovery, declines, stale IDs, alternative/duplicate/conflicting offers and acknowledgement guards. These checks send no SMS. `test-results/` holds local JSON reports, screenshots and failure traces (ignored). Browser tests run against `dist`, so rebuild after changing application code.
+Rebuild after changing application code: browser tests use the production `dist` output. Linux CI installs Chromium system dependencies with `npx playwright install --with-deps chromium`. [The workflow](.github/workflows/ci.yml) also runs the separate development corpus checks with Python; see [training instructions](ml/README.md) and [independent-data workflow](docs/corpus-workflow.md).
 
-## Interface
+Recorded verification includes 59 unit/component checks and a complete 23-check production browser run, including 20 scripted offline agreement workflows. These are **software tests with synthetic fixtures**, not 20 physical SMS exchanges. Detailed run history and current evidence are in [evidence status](docs/evidence-status.md), [UI verification](docs/ui-ux-qa.md), and [deployed-origin checks](docs/deployment-checks.json).
 
-The mobile interface uses Home, Experiences and Requests navigation, explicit Details → Review steps, a state-based SMS timeline, and grouped saved requests. Adding a recipient to a saved request creates a new immutable revision. The exact SMS renderer, model, storage schema and protocol guards are preserved. See [UI/UX plan](docs/ui-ux-implementation-plan.md) and [UI verification](docs/ui-ux-qa.md). The redesign and [interactive two-phone demo](https://localrelay-test.vercel.app/demo) are deployed to the existing HTTPS test site. See [deployment checks](docs/deployment-checks.json) for current hosted evidence.
+## Results, lessons, and limitations
 
-## Training and evaluation
+| Measure | Recorded result | Interpretation |
+|---|---|---|
+| Model package | 427,800 bytes | Below the 1 MiB project budget; includes model metadata/features and weights |
+| Application build | 1,055,654 uncompressed bytes | Recorded artifact snapshot; below the 5 MiB offline budget, not a complete network-traffic estimate |
+| Python/JavaScript parity | 30 fixtures; max absolute difference approximately 2.33e-15 | Exported inference implementation agrees numerically; this does not measure language quality |
+| Warm inference | 1.2 ms p95; 50 successful desktop Chromium runs | Fixed synthetic fixture on desktop; low-end Android timing remains pending |
+| Intent macro-F1 | **0.321 learned model vs 0.729 keyword baseline** | Same grouped synthetic held-out split; learned model missed the 0.85 target |
 
-Retesting guidance is available under **Diagnostics → When to retest**, with links on Home and operator profiles. Repeat affected checks after app/message changes, new phones/carriers, or lost offline files; elapsed time alone does not require another SMS test. The guide works offline and does not record or approve physical/human evidence.
+**What worked:** the manual workflow, compact message renderer, guarded agreement states, local persistence, actual browser inference, and tested offline preparation/reopening. The builder reported a four-message Samsung Galaxy A55 ↔ Redmi Note 11 exchange over Grameenphone, agreement recording, and receipt persistence. This is a reported smartphone pilot, not independent proof of basic-phone compatibility. [Pilot observations](docs/field-observations.md).
 
-For demonstrations, [Filled review demo](https://localrelay-test.vercel.app/evaluation?review=bangla&demo=1) includes two clearly synthetic reviewers with six example answers each and a labeled demo export. It works offline, writes no human-review or outbox records, and leaves the actual form blank. You can present the demo without completing the later field studies; those gates remain open for real-world validation.
+**What did not work well:** the current AI was trained on 336 developer-authored synthetic examples and underperformed the keyword baseline. Normal supported enquiries can trigger abstention. Manual entry is therefore the recommended path; AI remains inspectable and experimental. The pilot helper understood the Bangla but found its presentation insufficiently organized. The live templates remain **unreviewed**, with no independent native-review results collected.
 
-For the next human step, open [Independent Bangla review](https://localrelay-test.vercel.app/evaluation?review=bangla). Each of two native speakers reviews six frozen items independently and downloads a pseudonymous JSON file. The exact wording, locked first interpretation and material SHA-256 are retained; exports do not approve templates or verify SMS. See [external-verification.md](docs/external-verification.md) for the short instructions.
+Next steps are independent enquiry data and unseen-author evaluation, native Bangla review, varied real basic-phone/carrier exchanges, and low-end Android and visitor/operator studies. There are no real participant-study results or measured visitor productivity gains to claim yet. [Model card](ml/model-card.md) · [Dataset card](ml/dataset-card.md) · [Remaining work](docs/remaining-work.md).
 
-New independent-data tooling: [corpus-workflow.md](docs/corpus-workflow.md) explains reviewed source labels, frozen author/family partitions, isolated candidate training, Python/JS parity and source-stratified learned/keyword evaluation. Run `npm run check:corpus` with the development Python environment for its repeatable positive/refusal checks. Candidate files stay under ignored `ml/generated/`; the deployed seed is preserved. [remaining-work.md](docs/remaining-work.md) maps unfinished evidence gates to the people/devices/data they require.
+## Data and operational boundaries
 
-See [ml/README.md](ml/README.md). Shared TypeScript features, group-isolated train/dev/test splits, development-only C/threshold tuning, genuine multinomial and six binary logistic regressions, little-endian float32 export, hash validation and Python/JS parity. The current corpus has 336 developer-authored synthetic examples; human collection and blind-author validation remain pending. Do not interpret synthetic scores as visitor performance.
+Requests, phone overrides, receipts, and opt-in study data stay in browser storage; the app does not upload them to an application backend. Hosting still receives ordinary asset requests. IndexedDB is not application-encrypted, shared-device users can access it, and SMS is not end-to-end encrypted.
 
-## Handoff
+The application does not automatically send SMS or read the inbox. Users check senders and enter replies themselves; correlation IDs are not authentication. Unsupported requirements can require direct contact, and unknown wording can escape detection. No payments, live inventory, or fulfilment guarantees are implemented. Deleting a local request does not cancel a service. Retention cleanup occurs on local reads rather than a guaranteed background timer. [Full boundaries](docs/architecture.md).
 
-- [Phase sequence and gates](docs/phase-gates.md)
-- [Architecture and boundaries](docs/architecture.md)
-- [Exact SMS protocol](docs/sms-protocol.md)
+## Team and documentation
+
+**Team Protos — Yeanul Haque Khan Akib**, solo builder; Computer Science student at BRAC University and intern at a Canadian AI product company.
+
+- [Architecture](docs/architecture.md) and [SMS protocol](docs/sms-protocol.md)
 - [Draft Bangla operator guide](docs/operator-guide-bn.md)
-- [Vercel deployment instructions](docs/deployment-vercel.md)
-- [Fair comparison/comprehension protocols](docs/evaluation-protocol.md)
-- [Model / data cards](ml/model-card.md) · [dataset](ml/dataset-card.md)
-- [External verification checklist](docs/external-verification.md)
-- [Demo script](docs/demo-script.md)
+- [Model training](ml/README.md), [model card](ml/model-card.md), and [dataset card](ml/dataset-card.md)
+- [Evaluation protocol](docs/evaluation-protocol.md) and [external verification checklist](docs/external-verification.md)
+- [Evidence status](docs/evidence-status.md) and [deployment guide](docs/deployment-vercel.md)
 
-The supplied implementation plan is preserved as LOCALRELAY_IMPLEMENTATION_PLAN.md. The implementation branch is `codex/localrelay` for review. The separate Vercel test project is deployed at https://localrelay-test.vercel.app; the user-reported Android/Grameenphone pilot is recorded separately, while formal basic-phone/carrier and human studies remain pending. Existing parent workspace files were preserved.
+Source code is available on **`main`** under the [MIT License](LICENSE).

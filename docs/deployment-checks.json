@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-10-03T23:54:26.786Z",
+  "recordedAt": "2026-10-04T00:12:03.658Z",
   "origin": "https://localrelay-test.vercel.app",
   "environment": "Desktop Playwright Chromium, fresh browser context, 360x800",
   "physicalSms": false,
@@ -181,6 +181,18 @@
     "noteAndBlockRetainedAcrossAiAndManualSwitch": true,
     "outboxRecordsBefore": 2,
     "outboxRecordsAfter": 2,
+    "physicalSms": false
+  },
+  "offlineProtocolBranches": {
+    "missingSendReportBlockedAndExplicitRecoveryAllowed": "passed",
+    "decline": "passed",
+    "staleRevisionRejected": "passed",
+    "alternativeOffer": "passed",
+    "duplicateOffer": "passed",
+    "prematureAcknowledgementBlocked": "passed",
+    "mismatchedAcknowledgementRejected": "passed",
+    "matchingAlternativeAcknowledgementAndReload": "passed",
+    "conflictingOfferStopsProgress": "passed",
     "physicalSms": false
   },
   "cspErrors": [],

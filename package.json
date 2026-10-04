@@ -15,6 +15,7 @@
     "preview": "vite preview --host 127.0.0.1",
     "test:e2e": "playwright test",
     "check:budgets": "node --import tsx scripts/check-artifact-budgets.ts",
+    "check:challenges": "node --import tsx scripts/evaluate-challenges.ts",
     "ml:features": "node --import tsx scripts/build-features.ts",
     "ml:parity": "node --import tsx scripts/check-model-parity.ts"
   },

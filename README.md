@@ -47,13 +47,14 @@ npm run typecheck
 npm run lint
 npm run test
 npm run ml:parity
+npm run check:challenges
 npm run build
 npm run check:budgets
 npx playwright install chromium
 npm run test:e2e
 ```
 
-Production Playwright tests include **20 scripted offline agreement workflows**, actual worker inference, hard reload/new-tab reopening, fail-closed cache loss, request revisions, study export, 360px/200% text layout, MIME/404/CSP checks. These are browser software tests with manually entered protocol messages, **not 20 physical SMS tests**. See actual final counts/results in [evidence-status.md](docs/evidence-status.md). `test-results/` holds local JSON reports, screenshots and failure traces (ignored). Browser tests run against `dist`, so rebuild after changing application code.
+Production Playwright tests include **20 scripted offline agreement workflows**, actual worker inference, hard reload/new-tab reopening, fail-closed cache loss, request revisions, study export, 360px/200% text layout, MIME/404/CSP checks. These are browser software tests with manually entered protocol messages, **not 20 physical SMS tests**. See actual final counts/results in [evidence-status.md](docs/evidence-status.md). An additional 32-case synthetic challenge check verifies parser/validation contracts and records model abstentions in [challenge-evaluation.json](docs/challenge-evaluation.json); it is not blind human evidence. Run `node scripts/check-deployed-origin.mjs https://localrelay-test.vercel.app` for isolated HTTPS/offline checks including allergy blocking, send-report recovery, declines, stale IDs, alternative/duplicate/conflicting offers and acknowledgement guards. These checks send no SMS. `test-results/` holds local JSON reports, screenshots and failure traces (ignored). Browser tests run against `dist`, so rebuild after changing application code.
 
 ## Training and evaluation
 

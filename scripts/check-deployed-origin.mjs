@@ -255,6 +255,112 @@ try {
     outboxRecordsAfter: beforeUnsupported,
     physicalSms: false,
   };
+  async function queueProtocolRequest() {
+    await page.goto(new URL("/request/new?mode=form", origin).href);
+    await page.getByLabel("Date", { exact: true }).fill(date);
+    await page.getByLabel("Time", { exact: true }).fill("02:56");
+    await page.getByLabel("Adults", { exact: true }).fill("2");
+    await page.getByLabel("Children (").fill("1");
+    await page.getByLabel("Vegetarian meals (").fill("1");
+    await page.getByLabel("Every guest receives").check();
+    await page.getByLabel("I verified the exact").check();
+    await page
+      .getByRole("button", { name: "Preview and queue locally" })
+      .click();
+    await expect(
+      page.getByRole("heading", { name: "Ready to send" }),
+    ).toBeVisible();
+    return (await page.locator("pre").first().innerText()).split(" ")[0];
+  }
+  async function reviewIncoming(raw) {
+    await page.getByRole("link", { name: "Enter operator reply" }).click();
+    await page.getByLabel("Exact reply").fill(raw);
+    await page.getByLabel("I checked the SMS sender").check();
+    await page
+      .getByRole("button", { name: "Validate and review reply" })
+      .click();
+  }
+  const declineId = await queueProtocolRequest();
+  await reviewIncoming(`${declineId} 2`);
+  await page.getByRole("button", { name: "Record reviewed reply" }).click();
+  await expect(page.getByRole("alert")).toContainText(
+    "Report sending the enquiry",
+  );
+  await page.getByLabel("If I omitted").check();
+  await page.getByRole("button", { name: "Record reviewed reply" }).click();
+  await expect(
+    page.getByRole("heading", { name: "Operator declined" }),
+  ).toBeVisible();
+
+  const alternativeId = await queueProtocolRequest();
+  await page.getByRole("button", { name: "I sent this enquiry" }).click();
+  await reviewIncoming(`${alternativeId.replace(/\.1$/, ".999")} 1 1500`);
+  await expect(page.getByRole("alert")).toContainText(
+    "Wrong request ID or stale revision",
+  );
+  const wireDay = `${day[2]}-${day[1]}-${day[0].slice(2)}`;
+  const alternative = `${alternativeId} 3 ${wireDay} 16:00 1600`;
+  await page.getByLabel("Exact reply").fill(alternative);
+  await page.getByRole("button", { name: "Validate and review reply" }).click();
+  await page.getByRole("button", { name: "Record reviewed reply" }).click();
+  await expect(
+    page.getByRole("heading", { name: "Offer received", exact: true }),
+  ).toBeVisible();
+  await reply(alternative);
+  await expect(
+    page.getByRole("heading", { name: "Offer received", exact: true }),
+  ).toBeVisible();
+  await page.getByRole("button", { name: "Accept offer and prepare" }).click();
+  const acceptanceUrl = page.url();
+  const matchingAck = `${alternativeId} 5 ${wireDay} 16:00 1600`;
+  await reviewIncoming(matchingAck);
+  await page.getByRole("button", { name: "Record reviewed reply" }).click();
+  await expect(page.getByRole("alert")).toContainText(
+    "Report sending acceptance",
+  );
+  await page.goto(acceptanceUrl);
+  await page.getByRole("button", { name: "I sent this acceptance" }).click();
+  await reviewIncoming(`${alternativeId} 5 ${wireDay} 16:00 1700`);
+  await page.getByRole("button", { name: "Record reviewed reply" }).click();
+  await expect(page.getByRole("alert")).toContainText(
+    "Acknowledgement terms do not match",
+  );
+  await page.getByLabel("Exact reply").fill(matchingAck);
+  await page.getByRole("button", { name: "Validate and review reply" }).click();
+  await page.getByRole("button", { name: "Record reviewed reply" }).click();
+  await expect(
+    page.getByRole("heading", { name: "Agreement recorded" }),
+  ).toBeVisible();
+  await page.reload();
+  await expect(
+    page.getByRole("heading", { name: "Agreement recorded" }),
+  ).toBeVisible();
+
+  const conflictId = await queueProtocolRequest();
+  await page.getByRole("button", { name: "I sent this enquiry" }).click();
+  await reply(`${conflictId} 1 1500`);
+  await expect(
+    page.getByRole("heading", { name: "Offer received", exact: true }),
+  ).toBeVisible();
+  await reply(`${conflictId} 1 1600`);
+  await expect(
+    page.getByRole("heading", { name: "Conflicting replies — contact operator" }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "Enter operator reply" }),
+  ).toHaveCount(0);
+  results.offlineProtocolBranches = {
+    missingSendReportBlockedAndExplicitRecoveryAllowed: "passed",
+    decline: "passed",
+    staleRevisionRejected: "passed",
+    alternativeOffer: "passed",
+    duplicateOffer: "passed",
+    prematureAcknowledgementBlocked: "passed",
+    mismatchedAcknowledgementRejected: "passed",
+    matchingAlternativeAcknowledgementAndReload: "passed",
+    conflictingOfferStopsProgress: "passed",
+    physicalSms: false,
+  };
   results.cspErrors = cspErrors;
   results.pageErrors = pageErrors;
   results.externalOrPayloadRequests = inputNetwork;

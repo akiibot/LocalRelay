@@ -10,6 +10,24 @@ async function prepared(page: Page) {
     page.getByText("Ready for offline use", { exact: true }),
   ).toBeVisible({ timeout: 20000 });
 }
+async function details(
+  page: Page,
+  day = nextDate(),
+  time = "15:00",
+  children = "1",
+  meals = "1",
+) {
+  await page.getByLabel("Date", { exact: true }).fill(day);
+  await page.getByLabel("Time", { exact: true }).fill(time);
+  await page.getByLabel("Adults", { exact: true }).fill("2");
+  await page.getByLabel("Children (").fill(children);
+  await page.getByLabel("Vegetarian meals (").fill(meals);
+}
+async function reviewAndConfirm(page: Page) {
+  await page.getByRole("button", { name: "Review request" }).click();
+  await page.getByLabel("Every guest receives").check();
+  await page.getByLabel("I verified the exact").check();
+}
 async function card(page: Page, mode = "form") {
   await page.goto("/request/new" + (mode === "form" ? "?mode=form" : ""));
   if (mode === "ai") {
@@ -20,22 +38,21 @@ async function card(page: Page, mode = "form") {
       );
     await page.getByRole("button", { name: "Analyze enquiry" }).click();
     await expect(
-      page.getByText("Review and confirm every field"),
+      page.getByRole("heading", { name: "Visit details", exact: true }),
     ).toBeVisible();
   }
-  await page.getByLabel("Date", { exact: true }).fill(nextDate());
-  await page.getByLabel("Time", { exact: true }).fill("15:00");
-  await page.getByLabel("Adults", { exact: true }).fill("2");
-  await page.getByLabel("Children (").fill("1");
-  await page.getByLabel("Vegetarian meals (").fill("1");
-  await page.getByLabel("Every guest receives").check();
-  await page.getByLabel("I verified the exact").check();
+  await details(page);
+  await reviewAndConfirm(page);
 }
 async function reply(page: Page, raw: string) {
-  await page.getByRole("link", { name: "Enter operator reply" }).click();
-  await page.getByLabel("Exact reply").fill(raw);
+  await page
+    .getByRole("link", {
+      name: /^Record (?:another )?(?:operator reply|acknowledgement)$/,
+    })
+    .click();
+  await page.getByLabel("Exact SMS reply").fill(raw);
   await page.getByLabel("I checked the SMS sender").check();
-  await page.getByRole("button", { name: "Validate and review reply" }).click();
+  await page.getByRole("button", { name: "Review reply" }).click();
   await page.getByRole("button", { name: "Record reviewed reply" }).click();
 }
 test("20 offline scripted production runs: local model, queue, reload and full agreement", async ({
@@ -59,7 +76,7 @@ test("20 offline scripted production runs: local model, queue, reload and full a
   for (let i = 0; i < 20; i++) {
     await card(page, i % 2 === 0 ? "ai" : "form");
     await page
-      .getByRole("button", { name: "Preview and queue locally" })
+      .getByRole("button", { name: "Save request on this device" })
       .click();
     await expect(
       page.getByRole("heading", { name: "Ready to send" }),
@@ -99,25 +116,29 @@ test("20 offline scripted production runs: local model, queue, reload and full a
 test("unsupported requirements block both entry modes", async ({ page }) => {
   await prepared(page);
   await page.goto("/request/new?mode=form");
+  await details(page);
   await page
     .getByLabel("Original enquiry / additional requirements")
     .fill("My child has a severe peanut allergy");
+  await reviewAndConfirm(page);
   await expect(
     page.getByText("Direct contact required", { exact: true }),
   ).toBeVisible();
-  await page.getByLabel("I verified the exact").check();
-  await page.getByLabel("Every guest receives").check();
   await expect(
-    page.getByRole("button", { name: "Preview and queue locally" }),
+    page.getByRole("button", { name: "Save request on this device" }),
   ).toBeDisabled();
   await page.goto("/request/new");
   await page
     .getByLabel("English enquiry")
     .fill("Next Saturday afternoon, maybe three or four people.");
   await page.getByRole("button", { name: "Analyze enquiry" }).click();
-  await expect(page.getByText("Review and confirm every field")).toBeVisible();
   await expect(
-    page.getByRole("button", { name: "Preview and queue locally" }),
+    page.getByRole("heading", { name: "Visit details", exact: true }),
+  ).toBeVisible();
+  await details(page);
+  await reviewAndConfirm(page);
+  await expect(
+    page.getByRole("button", { name: "Save request on this device" }),
   ).toBeDisabled();
 });
 test("no configured number disables composer; invalid replies cannot progress", async ({
@@ -125,16 +146,18 @@ test("no configured number disables composer; invalid replies cannot progress", 
 }) => {
   await prepared(page);
   await card(page);
-  await page.getByRole("button", { name: "Preview and queue locally" }).click();
+  await page
+    .getByRole("button", { name: "Save request on this device" })
+    .click();
   await expect(
     page.getByRole("button", { name: "Open SMS app" }),
   ).toBeDisabled();
   const id = (await page.locator("pre").first().innerText()).split(" ")[0];
   await page.getByRole("button", { name: "I sent this enquiry" }).click();
-  await page.getByRole("link", { name: "Enter operator reply" }).click();
-  await page.getByLabel("Exact reply").fill(`${id} 1 -1500`);
+  await page.getByRole("link", { name: "Record operator reply" }).click();
+  await page.getByLabel("Exact SMS reply").fill(`${id} 1 -1500`);
   await page.getByLabel("I checked the SMS sender").check();
-  await page.getByRole("button", { name: "Validate and review reply" }).click();
+  await page.getByRole("button", { name: "Review reply" }).click();
   await expect(page.getByRole("alert")).toContainText("positive integer");
   await expect(
     page.getByRole("button", { name: "Record reviewed reply" }),
@@ -179,9 +202,12 @@ test("consented local study grades shared workflow and exports no raw text/phone
   await page.getByLabel("Adults", { exact: true }).fill("2");
   await page.getByLabel("Children (").fill("0");
   await page.getByLabel("Vegetarian meals (").fill("0");
+  await page.getByRole("button", { name: "Review request" }).click();
   await page.getByLabel("Every guest receives").check();
   await page.getByLabel("I verified the exact").check();
-  await page.getByRole("button", { name: "Preview and queue locally" }).click();
+  await page
+    .getByRole("button", { name: "Save request on this device" })
+    .click();
   await expect(
     page.getByRole("heading", { name: "Ready to send" }),
   ).toBeVisible();
@@ -244,15 +270,19 @@ test("real worker uncertainty allows safe offline manual fallback and ISO date e
   await expect(page.getByLabel("Adults", { exact: true })).toHaveValue("2");
   await expect(page.getByLabel("Children (")).toHaveValue("1");
   await expect(page.getByLabel("Vegetarian meals (")).toHaveValue("1");
+  await page.getByRole("button", { name: "Review request" }).click();
   await page.getByLabel("Every guest receives").check();
   await page.getByLabel("I verified the exact").check();
   await expect(
-    page.getByRole("button", { name: "Preview and queue locally" }),
+    page.getByRole("button", { name: "Save request on this device" }),
   ).toBeDisabled();
+  await page.getByRole("button", { name: "Edit details" }).click();
   await page.getByRole("button", { name: "Use a form instead" }).click();
   await expect(page.getByLabel("Original enquiry")).toHaveValue(text);
-  await page.getByLabel("I verified the exact").check();
-  await page.getByRole("button", { name: "Preview and queue locally" }).click();
+  await reviewAndConfirm(page);
+  await page
+    .getByRole("button", { name: "Save request on this device" })
+    .click();
   await expect(
     page.getByRole("heading", { name: "Ready to send" }),
   ).toBeVisible();
@@ -266,20 +296,28 @@ test("revision atomically supersedes old ID, snapshots stay immutable", async ({
 }) => {
   await prepared(page);
   await card(page);
-  await page.getByRole("button", { name: "Preview and queue locally" }).click();
+  await page
+    .getByRole("button", { name: "Save request on this device" })
+    .click();
   await expect(
     page.getByRole("heading", { name: "Ready to send" }),
   ).toBeVisible();
   const oldUrl = page.url();
   const oldBody = await page.locator("pre").first().innerText();
+  await page
+    .getByText("Receipt, revisions & local data", { exact: true })
+    .click();
   await page.getByRole("button", { name: "Edit as a new revision" }).click();
   await expect(
-    page.getByText(/Editing .* Queueing creates revision/),
+    page.getByText(/Editing .* Saving creates revision/),
   ).toBeVisible();
   await page.getByLabel("Adults", { exact: true }).fill("3");
+  await page.getByRole("button", { name: "Review request" }).click();
   await page.getByLabel("Every guest receives").check();
   await page.getByLabel("I verified the exact").check();
-  await page.getByRole("button", { name: "Preview and queue locally" }).click();
+  await page
+    .getByRole("button", { name: "Save request on this device" })
+    .click();
   await expect(
     page.getByRole("heading", { name: "Ready to send" }),
   ).toBeVisible();
@@ -347,7 +385,9 @@ test("keyboard skip link moves focus to content and queue is keyboard operable",
   await page.keyboard.press("Enter");
   await expect(page.locator("#main")).toBeFocused();
   await card(page);
-  const queue = page.getByRole("button", { name: "Preview and queue locally" });
+  const queue = page.getByRole("button", {
+    name: "Save request on this device",
+  });
   await page.getByLabel("I verified the exact").focus();
   for (let i = 0; i < 4; i++) {
     await page.keyboard.press("Tab");
@@ -366,7 +406,9 @@ test("service-worker update waits for home and keeps existing request snapshot",
   const { readFile, writeFile } = await import("node:fs/promises");
   await prepared(page);
   await card(page);
-  await page.getByRole("button", { name: "Preview and queue locally" }).click();
+  await page
+    .getByRole("button", { name: "Save request on this device" })
+    .click();
   await expect(
     page.getByRole("heading", { name: "Ready to send" }),
   ).toBeVisible();

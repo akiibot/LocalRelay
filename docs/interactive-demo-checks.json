@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-04",
+  "route": "/demo",
+  "localPreview": "http://127.0.0.1:4173/demo",
+  "deployed": false,
+  "environment": "Local production Vite PWA; desktop Chromium with emulated viewports",
+  "scenarios": [
+    "Standard offer: 15:00, 1500 BDT",
+    "Alternative offer: 16:00, 1600 BDT",
+    "Decline: exchange stops without agreement"
+  ],
+  "implementation": {
+    "realLocalAiWorker": true,
+    "ruleFieldExtraction": true,
+    "realRendererParserAndStateGuards": true,
+    "explicitPresetFallback": true,
+    "simulatorProvenance": true,
+    "stateInMemory": true,
+    "typingRequired": false,
+    "nativeSmsComposerOpened": false,
+    "realSmsSent": false,
+    "realRequestsSaved": false,
+    "demoClicksCountAsStudyTaps": false,
+    "offlineRoute": true,
+    "reducedMotion": true,
+    "restartInvalidatesPendingAi": true
+  },
+  "checks": {
+    "typecheck": "passed",
+    "lint": "passed",
+    "formatting": "passed",
+    "build": "passed",
+    "budgets": "passed",
+    "unitComponent": {
+      "passed": 59,
+      "failed": 0,
+      "files": 8
+    },
+    "fullProductionBrowserSuite": {
+      "passed": 23,
+      "failed": 0,
+      "newDemoChecks": 4
+    },
+    "scriptedRealAppOfflineAgreements": 20,
+    "widths": [
+      320,
+      360,
+      390,
+      412,
+      768,
+      1440
+    ],
+    "textScalesPercent": [
+      100,
+      200
+    ],
+    "keyboard": "passed"
+  },
+  "budgets": {
+    "modelBytes": 427800,
+    "uncompressedBytes": 1055654,
+    "gzipEstimateBytes": 361934,
+    "modelBudget": 1048576,
+    "offlineBudget": 5242880,
+    "note": "gzip estimate sums per-file gzip sizes; actual network transfer depends on host encoding."
+  },
+  "limitations": [
+    "No physical carrier SMS, handset or human usability study performed.",
+    "AI accuracy target remains unmet; demo exposes actual scores and explicit manual fallback.",
+    "Bangla templates remain draft and unreviewed.",
+    "Demo state resets on refresh or restart."
+  ],
+  "localArtifacts": "ml/generated/interactive-demo/ (ignored): full-suite-results.json and screenshots"
+}

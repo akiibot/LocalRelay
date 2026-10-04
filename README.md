@@ -4,7 +4,7 @@
 
 Standalone React/TypeScript/Vite PWA, prepared for Vercel. English visitor input → explicitly reviewed bounded fields → draft Bangla SMS → strict offer/acceptance/acknowledgement protocol. The trained classical Small AI runs in a Web Worker on the visitor’s smartphone. No inference server, SMS gateway, hosted translator, account or booking database.
 
-**Status: executable development/pilot candidate, not field-validated.** Bangla templates are unreviewed. Synthetic intent macro-F1 is **0.321**, below the 0.85 target; keyword baseline is **0.729** on the same grouped test split. AI is optional/experimental; use the manual form as the pilot default. No hardware/human results exist. HTTPS test deployment: [localrelay-test.vercel.app](https://localrelay-test.vercel.app), verified in desktop Chromium; see [deployment checks](docs/deployment-checks.json). See [evidence checklist](docs/evidence-status.md) and [model card](ml/model-card.md).
+**Status: executable development/pilot candidate, not field-validated.** Bangla templates are unreviewed. Synthetic intent macro-F1 is **0.321**, below the 0.85 target; keyword baseline is **0.729** on the same grouped test split. AI is optional/experimental; use the manual form as the pilot default. A user-reported Android/Grameenphone SMS pilot exists; formal hardware and human studies remain incomplete. HTTPS test deployment: [localrelay-test.vercel.app](https://localrelay-test.vercel.app), verified in desktop Chromium; see [deployment checks](docs/deployment-checks.json). See [evidence checklist](docs/evidence-status.md) and [model card](ml/model-card.md).
 
 ## Run
 
@@ -31,12 +31,13 @@ node scripts/serve-production.mjs
 
 1. Open `/`, wait for **Ready for offline use** (checks service-worker control, actual cached asset sizes/hashes and model compatibility).
 2. `/operators` → demo profile. Every committed phone is null. Optionally enter an owner-consented test number locally; no real message is sent by the application itself.
-3. Choose `/request/new?mode=form` for the recommended baseline. Enter a future Dhaka date/time, adults, children and vegetarian count explicitly. Verify standard meals and completeness. Unsupported requirements block queueing.
-4. Review the live Bangla preview, then queue the immutable snapshot. Reopen `/outbox` or reload its record.
+3. Choose `/request/new?mode=form` for the recommended baseline. Enter a future Dhaka date/time, adults, children and vegetarian count explicitly, then select **Review request**. Optional requirements are checked locally; unsupported requirements cannot be confirmed away.
+4. Review the English details, recipient and exact Bangla preview. Confirm standard meals and completeness, then **Save request on this device**. This creates an immutable snapshot; it does not send SMS. Reopen it from **Requests** (`/outbox`) or reload its record.
 5. Open the native SMS composer or copy text/number. A cancelled composer leaves only “opened”; **I sent this** records a user report, never a carrier delivery receipt.
-6. In `/reply/:id`, check the sender in your SMS app, enter and review the strict offer. Accepting prepares an acceptance SMS. Send that back and record sending. Only a matching operator acknowledgement records agreement.
-7. Use `/simulate` for an isolated in-memory protocol demonstration. It does not write into the real outbox or transmit SMS.
-8. `/diagnostics` verifies the trained package, runs local timings and exposes score diagnostics. `/evaluation` provides consented local timing, counterbalanced assignment, scoring and deidentified export.
+6. Select **Record operator reply** (`/reply/:id`), check the sender in your SMS app, enter and review the strict offer. Accepting prepares an acceptance SMS. Send that back and record sending. Only a matching operator acknowledgement records agreement.
+7. Open `/demo` (also linked from Home) for the click-only two-phone demonstration. Choose a standard offer, different time, or decline. Run the actual local AI or choose a preset manual form, then review, send the simulated enquiry, receive an offer, accept and record matching acknowledgement. No typing, real SMS or outbox writes; state resets on reload. It works offline once application files are prepared.
+8. Use `/simulate` for the technical in-memory protocol sandbox with editable reply text.
+9. `/diagnostics` verifies the trained package, runs local timings and exposes score diagnostics. `/evaluation` provides consented local timing, counterbalanced assignment, scoring and deidentified export.
 
 Enquiry text, phone numbers and quotes never appear in route parameters. A route ID is local to one browser origin/device. Receipts can be exported; deletion never cancels a service. Unsent/expired data is deleted on an app read seven days after expiry; completed receipts after 30 days. Shared-device users can access IndexedDB; SMS is not end-to-end encrypted.
 
@@ -56,6 +57,10 @@ npm run test:e2e
 ```
 
 Production Playwright tests include **20 scripted offline agreement workflows**, actual worker inference, hard reload/new-tab reopening, fail-closed cache loss, request revisions, study export, 360px/200% text layout, MIME/404/CSP checks. These are browser software tests with manually entered protocol messages, **not 20 physical SMS tests**. See actual final counts/results in [evidence-status.md](docs/evidence-status.md). An additional 32-case synthetic challenge check verifies parser/validation contracts and records model abstentions in [challenge-evaluation.json](docs/challenge-evaluation.json); it is not blind human evidence. Run `node scripts/check-deployed-origin.mjs https://localrelay-test.vercel.app` for isolated HTTPS/offline checks including allergy blocking, send-report recovery, declines, stale IDs, alternative/duplicate/conflicting offers and acknowledgement guards. These checks send no SMS. `test-results/` holds local JSON reports, screenshots and failure traces (ignored). Browser tests run against `dist`, so rebuild after changing application code.
+
+## Interface
+
+The mobile interface uses Home, Experiences and Requests navigation, explicit Details → Review steps, a state-based SMS timeline, and grouped saved requests. Adding a recipient to a saved request creates a new immutable revision. The exact SMS renderer, model, storage schema and protocol guards are preserved. See [UI/UX plan](docs/ui-ux-implementation-plan.md) and [UI verification](docs/ui-ux-qa.md). The redesign is verified locally; the hosted test site is a separate deployment.
 
 ## Training and evaluation
 

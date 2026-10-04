@@ -40,7 +40,7 @@ export default defineConfig({
           /^\/request\/[^/]+$/,
           /^\/reply\/[^/]+$/,
           /^\/evaluation(?:\?.*)?$/,
-          /^\/(?:outbox|diagnostics|simulate)$/,
+          /^\/(?:outbox|diagnostics|simulate|demo)$/,
         ],
         cleanupOutdatedCaches: true,
         skipWaiting: false,

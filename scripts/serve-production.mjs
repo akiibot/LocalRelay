@@ -4,7 +4,7 @@ import { resolve, extname } from "node:path";
 const root = resolve("dist");
 const config = JSON.parse(await readFile("vercel.json", "utf8"));
 const routes =
-  /^\/(?:$|operators(?:\/[^/]+)?$|request\/[^/]+$|reply\/[^/]+$|outbox$|evaluation$|diagnostics$|simulate$)/;
+  /^\/(?:$|operators(?:\/[^/]+)?$|request\/[^/]+$|reply\/[^/]+$|outbox$|evaluation$|diagnostics$|simulate$|demo$)/;
 const types = {
   ".html": "text/html; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",

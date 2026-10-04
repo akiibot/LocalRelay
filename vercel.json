@@ -12,7 +12,8 @@
     { "source": "/reply/:requestId", "destination": "/index.html" },
     { "source": "/evaluation", "destination": "/index.html" },
     { "source": "/diagnostics", "destination": "/index.html" },
-    { "source": "/simulate", "destination": "/index.html" }
+    { "source": "/simulate", "destination": "/index.html" },
+    { "source": "/demo", "destination": "/index.html" }
   ],
   "headers": [
     {

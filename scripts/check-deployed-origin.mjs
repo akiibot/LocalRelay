@@ -26,6 +26,7 @@ const routes = [
   "/evaluation",
   "/diagnostics",
   "/simulate",
+  "/demo",
 ];
 results.routes = await Promise.all(
   routes.map(async (path) => {
@@ -210,6 +211,10 @@ try {
     page.getByText("Ready for offline use", { exact: true }),
   ).toBeVisible({ timeout: 20000 });
   results.offlineReload = "passed";
+  await page
+    .locator("summary")
+    .filter({ hasText: /^When to retest$/ })
+    .click();
   await page.getByRole("link", { name: "When to retest", exact: true }).click();
   await expect(
     page.getByRole("heading", { name: "When to retest", exact: true }),
@@ -258,16 +263,23 @@ try {
       `Please tell me the total fee. Two adults and one child on ${date} at 3 pm. One vegetarian meal.`,
     );
   await page.getByRole("button", { name: "Analyze enquiry" }).click();
-  await expect(page.getByText("Review and confirm every field")).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Visit details", exact: true }),
+  ).toBeVisible();
   results.offlineLocalAi = "passed";
   await page.getByLabel("Date", { exact: true }).fill(date);
   await page.getByLabel("Time", { exact: true }).fill("15:00");
   await page.getByLabel("Adults", { exact: true }).fill("2");
   await page.getByLabel("Children (").fill("1");
   await page.getByLabel("Vegetarian meals (").fill("1");
+  await page
+    .getByRole("button", { name: "Review request", exact: true })
+    .click();
   await page.getByLabel("Every guest receives").check();
   await page.getByLabel("I verified the exact").check();
-  await page.getByRole("button", { name: "Preview and queue locally" }).click();
+  await page
+    .getByRole("button", { name: "Save request on this device" })
+    .click();
   await expect(
     page.getByRole("heading", { name: "Ready to send" }),
   ).toBeVisible();
@@ -278,12 +290,14 @@ try {
   ).toBeVisible();
   await page.getByRole("button", { name: "I sent this enquiry" }).click();
   async function reply(raw) {
-    await page.getByRole("link", { name: "Enter operator reply" }).click();
-    await page.getByLabel("Exact reply").fill(raw);
-    await page.getByLabel("I checked the SMS sender").check();
     await page
-      .getByRole("button", { name: "Validate and review reply" })
+      .getByRole("link", {
+        name: /^Record (?:another )?(?:operator reply|acknowledgement)$/,
+      })
       .click();
+    await page.getByLabel("Exact SMS reply").fill(raw);
+    await page.getByLabel("I checked the SMS sender").check();
+    await page.getByRole("button", { name: "Review reply" }).click();
     await page.getByRole("button", { name: "Record reviewed reply" }).click();
   }
   await reply(`${id} 1 1500`);
@@ -313,22 +327,30 @@ try {
   await expect(page.getByLabel("Adults", { exact: true })).toHaveValue("2");
   await expect(page.getByLabel("Children (")).toHaveValue("1");
   await expect(page.getByLabel("Vegetarian meals (")).toHaveValue("1");
+  await page
+    .getByRole("button", { name: "Review request", exact: true })
+    .click();
   await page.getByLabel("Every guest receives").check();
   await page.getByLabel("I verified the exact").check();
   await expect(
-    page.getByRole("button", { name: "Preview and queue locally" }),
+    page.getByRole("button", { name: "Save request on this device" }),
   ).toBeDisabled();
+  await page.getByRole("button", { name: "Edit details" }).click();
   await page.getByRole("button", { name: "Use a form instead" }).click();
   await expect(page.getByLabel("Original enquiry")).toHaveValue(uncertainText);
+  await page
+    .getByRole("button", { name: "Review request", exact: true })
+    .click();
+  await page.getByLabel("Every guest receives").check();
   await page.getByLabel("I verified the exact").check();
-  await page.getByRole("button", { name: "Preview and queue locally" }).click();
+  await page
+    .getByRole("button", { name: "Save request on this device" })
+    .click();
   await expect(
     page.getByRole("heading", { name: "Ready to send" }),
   ).toBeVisible();
   results.offlineUncertainRoutingManualFallback = "passed";
-  const storedRequestLinks = second.locator(
-    'a[href^="/request/"]:not([href^="/request/new"])',
-  );
+  const storedRequestLinks = second.locator(".request-card");
   await second.reload();
   const beforeUnsupported = await storedRequestLinks.count();
   expect(beforeUnsupported).toBe(2);
@@ -338,14 +360,22 @@ try {
   await page.getByLabel("Adults", { exact: true }).fill("2");
   await page.getByLabel("Children (").fill("1");
   await page.getByLabel("Vegetarian meals (").fill("1");
+  await page
+    .getByRole("button", { name: "Review request", exact: true })
+    .click();
   await page.getByLabel("Every guest receives").check();
   await page.getByLabel("I verified the exact").check();
   const queueButton = page.getByRole("button", {
-    name: "Preview and queue locally",
+    name: "Save request on this device",
   });
   await expect(queueButton).toBeEnabled();
   const allergyText = "One guest has a peanut allergy.";
+  await page.getByRole("button", { name: "Edit details" }).click();
   await page.getByLabel("Original enquiry").fill(allergyText);
+  await page
+    .getByRole("button", { name: "Review request", exact: true })
+    .click();
+  await page.getByLabel("Every guest receives").check();
   await expect(
     page.getByText("Direct contact required", { exact: true }),
   ).toBeVisible();
@@ -357,10 +387,16 @@ try {
   await page.getByLabel("I verified the exact").check();
   await expect(queueButton).toBeDisabled();
   // Neither switching entry modes nor explicit confirmation may erase the note/block.
+  await page.getByRole("button", { name: "Edit details" }).click();
+  await page
+    .getByText("Try English entry · Experimental", { exact: true })
+    .click();
   await page.getByRole("button", { name: "Use English free text" }).click();
   await expect(page.getByLabel("English enquiry")).toHaveValue(allergyText);
   await page.getByRole("button", { name: "Analyze enquiry" }).click();
-  await expect(page.getByText("Review and confirm every field")).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Visit details", exact: true }),
+  ).toBeVisible();
   await page.getByRole("button", { name: "Use a form instead" }).click();
   await expect(page.getByLabel("Original enquiry")).toHaveValue(allergyText);
   await page.getByLabel("Date", { exact: true }).fill(date);
@@ -368,6 +404,9 @@ try {
   await page.getByLabel("Adults", { exact: true }).fill("2");
   await page.getByLabel("Children (").fill("1");
   await page.getByLabel("Vegetarian meals (").fill("1");
+  await page
+    .getByRole("button", { name: "Review request", exact: true })
+    .click();
   await page.getByLabel("Every guest receives").check();
   await page.getByLabel("I verified the exact").check();
   await expect(queueButton).toBeDisabled();
@@ -393,10 +432,13 @@ try {
     await page.getByLabel("Adults", { exact: true }).fill("2");
     await page.getByLabel("Children (").fill("1");
     await page.getByLabel("Vegetarian meals (").fill("1");
+    await page
+      .getByRole("button", { name: "Review request", exact: true })
+      .click();
     await page.getByLabel("Every guest receives").check();
     await page.getByLabel("I verified the exact").check();
     await page
-      .getByRole("button", { name: "Preview and queue locally" })
+      .getByRole("button", { name: "Save request on this device" })
       .click();
     await expect(
       page.getByRole("heading", { name: "Ready to send" }),
@@ -404,12 +446,14 @@ try {
     return (await page.locator("pre").first().innerText()).split(" ")[0];
   }
   async function reviewIncoming(raw) {
-    await page.getByRole("link", { name: "Enter operator reply" }).click();
-    await page.getByLabel("Exact reply").fill(raw);
-    await page.getByLabel("I checked the SMS sender").check();
     await page
-      .getByRole("button", { name: "Validate and review reply" })
+      .getByRole("link", {
+        name: /^Record (?:another )?(?:operator reply|acknowledgement)$/,
+      })
       .click();
+    await page.getByLabel("Exact SMS reply").fill(raw);
+    await page.getByLabel("I checked the SMS sender").check();
+    await page.getByRole("button", { name: "Review reply" }).click();
   }
   const declineId = await queueProtocolRequest();
   await reviewIncoming(`${declineId} 2`);
@@ -417,7 +461,11 @@ try {
   await expect(page.getByRole("alert")).toContainText(
     "Report sending the enquiry",
   );
+  await page
+    .getByText("Forgot to record that you sent it?", { exact: true })
+    .click();
   await page.getByLabel("If I omitted").check();
+  await page.getByRole("button", { name: "Review reply", exact: true }).click();
   await page.getByRole("button", { name: "Record reviewed reply" }).click();
   await expect(
     page.getByRole("heading", { name: "Operator declined" }),
@@ -431,8 +479,8 @@ try {
   );
   const wireDay = `${day[2]}-${day[1]}-${day[0].slice(2)}`;
   const alternative = `${alternativeId} 3 ${wireDay} 16:00 1600`;
-  await page.getByLabel("Exact reply").fill(alternative);
-  await page.getByRole("button", { name: "Validate and review reply" }).click();
+  await page.getByLabel("Exact SMS reply").fill(alternative);
+  await page.getByRole("button", { name: "Review reply" }).click();
   await page.getByRole("button", { name: "Record reviewed reply" }).click();
   await expect(
     page.getByRole("heading", { name: "Offer received", exact: true }),
@@ -456,8 +504,8 @@ try {
   await expect(page.getByRole("alert")).toContainText(
     "Acknowledgement terms do not match",
   );
-  await page.getByLabel("Exact reply").fill(matchingAck);
-  await page.getByRole("button", { name: "Validate and review reply" }).click();
+  await page.getByLabel("Exact SMS reply").fill(matchingAck);
+  await page.getByRole("button", { name: "Review reply" }).click();
   await page.getByRole("button", { name: "Record reviewed reply" }).click();
   await expect(
     page.getByRole("heading", { name: "Agreement recorded" }),
@@ -480,7 +528,9 @@ try {
     }),
   ).toBeVisible();
   await expect(
-    page.getByRole("link", { name: "Enter operator reply" }),
+    page.getByRole("link", {
+      name: /^Record (?:another )?(?:operator reply|acknowledgement)$/,
+    }),
   ).toHaveCount(0);
   results.offlineProtocolBranches = {
     missingSendReportBlockedAndExplicitRecoveryAllowed: "passed",

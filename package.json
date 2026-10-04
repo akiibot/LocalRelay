@@ -16,6 +16,11 @@
     "test:e2e": "playwright test",
     "check:budgets": "node --import tsx scripts/check-artifact-budgets.ts",
     "check:challenges": "node --import tsx scripts/evaluate-challenges.ts",
+    "check:sms": "node --import tsx scripts/check-sms-matrix.ts",
+    "check:corpus": "node scripts/check-corpus-pipeline.mjs",
+    "corpus:prepare": "node --import tsx scripts/prepare-corpus.ts",
+    "corpus:evaluate": "node --import tsx scripts/evaluate-corpus.ts",
+    "corpus:parity": "node --import tsx scripts/check-candidate-parity.ts",
     "ml:features": "node --import tsx scripts/build-features.ts",
     "ml:parity": "node --import tsx scripts/check-model-parity.ts"
   },

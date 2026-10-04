@@ -33,3 +33,7 @@ Physical Android install/reopen, native SMS and human evidence remain pending. U
 Deployed dpl_4ueW97wMKmJjSNuLkq6jAszGheJq to the same https://localrelay-test.vercel.app alias after 36 unit/component and 11 production-browser tests passed. ISO dates no longer erase count/time candidates; low-confidence AI queueing stays blocked while explicit manual fallback retains original text and all unsupported requirement flags. Model coefficients/thresholds and saved agreement snapshots are unchanged. The deployed-origin checker now includes this actual-worker offline fallback regression.
 
 For existing installed clients: reconnect, return Home, wait for the update notice, choose **Activate update and reload**, then wait for Ready for offline use before disconnecting again. Copy any unsaved enquiry text first; previously saved requests remain in IndexedDB. Actual phone retest is pending.
+
+## Keyboard accessibility and tooling update — 4 October 2026
+
+Deployed dpl_GXuayATb9u488HnzkdJCPFY6TZnG to the same test alias. The runtime change makes Skip to content focus the main region; source worker/model/template bytes remain frozen. The actual Vercel install/build passed and emitted the same production asset hashes as the local verified build. Added candidate-model/data tooling runs during development/CI only; no Python service or inference backend is introduced. Results of the fresh HTTPS/offline check are in deployment-checks.json.

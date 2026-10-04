@@ -1,0 +1,73 @@
+{
+  "recordedAt": "2026-10-04T00:23:36.018Z",
+  "passed": true,
+  "checks": [
+    {
+      "name": "group-isolated seed preparation",
+      "passed": true
+    },
+    {
+      "name": "isolated candidate training",
+      "passed": true
+    },
+    {
+      "name": "actual Python/JavaScript candidate parity",
+      "passed": true
+    },
+    {
+      "name": "source strata and unannotated denominators retained",
+      "passed": true
+    },
+    {
+      "name": "prepared candidate cannot be overwritten",
+      "passed": true
+    },
+    {
+      "name": "trained candidate cannot be overwritten",
+      "passed": true
+    },
+    {
+      "name": "frozen evaluation cannot be overwritten",
+      "passed": true
+    },
+    {
+      "name": "public artifact destination refused",
+      "passed": true
+    },
+    {
+      "name": "author leakage refused",
+      "passed": true
+    },
+    {
+      "name": "changed evaluation dataset refused",
+      "passed": true
+    },
+    {
+      "name": "changed parity dataset refused",
+      "passed": true
+    },
+    {
+      "name": "modified feature bytes refused before fitting",
+      "passed": true
+    }
+  ],
+  "provenance": "Existing 336-record synthetic seed only; no new human or real data and no published model change.",
+  "frozenModelSha256": "726dbe51da956c3f33076e0dfe36c7414c3fe1bb41b262ad7e078cb1ba4aa905",
+  "candidateModelSha256": "726dbe51da956c3f33076e0dfe36c7414c3fe1bb41b262ad7e078cb1ba4aa905",
+  "candidateReproducedFrozenWeights": true,
+  "parity": {
+    "modelVersion": "candidate-v1-726dbe51da95",
+    "fixtureCount": 30,
+    "maxAbsoluteDifference": 2.3314683517128287e-15,
+    "tolerance": 0.0001,
+    "passed": true
+  },
+  "sourceCounts": {
+    "synthetic": 56,
+    "human_authored": 0,
+    "consented_real": 0
+  },
+  "learnedMacroF1": 0.3208228905597327,
+  "keywordMacroF1": 0.728917021353996,
+  "note": "CLI/tooling verification, not a passed AI quality release gate. Generated feature/candidate files stay ignored locally."
+}

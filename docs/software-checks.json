@@ -7,12 +7,12 @@
   "typecheck": "passed",
   "lint": "passed",
   "unitComponentTests": {
-    "passed": 36,
+    "passed": 42,
     "failed": 0,
-    "files": 4
+    "files": 5
   },
   "productionBrowserTests": {
-    "passed": 11,
+    "passed": 12,
     "failed": 0,
     "offlineAgreementRuns": 20
   },
@@ -29,12 +29,57 @@
   "retrainingReproducedSha256": "726dbe51da956c3f33076e0dfe36c7414c3fe1bb41b262ad7e078cb1ba4aa905",
   "budgets": {
     "modelBytes": 427800,
-    "uncompressedBytes": 974968,
-    "gzipEstimateBytes": 341267,
+    "uncompressedBytes": 974980,
+    "gzipEstimateBytes": 341277,
     "modelBudget": 1048576,
     "offlineBudget": 5242880,
     "note": "gzip estimate sums per-file gzip sizes; actual network transfer depends on host encoding."
   },
   "externalEvidence": "Deployed HTTPS origin verified in desktop Chromium. User-reported Galaxy A55/Redmi Note 11 Grameenphone pilot recorded separately; basic-phone route, formal SMS logs, native review and human studies pending.",
-  "routingRegression": "ISO date preserves count/time candidates; uncertain AI requires explicit manual fallback; lexical and learned unsupported flags stay blocking. Model coefficients and thresholds unchanged."
+  "routingRegression": "ISO date preserves count/time candidates; uncertain AI requires explicit manual fallback; lexical and learned unsupported flags stay blocking. Model coefficients and thresholds unchanged.",
+  "recordedAt": "2026-10-04T00:27:43.614073+00:00",
+  "smsMatrix": {
+    "recordedAt": "2026-10-04T00:21:30.576Z",
+    "templateVersion": "bn-draft-1",
+    "revisions": [
+      1,
+      9,
+      10,
+      99,
+      100,
+      999
+    ],
+    "profiles": [
+      {
+        "profile": "demo-craft",
+        "cases": 4368,
+        "maxUnits": 57,
+        "warnings": 0
+      },
+      {
+        "profile": "demo-weaving",
+        "cases": 216,
+        "maxUnits": 46,
+        "warnings": 0
+      }
+    ],
+    "totalCases": 4584,
+    "passed": true,
+    "note": "Exhaustive supported count combinations for bundled demo profiles at sampled revision digit lengths. Software encoding estimate only; no physical segmentation, rendering or carrier evidence."
+  },
+  "corpusTools": {
+    "checks": 12,
+    "passed": true,
+    "independentHumanData": 0,
+    "deployedModelChanged": false
+  },
+  "keyboard": "Skip-to-content focus and keyboard queue activation passed in production Chromium.",
+  "hostedVerification": {
+    "deployment": "dpl_GXuayATb9u488HnzkdJCPFY6TZnG",
+    "passed": true,
+    "encodedStaticPayloadBytes": 370846,
+    "decodedStaticPayloadBytes": 974980,
+    "files": 16,
+    "note": "Each static response body once; not total browser install traffic or a handset observation."
+  }
 }

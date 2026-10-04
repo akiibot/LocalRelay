@@ -312,6 +312,30 @@ test("360px and 200% text scaling keep critical fields and controls in viewport"
   });
 });
 
+test("keyboard skip link moves focus to content and queue is keyboard operable", async ({
+  page,
+}) => {
+  await prepared(page);
+  await page.keyboard.press("Tab");
+  await expect(
+    page.getByRole("link", { name: "Skip to content" }),
+  ).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#main")).toBeFocused();
+  await card(page);
+  const queue = page.getByRole("button", { name: "Preview and queue locally" });
+  await page.getByLabel("I verified the exact").focus();
+  for (let i = 0; i < 4; i++) {
+    await page.keyboard.press("Tab");
+    if (await queue.evaluate((el) => el === document.activeElement)) break;
+  }
+  await expect(queue).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(
+    page.getByRole("heading", { name: "Ready to send" }),
+  ).toBeVisible();
+});
+
 test("service-worker update waits for home and keeps existing request snapshot", async ({
   page,
 }) => {

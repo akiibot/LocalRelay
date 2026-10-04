@@ -1,0 +1,29 @@
+{
+  "recordedAt": "2026-10-04T00:21:30.576Z",
+  "templateVersion": "bn-draft-1",
+  "revisions": [
+    1,
+    9,
+    10,
+    99,
+    100,
+    999
+  ],
+  "profiles": [
+    {
+      "profile": "demo-craft",
+      "cases": 4368,
+      "maxUnits": 57,
+      "warnings": 0
+    },
+    {
+      "profile": "demo-weaving",
+      "cases": 216,
+      "maxUnits": 46,
+      "warnings": 0
+    }
+  ],
+  "totalCases": 4584,
+  "passed": true,
+  "note": "Exhaustive supported count combinations for bundled demo profiles at sampled revision digit lengths. Software encoding estimate only; no physical segmentation, rendering or carrier evidence."
+}

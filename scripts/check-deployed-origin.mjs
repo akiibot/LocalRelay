@@ -1,6 +1,8 @@
 import { chromium, expect } from "@playwright/test";
 import { createHash } from "node:crypto";
 import { writeFile } from "node:fs/promises";
+import { get } from "node:https";
+import { brotliDecompressSync, gunzipSync, inflateSync } from "node:zlib";
 
 const origin = new URL(process.argv[2] || "https://localrelay-test.vercel.app");
 if (origin.protocol !== "https:") throw new Error("Supply an HTTPS origin");
@@ -16,7 +18,7 @@ const results = {
 const routes = [
   "/",
   "/operators",
-  "/operators/demo-riverside",
+  "/operators/demo-craft",
   "/request/new",
   "/request/test",
   "/outbox",
@@ -83,6 +85,90 @@ results.serviceWorker = {
   contentType: sw.headers.get("content-type"),
   cacheControl: sw.headers.get("cache-control"),
 };
+const swBody = await sw.text();
+const workboxModule = swBody.match(/workbox-[a-z0-9]+/)?.[0];
+const workboxPath = workboxModule ? `${workboxModule}.js` : null;
+if (!workboxPath)
+  throw new Error("Service worker runtime reference unavailable");
+const transferPaths = [
+  ...new Set([
+    ...manifest.assets.map((a) => a.path),
+    "/offline-assets.json",
+    "/sw.js",
+    `/${workboxPath}`,
+  ]),
+];
+const transferFiles = await Promise.all(
+  transferPaths.map(
+    (path) =>
+      new Promise((resolve, reject) => {
+        const request = get(
+          new URL(path, origin),
+          { headers: { "accept-encoding": "br, gzip, deflate" } },
+          (response) => {
+            const chunks = [];
+            let length = 0;
+            response.on("data", (chunk) => {
+              chunks.push(chunk);
+              length += chunk.length;
+              if (length > 5 * 1024 * 1024)
+                request.destroy(new Error("Asset transfer exceeds budget"));
+            });
+            response.on("error", reject);
+            response.on("end", () => {
+              try {
+                if (response.statusCode !== 200)
+                  throw new Error(`Transfer failed: ${path}`);
+                const encoded = Buffer.concat(chunks),
+                  encoding = response.headers["content-encoding"] || "identity";
+                const decoded =
+                  encoding === "br"
+                    ? brotliDecompressSync(encoded)
+                    : encoding === "gzip"
+                      ? gunzipSync(encoded)
+                      : encoding === "deflate"
+                        ? inflateSync(encoded)
+                        : encoding === "identity"
+                          ? encoded
+                          : null;
+                if (!decoded)
+                  throw new Error(`Unsupported encoding: ${encoding}`);
+                const expected = manifest.assets.find((a) => a.path === path);
+                if (
+                  expected &&
+                  (decoded.length !== expected.bytes ||
+                    createHash("sha256").update(decoded).digest("hex") !==
+                      expected.sha256)
+                )
+                  throw new Error(
+                    `Encoded transfer integrity mismatch: ${path}`,
+                  );
+                resolve({
+                  path,
+                  encoding,
+                  encodedBytes: encoded.length,
+                  decodedBytes: decoded.length,
+                });
+              } catch (error) {
+                reject(error);
+              }
+            });
+          },
+        );
+        request.setTimeout(30000, () =>
+          request.destroy(new Error("Asset transfer timed out")),
+        );
+        request.on("error", reject);
+      }),
+  ),
+);
+results.hostedTransfer = {
+  acceptEncoding: "br, gzip, deflate",
+  files: transferFiles,
+  encodedPayloadBytes: transferFiles.reduce((n, f) => n + f.encodedBytes, 0),
+  decodedPayloadBytes: transferFiles.reduce((n, f) => n + f.decodedBytes, 0),
+  note: "Actual encoded response bodies for each static offline file once, measured with a desktop HTTPS client. Excludes HTTP/TLS overhead, duplicate requests, cache negotiation and browser-specific install traffic; not a handset transfer measurement.",
+};
 
 const browser = await chromium.launch();
 try {
@@ -111,6 +197,13 @@ try {
     page.getByText("Ready for offline use", { exact: true }),
   ).toBeVisible({ timeout: 30000 });
   results.onlineReadiness = "passed";
+  await page.keyboard.press("Tab");
+  await expect(
+    page.getByRole("link", { name: "Skip to content" }),
+  ).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#main")).toBeFocused();
+  results.keyboardSkipToContent = "passed";
   await context.setOffline(true);
   await page.reload();
   await expect(
@@ -344,7 +437,9 @@ try {
   ).toBeVisible();
   await reply(`${conflictId} 1 1600`);
   await expect(
-    page.getByRole("heading", { name: "Conflicting replies — contact operator" }),
+    page.getByRole("heading", {
+      name: "Conflicting replies — contact operator",
+    }),
   ).toBeVisible();
   await expect(
     page.getByRole("link", { name: "Enter operator reply" }),

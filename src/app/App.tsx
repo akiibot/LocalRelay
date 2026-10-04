@@ -87,7 +87,7 @@ export default function App() {
           <NavLink to="/diagnostics">Diagnostics</NavLink>
         </nav>
       </header>
-      <main id="main">
+      <main id="main" tabIndex={-1}>
         <ErrorMessage error={error} />
         <Routes>
           <Route path="/" element={<Home />} />

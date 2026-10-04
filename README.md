@@ -48,6 +48,7 @@ npm run lint
 npm run test
 npm run ml:parity
 npm run check:challenges
+npm run check:sms
 npm run build
 npm run check:budgets
 npx playwright install chromium
@@ -57,6 +58,8 @@ npm run test:e2e
 Production Playwright tests include **20 scripted offline agreement workflows**, actual worker inference, hard reload/new-tab reopening, fail-closed cache loss, request revisions, study export, 360px/200% text layout, MIME/404/CSP checks. These are browser software tests with manually entered protocol messages, **not 20 physical SMS tests**. See actual final counts/results in [evidence-status.md](docs/evidence-status.md). An additional 32-case synthetic challenge check verifies parser/validation contracts and records model abstentions in [challenge-evaluation.json](docs/challenge-evaluation.json); it is not blind human evidence. Run `node scripts/check-deployed-origin.mjs https://localrelay-test.vercel.app` for isolated HTTPS/offline checks including allergy blocking, send-report recovery, declines, stale IDs, alternative/duplicate/conflicting offers and acknowledgement guards. These checks send no SMS. `test-results/` holds local JSON reports, screenshots and failure traces (ignored). Browser tests run against `dist`, so rebuild after changing application code.
 
 ## Training and evaluation
+
+New independent-data tooling: [corpus-workflow.md](docs/corpus-workflow.md) explains reviewed source labels, frozen author/family partitions, isolated candidate training, Python/JS parity and source-stratified learned/keyword evaluation. Run `npm run check:corpus` with the development Python environment for its repeatable positive/refusal checks. Candidate files stay under ignored `ml/generated/`; the deployed seed is preserved. [remaining-work.md](docs/remaining-work.md) maps unfinished evidence gates to the people/devices/data they require.
 
 See [ml/README.md](ml/README.md). Shared TypeScript features, group-isolated train/dev/test splits, development-only C/threshold tuning, genuine multinomial and six binary logistic regressions, little-endian float32 export, hash validation and Python/JS parity. The current corpus has 336 developer-authored synthetic examples; human collection and blind-author validation remain pending. Do not interpret synthetic scores as visitor performance.
 
@@ -72,4 +75,4 @@ See [ml/README.md](ml/README.md). Shared TypeScript features, group-isolated tra
 - [External verification checklist](docs/external-verification.md)
 - [Demo script](docs/demo-script.md)
 
-The supplied implementation plan is preserved as LOCALRELAY_IMPLEMENTATION_PLAN.md. The implementation branch is `codex/localrelay` for review. The separate Vercel test project is deployed at https://localrelay-test.vercel.app; physical Android/SMS verification remains pending. Existing parent workspace files were preserved.
+The supplied implementation plan is preserved as LOCALRELAY_IMPLEMENTATION_PLAN.md. The implementation branch is `codex/localrelay` for review. The separate Vercel test project is deployed at https://localrelay-test.vercel.app; the user-reported Android/Grameenphone pilot is recorded separately, while formal basic-phone/carrier and human studies remain pending. Existing parent workspace files were preserved.

@@ -456,6 +456,34 @@ try {
     conflictingOfferStopsProgress: "passed",
     physicalSms: false,
   };
+  await page.goto(new URL("/request/new?mode=form", origin).href);
+  await expect(page.getByLabel("Adults", { exact: true })).toBeVisible();
+  for (const font of ["system-ui", "Verdana", "monospace"]) {
+    await page.evaluate((font) => {
+      document.documentElement.style.fontSize = "34px";
+      document.documentElement.style.fontFamily = font;
+    }, font);
+    if (
+      !(await page.evaluate(
+        () => document.documentElement.scrollWidth <= window.innerWidth + 1,
+      ))
+    )
+      throw new Error(`Large-text page overflow: ${font}`);
+    for (const field of ["Date", "Time", "Adults"]) {
+      const bounds = await page
+        .getByLabel(field, { exact: true })
+        .boundingBox();
+      if (!bounds || bounds.x + bounds.width > 361)
+        throw new Error(`Large-text field overflow: ${font}/${field}`);
+    }
+  }
+  results.offlineLargeTextLayout = {
+    status: "passed",
+    viewportWidth: 360,
+    rootFontSize: 34,
+    fonts: ["system-ui", "Verdana", "monospace"],
+    physicalAssistiveAudit: false,
+  };
   results.cspErrors = cspErrors;
   results.pageErrors = pageErrors;
   results.externalOrPayloadRequests = inputNetwork;

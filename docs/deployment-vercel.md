@@ -37,3 +37,7 @@ For existing installed clients: reconnect, return Home, wait for the update noti
 ## Keyboard accessibility and tooling update — 4 October 2026
 
 Deployed dpl_GXuayATb9u488HnzkdJCPFY6TZnG to the same test alias. The runtime change makes Skip to content focus the main region; source worker/model/template bytes remain frozen. The actual Vercel install/build passed and emitted the same production asset hashes as the local verified build. Added candidate-model/data tooling runs during development/CI only; no Python service or inference backend is introduced. Results of the fresh HTTPS/offline check are in deployment-checks.json.
+
+## Linux large-text layout correction — 4 October 2026
+
+Deployed dpl_YN8Kj13WvgcsAFKUwm1but3kD654 after the repeated 12-test production suite passed. Linux CI had exposed brand/native-control horizontal overflow at 200% text. Wrapping and zero-minimum grid/input widths fix it; no overflow-hiding rule was added. Fresh deployed-origin checks also passed with system-ui, Verdana and monospace at 360px/34px root text, alongside all offline protocol/asset checks. The worker, model, template and persisted request semantics remain unchanged.

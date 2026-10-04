@@ -301,6 +301,28 @@ test("360px and 200% text scaling keep critical fields and controls in viewport"
     document.documentElement.style.fontSize = "34px";
   });
   await expect(page.getByLabel("Adults", { exact: true })).toBeVisible();
+  // Wider fallback fonts reproduce the Linux brand/native-control overflow on macOS too.
+  for (const font of ["system-ui", "Verdana", "monospace"]) {
+    await page.evaluate((font) => {
+      document.documentElement.style.fontFamily = font;
+    }, font);
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= window.innerWidth + 1,
+      ),
+      font,
+    ).toBe(true);
+    for (const field of ["Date", "Time", "Adults"]) {
+      const box = await page.getByLabel(field, { exact: true }).boundingBox();
+      expect(box).not.toBeNull();
+      expect(box!.x + box!.width).toBeLessThanOrEqual(361);
+    }
+  }
+  await page.getByLabel("Date", { exact: true }).fill(nextDate());
+  await page.getByLabel("Time", { exact: true }).fill("15:00");
+  await page.evaluate(() => {
+    document.documentElement.style.fontFamily = "";
+  });
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= window.innerWidth + 1,

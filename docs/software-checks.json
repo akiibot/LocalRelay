@@ -29,8 +29,8 @@
   "retrainingReproducedSha256": "726dbe51da956c3f33076e0dfe36c7414c3fe1bb41b262ad7e078cb1ba4aa905",
   "budgets": {
     "modelBytes": 427800,
-    "uncompressedBytes": 974980,
-    "gzipEstimateBytes": 341277,
+    "uncompressedBytes": 975052,
+    "gzipEstimateBytes": 341294,
     "modelBudget": 1048576,
     "offlineBudget": 5242880,
     "note": "gzip estimate sums per-file gzip sizes; actual network transfer depends on host encoding."
@@ -75,11 +75,12 @@
   },
   "keyboard": "Skip-to-content focus and keyboard queue activation passed in production Chromium.",
   "hostedVerification": {
-    "deployment": "dpl_GXuayATb9u488HnzkdJCPFY6TZnG",
+    "deployment": "dpl_YN8Kj13WvgcsAFKUwm1but3kD654",
     "passed": true,
-    "encodedStaticPayloadBytes": 370846,
-    "decodedStaticPayloadBytes": 974980,
+    "encodedStaticPayloadBytes": 370863,
+    "decodedStaticPayloadBytes": 975052,
     "files": 16,
     "note": "Each static response body once; not total browser install traffic or a handset observation."
-  }
+  },
+  "layoutRegression": "Linux CI exposed an unwrappable brand and native-control minimum widths at 200% text. Fixed wrapping and zero-minimum grid/input widths; local production regression now includes system-ui, Verdana and monospace at 360px."
 }

@@ -8,67 +8,67 @@
     {
       "title": "20 offline scripted production runs: local model, queue, reload and full agreement",
       "status": "passed",
-      "durationMs": 22671
+      "durationMs": 23499
     },
     {
       "title": "unsupported requirements block both entry modes",
       "status": "passed",
-      "durationMs": 3499
+      "durationMs": 3833
     },
     {
       "title": "no configured number disables composer; invalid replies cannot progress",
       "status": "passed",
-      "durationMs": 3655
+      "durationMs": 3721
     },
     {
       "title": "readiness fails honestly for evicted cache and missing assets are 404 under CSP",
       "status": "passed",
-      "durationMs": 3337
+      "durationMs": 3575
     },
     {
       "title": "consented local study grades shared workflow and exports no raw text/phones",
       "status": "passed",
-      "durationMs": 3785
+      "durationMs": 3459
     },
     {
       "title": "model-cache loss fails closed to manual form while offline",
       "status": "passed",
-      "durationMs": 3491
+      "durationMs": 3390
     },
     {
       "title": "real worker uncertainty allows safe offline manual fallback and ISO date extraction",
       "status": "passed",
-      "durationMs": 3640
+      "durationMs": 3637
     },
     {
       "title": "revision atomically supersedes old ID, snapshots stay immutable",
       "status": "passed",
-      "durationMs": 3801
+      "durationMs": 3710
     },
     {
       "title": "360px and 200% text scaling keep critical fields and controls in viewport",
       "status": "passed",
-      "durationMs": 3863
+      "durationMs": 3572
     },
     {
       "title": "keyboard skip link moves focus to content and queue is keyboard operable",
       "status": "passed",
-      "durationMs": 3693
+      "durationMs": 3469
     },
     {
       "title": "service-worker update waits for home and keeps existing request snapshot",
       "status": "passed",
-      "durationMs": 4816
+      "durationMs": 4924
     },
     {
       "title": "diagnostics measures actual desktop worker load and 50 warm calls",
       "status": "passed",
-      "durationMs": 3470
+      "durationMs": 3474
     }
   ],
   "stats": {
-    "startTime": "2026-10-04T00:22:49.506Z",
-    "duration": 65551.125,
+    "startTime": "2026-10-04T00:31:33.493Z",
+    "duration": 65865.664,
     "expected": 12,
     "skipped": 0,
     "unexpected": 0,

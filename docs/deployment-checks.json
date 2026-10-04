@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-10-04T04:19:00.804Z",
+  "recordedAt": "2026-10-04T05:07:03.882Z",
   "origin": "https://localrelay-test.vercel.app",
   "environment": "Desktop Playwright Chromium, fresh browser context, 360x800",
   "physicalSms": false,
@@ -58,18 +58,18 @@
   ],
   "assets": [
     {
-      "path": "/assets/index-Bb2vq5rn.js",
-      "bytes": 437379,
-      "sha256": "985a171247de440399f3cb5078b1fb637a81785f056755ca5c28e9bb82f3d6e2",
-      "contentType": "application/javascript; charset=utf-8",
-      "cacheControl": "public, max-age=31536000, immutable",
-      "contentEncoding": "br"
-    },
-    {
       "path": "/assets/index-CP6o_ci8.css",
       "bytes": 3620,
       "sha256": "153950fea4f8237bca014f4e8f7c3afa5d373159032a49167150ba179f74344c",
       "contentType": "text/css; charset=utf-8",
+      "cacheControl": "public, max-age=31536000, immutable",
+      "contentEncoding": "br"
+    },
+    {
+      "path": "/assets/index-cfpDdIMD.js",
+      "bytes": 441388,
+      "sha256": "696cbfb6879f54744abfe18953c5e9ba86fc1684f5f2ccc82b03028a3549b623",
+      "contentType": "application/javascript; charset=utf-8",
       "cacheControl": "public, max-age=31536000, immutable",
       "contentEncoding": "br"
     },
@@ -124,7 +124,7 @@
     {
       "path": "/index.html",
       "bytes": 560,
-      "sha256": "a6c2acc048cd42244346bef77ffb81fde0aae2c47b546367fb20834a96f4df86",
+      "sha256": "40333f993131e768ee41be842a07a6502811deeb6b5ade027688de9f6a3e57c6",
       "contentType": "text/html; charset=utf-8",
       "cacheControl": "public, max-age=0, must-revalidate",
       "contentEncoding": null
@@ -172,16 +172,16 @@
     "acceptEncoding": "br, gzip, deflate",
     "files": [
       {
-        "path": "/assets/index-Bb2vq5rn.js",
-        "encoding": "br",
-        "encodedBytes": 138782,
-        "decodedBytes": 437379
-      },
-      {
         "path": "/assets/index-CP6o_ci8.css",
         "encoding": "br",
         "encodedBytes": 1462,
         "decodedBytes": 3620
+      },
+      {
+        "path": "/assets/index-cfpDdIMD.js",
+        "encoding": "br",
+        "encodedBytes": 139801,
+        "decodedBytes": 441388
       },
       {
         "path": "/assets/inference.worker-CuESR5mf.js",
@@ -268,8 +268,8 @@
         "decodedBytes": 15112
       }
     ],
-    "encodedPayloadBytes": 376810,
-    "decodedPayloadBytes": 993246,
+    "encodedPayloadBytes": 377829,
+    "decodedPayloadBytes": 997255,
     "note": "Actual encoded response bodies for each static offline file once, measured with a desktop HTTPS client. Excludes HTTP/TLS overhead, duplicate requests, cache negotiation and browser-specific install traffic; not a handset transfer measurement."
   },
   "onlineReadiness": "passed",

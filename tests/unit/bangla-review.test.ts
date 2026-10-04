@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import {
   makeReviewExport,
+  makeDemoReview,
   reviewItems,
   type ReviewResponse,
 } from "../../src/evaluation/bangla-review-data";
@@ -14,6 +15,26 @@ const attestations = {
   nativeBanglaSpeaker: true,
   reviewedIndependently: true,
 };
+it("keeps filled demonstration data distinct from real reviews and rejects its attestations", () => {
+  const demo = makeDemoReview(items, hash);
+  expect(demo.documentType).toBe("synthetic_review_demo");
+  expect(demo.synthetic).toBe(true);
+  expect(demo.humanReviewerCount).toBe(0);
+  expect(demo.templateApprovalStatus).toBe("unreviewed");
+  expect(demo.examples).toHaveLength(2);
+  for (const example of demo.examples) {
+    expect(example.responses).toHaveLength(6);
+    expect(
+      example.responses.every(
+        (r) =>
+          r.source === "synthetic_demo" && r.interpretationLockedAt === null,
+      ),
+    ).toBe(true);
+  }
+  expect(() =>
+    makeReviewExport("DEMO-A", "", items, responses, hash, demo.attestations),
+  ).toThrow(/confirmations/);
+});
 const responses: ReviewResponse[] = items.map((item) => ({
   itemId: item.id,
   interpretation: "Synthetic test only",

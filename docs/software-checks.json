@@ -7,7 +7,7 @@
   "typecheck": "passed",
   "lint": "passed",
   "unitComponentTests": {
-    "passed": 44,
+    "passed": 45,
     "failed": 0,
     "files": 6
   },
@@ -30,8 +30,8 @@
   "retrainingReproducedSha256": "726dbe51da956c3f33076e0dfe36c7414c3fe1bb41b262ad7e078cb1ba4aa905",
   "budgets": {
     "modelBytes": 427800,
-    "uncompressedBytes": 993246,
-    "gzipEstimateBytes": 346702,
+    "uncompressedBytes": 997255,
+    "gzipEstimateBytes": 347811,
     "modelBudget": 1048576,
     "offlineBudget": 5242880,
     "note": "gzip estimate sums per-file gzip sizes; actual network transfer depends on host encoding."
@@ -76,10 +76,10 @@
   },
   "keyboard": "Skip-to-content focus and keyboard queue activation passed in production Chromium.",
   "hostedVerification": {
-    "deployment": "dpl_EtWLNyrtEHnqDnpic1R1MWrnnk5D",
+    "deployment": "dpl_3AyBeA8Mm1pKaUJ8WQCmr2JaZ7Wp",
     "passed": true,
-    "encodedStaticPayloadBytes": 376810,
-    "decodedStaticPayloadBytes": 993246,
+    "encodedStaticPayloadBytes": 377829,
+    "decodedStaticPayloadBytes": 997255,
     "files": 16,
     "note": "Actual encoded response bodies for each static offline file once, measured with a desktop HTTPS client. Excludes HTTP/TLS overhead, duplicate requests, cache negotiation and browser-specific install traffic; not a handset transfer measurement."
   },
@@ -211,6 +211,53 @@
       },
       "physicalAndroid": false,
       "nativeReviews": false
+    }
+  },
+  "demoReview": {
+    "recordedAt": "2026-10-04T05:06:17.778Z",
+    "route": "/evaluation?review=bangla&demo=1",
+    "dataSource": "synthetic_demo",
+    "demoExamples": 2,
+    "answersPerExample": 6,
+    "humanReviewerCount": 0,
+    "liveSmsWordingChanged": false,
+    "physicalSms": false,
+    "unitTests": {
+      "passed": 45,
+      "failed": 0,
+      "files": 6
+    },
+    "localBrowserChecks": {
+      "startTime": "2026-10-04T05:05:23.401Z",
+      "duration": 15260.435,
+      "expected": 3,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "checks": [
+      "Fresh offline demo query reload",
+      "Two demo examples, all six filled items",
+      "Synthetic labels in page and export filename/document",
+      "Zero human count and false human attestations",
+      "Exported exact material hash",
+      "Blank human form/consent after returning",
+      "200% text at 360px in three fonts",
+      "Existing human review export and controlled update remain working"
+    ],
+    "hostedChecks": {
+      "deployment": "dpl_3AyBeA8Mm1pKaUJ8WQCmr2JaZ7Wp",
+      "origin": "https://localrelay-test.vercel.app/evaluation?review=bangla&demo=1",
+      "queryRouteStatus": 200,
+      "browser": {
+        "startTime": "2026-10-04T05:07:04.714Z",
+        "duration": 11047.922,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "physicalAndroid": false
     }
   }
 }

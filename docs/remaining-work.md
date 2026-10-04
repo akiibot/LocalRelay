@@ -1,6 +1,6 @@
 # Remaining work after software verification
 
-The application and repeatable developer checks are implemented. The working pilot remains **manual-first with experimental AI and unreviewed Bangla**. The user-reported Galaxy A55 ↔ Redmi Note 11 Grameenphone exchange is retained; no additional phone tests are required to repeat desktop software QA.
+The application and repeatable developer checks are implemented. The demo can be presented now using the isolated SMS simulator and the filled synthetic-review examples at `/evaluation?review=bangla&demo=1`; the gates below concern actual field validation rather than completion of the demonstration. The working pilot remains **manual-first with experimental AI and unreviewed Bangla**. The user-reported Galaxy A55 ↔ Redmi Note 11 Grameenphone exchange is retained; no additional phone tests are required to repeat desktop software QA.
 
 | Remaining gate | Prepared software/material | Required external input |
 |---|---|---|

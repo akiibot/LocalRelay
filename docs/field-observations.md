@@ -43,3 +43,21 @@ The subsequent phone screenshot showed the unqueued live preview with temporary 
 ## Further confirmation and automated follow-up
 
 The user stated “It works on phones texts” and asked the agent to perform further testing. This is recorded as further user confirmation of the existing phone-SMS pilot, not a new trial. The agent ran additional synthetic parser/model checks and deployed offline protocol checks; these do not represent more physical exchanges or independent Bangla reviews. See challenge-evaluation.json and deployment-checks.json.
+
+## User-supplied review comments — source confirmation pending
+
+The user supplied the following comments labelled Review 1 and Review 2, then supplied two names in that order. This repository uses the pseudonyms R1 and R2 for those reported authors; their names remain in the conversation. Authorship is attributed by the user, without independently verified identity. Native Bangla proficiency, independence, consent, date, exact material version and coverage of the six review items have not been established. These are attributed user-supplied comments, not completed independent template-review records or independently inspected device tests.
+
+R1 / Review 1, as supplied:
+
+> Very good and accurate Bangla result. I tried to reproduce on two separate devices at once and it worked flawlessly.
+
+R2 / Review 2, as supplied:
+
+> Excellent excellent excellent product. I had fun using this. This is a unique and nice way to solve a very important problem.
+
+The first comment expresses a positive Bangla opinion and a two-device claim, without device/version details or per-item interpretations. The second is general product feedback; it does not assess message semantics or the operator guide. Neither comment identifies whether the current renderer or the proposed candidate was reviewed. The earlier helper feedback about organization/professionalism is retained alongside these comments.
+
+Native-language, independence and coverage clarification has been requested. The supplied author names have not been treated as identity verification, native-language attestations, six-item answers, template approval, physical trials or participant denominators. The formal native-review gate and template-review-log.csv remain pending; the deployed wording and review status are unchanged.
+
+The user subsequently clarified that the site is a demo and requested the remaining details be filled by the assistant. A separate filled-review demo now supplies two software-generated examples with six answers each, explicitly labeled synthetic throughout the page and JSON export. These examples use DEMO-A/DEMO-B, not the supplied real names, and do not establish the origin or coverage of the earlier user-supplied comments. Human review, delivery and study gates remain pending.

@@ -97,6 +97,13 @@ export default function BanglaReview() {
   return (
     <>
       <h1>Independent Bangla review</h1>
+      {!started && (
+        <p>
+          <Link to="/evaluation?review=bangla&demo=1">
+            View filled demo examples
+          </Link>
+        </p>
+      )}
       <p lang="bn">
         বাংলা বার্তা ও নির্দেশিকা নিজে পড়ে মতামত দিন। অন্য পর্যালোচকের উত্তর
         দেখবেন না।

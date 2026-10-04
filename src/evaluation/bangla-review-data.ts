@@ -109,6 +109,48 @@ export const reviewResponseSchema = z.object({
   suggestedWording: z.string().max(3000),
 });
 export type ReviewResponse = z.infer<typeof reviewResponseSchema>;
+export function makeDemoReview(items: ReviewItem[], materialSha256: string) {
+  return {
+    schemaVersion: 1,
+    documentType: "synthetic_review_demo",
+    synthetic: true,
+    reviewVersion: BANGLA_REVIEW_VERSION,
+    templateVersion: TEMPLATE_VERSION,
+    materialSha256,
+    items,
+    humanReviewerCount: 0,
+    physicalSmsEvidence: false,
+    templateApprovalStatus: "unreviewed",
+    attestations: {
+      nativeBanglaSpeaker: false,
+      reviewedIndependently: false,
+      consentToExport: false,
+    },
+    source:
+      "Software-generated examples using the intended meanings; no person performed these reviews.",
+    examples: ["DEMO-A", "DEMO-B"].map((label, index) => ({
+      label,
+      synthetic: true,
+      responses: items.map((item) => ({
+        itemId: item.id,
+        source: "synthetic_demo",
+        interpretation: item.intendedMeaning,
+        interpretationLockedAt: null,
+        assessment:
+          index === 1 && item.id === "no-meal" ? "uncertain" : "meaning_clear",
+        naturalness: item.kind === "current_sms" ? "awkward" : "natural",
+        comments:
+          index === 0
+            ? "Example comment: the intended fields are understandable; clearer spacing and labels would improve presentation."
+            : "Example comment: confirm the full-party total, meal profile and date/time convention before replying.",
+        suggestedWording:
+          item.kind === "current_sms"
+            ? "Example suggestion: put the request ID on its own line and separate count labels with colons."
+            : "Example suggestion: keep date, time and total-price terminology consistent.",
+      })),
+    })),
+  };
+}
 export function makeReviewExport(
   reviewer: string,
   device: string,

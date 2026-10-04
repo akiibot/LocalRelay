@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import BanglaReview from "./BanglaReview";
+import BanglaReviewDemo from "./BanglaReviewDemo";
 import {
   beginStudy,
   finishStudy,
@@ -26,6 +27,8 @@ function exportData(data: unknown, name: string) {
 }
 export default function Evaluation() {
   const [params] = useSearchParams();
+  if (params.get("review") === "bangla" && params.get("demo") === "1")
+    return <BanglaReviewDemo />;
   return params.get("review") === "bangla" ? (
     <BanglaReview />
   ) : (

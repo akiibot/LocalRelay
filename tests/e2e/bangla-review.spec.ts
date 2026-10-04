@@ -2,6 +2,68 @@ import { test, expect } from "@playwright/test";
 import { readFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 
+test("filled review demo remains synthetic offline and leaves the human form blank", async ({
+  page,
+  context,
+}) => {
+  await page.goto("/");
+  await expect(
+    page.getByText("Ready for offline use", { exact: true }),
+  ).toBeVisible({ timeout: 20000 });
+  await context.setOffline(true);
+  await page.goto("/evaluation?review=bangla");
+  await page.getByRole("link", { name: "View filled demo examples" }).click();
+  await page.reload();
+  await expect(
+    page.getByRole("heading", { name: "Filled review demo", exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByText("Sample data · no human reviews", { exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: /Example \d of 6:/ }),
+  ).toHaveCount(6);
+  await page.getByLabel("Sample reviewer").selectOption("1");
+  await expect(
+    page.getByText("Synthetic · DEMO-B", { exact: true }),
+  ).toHaveCount(6);
+  for (const font of ["system-ui", "Verdana", "monospace"]) {
+    await page.evaluate((font) => {
+      document.documentElement.style.fontSize = "34px";
+      document.documentElement.style.fontFamily = font;
+    }, font);
+    expect(
+      await page.evaluate(() => document.documentElement.scrollWidth),
+    ).toBeLessThanOrEqual(361);
+  }
+  await page.evaluate(() => {
+    document.documentElement.style.fontSize = "";
+    document.documentElement.style.fontFamily = "";
+  });
+  const pending = page.waitForEvent("download");
+  await page
+    .getByRole("button", { name: "Download synthetic demo JSON" })
+    .click();
+  const downloaded = await pending;
+  expect(downloaded.suggestedFilename()).toContain("SYNTHETIC");
+  const data = JSON.parse(await readFile((await downloaded.path())!, "utf8"));
+  expect(data.synthetic).toBe(true);
+  expect(data.documentType).toBe("synthetic_review_demo");
+  expect(data.humanReviewerCount).toBe(0);
+  expect(data.attestations.nativeBanglaSpeaker).toBe(false);
+  expect(data.materialSha256).toBe(
+    createHash("sha256").update(JSON.stringify(data.items)).digest("hex"),
+  );
+  await page.getByRole("link", { name: "Open blank reviewer form" }).click();
+  await expect(page.getByLabel("Reviewer pseudonym")).toHaveValue("");
+  await expect(page.getByLabel("I agree to export")).not.toBeChecked();
+  await expect(
+    page.getByRole("button", { name: "Start independent review", exact: true }),
+  ).toBeDisabled();
+  await page.goto("/diagnostics");
+  await expect(page.getByText(/unreviewed, zero reviewers/)).toBeVisible();
+});
+
 test("offline native-review form locks interpretation and exports adverse answers without approval", async ({
   page,
   context,

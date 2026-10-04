@@ -2,7 +2,7 @@
   "date": "2026-10-04",
   "baselineCommit": "164b762",
   "environment": "Local production dist served on 127.0.0.1:4173; desktop Chromium with emulated viewports",
-  "deployed": false,
+  "deployed": true,
   "physicalSmsSentByChecks": false,
   "humanReviewersCollected": 0,
   "newHumanParticipants": 0,
@@ -265,5 +265,45 @@
     "build": "passed",
     "budgets": "passed"
   },
-  "interactiveDemoEvidence": "interactive-demo-checks.json"
+  "interactiveDemoEvidence": "interactive-demo-checks.json",
+  "deploymentId": "dpl_D4ZFY9Q3hPqMKiWEWbT5SPaNuMiV",
+  "hostedOrigin": "https://localrelay-test.vercel.app",
+  "hostedVerification": {
+    "origin": "https://localrelay-test.vercel.app",
+    "deploymentId": "dpl_D4ZFY9Q3hPqMKiWEWbT5SPaNuMiV",
+    "deployedSourceCommit": "1a09a6219aecf2354131128c7ca1ffe178dc64bf",
+    "hostedBrowserSuite": {
+      "passed": 22,
+      "failed": 0,
+      "skipped": 1,
+      "skipReason": "The SW-update test modifies local dist/sw.js; it is tested locally, not against an immutable remote deployment."
+    },
+    "localAffectedTests": {
+      "passed": 2,
+      "failed": 0,
+      "scope": "20 offline agreements and real service-worker update"
+    },
+    "assetManifestMatchesLocal": true,
+    "routeResponsesPassed": 11,
+    "verifiedAssets": 13,
+    "hostedProtocolAndOfflineChecker": "passed",
+    "encodedStaticBytes": 392410,
+    "decodedStaticBytes": 1055654,
+    "linuxCi": {
+      "sourceCommit": "1a09a6219aecf2354131128c7ca1ffe178dc64bf",
+      "push": "https://github.com/akiibot/LocalRelay/actions/runs/37183880237",
+      "pullRequest": "https://github.com/akiibot/LocalRelay/actions/runs/37183882408",
+      "software": "passed",
+      "corpusTools": "passed"
+    },
+    "initialHostedRun": {
+      "passed": 21,
+      "failed": 2,
+      "causes": [
+        "Test network-origin assertion was hard-coded to localhost, so cached same-origin HTTPS requests were incorrectly flagged.",
+        "Update test modifies a local service-worker file; immutable remote assets did not change."
+      ],
+      "productRuntimeChangedAfterDeployment": false
+    }
+  }
 }

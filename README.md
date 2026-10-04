@@ -60,7 +60,7 @@ Production Playwright tests include **20 scripted offline agreement workflows**,
 
 ## Interface
 
-The mobile interface uses Home, Experiences and Requests navigation, explicit Details → Review steps, a state-based SMS timeline, and grouped saved requests. Adding a recipient to a saved request creates a new immutable revision. The exact SMS renderer, model, storage schema and protocol guards are preserved. See [UI/UX plan](docs/ui-ux-implementation-plan.md) and [UI verification](docs/ui-ux-qa.md). The redesign is verified locally; the hosted test site is a separate deployment.
+The mobile interface uses Home, Experiences and Requests navigation, explicit Details → Review steps, a state-based SMS timeline, and grouped saved requests. Adding a recipient to a saved request creates a new immutable revision. The exact SMS renderer, model, storage schema and protocol guards are preserved. See [UI/UX plan](docs/ui-ux-implementation-plan.md) and [UI verification](docs/ui-ux-qa.md). The redesign and [interactive two-phone demo](https://localrelay-test.vercel.app/demo) are deployed to the existing HTTPS test site. See [deployment checks](docs/deployment-checks.json) for current hosted evidence.
 
 ## Training and evaluation
 

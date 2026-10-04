@@ -62,12 +62,13 @@ test("20 offline scripted production runs: local model, queue, reload and full a
   // This covers 20 complete UI exchanges, not the separate inference latency gate.
   test.setTimeout(180000);
   await prepared(page);
+  const appOrigin = new URL(page.url()).origin;
   await context.setOffline(true);
   const network: string[] = [];
   page.on("request", (r) => {
     if (
       r.url().startsWith("http") &&
-      (!r.url().startsWith("http://127.0.0.1:4173") ||
+      (new URL(r.url()).origin !== appOrigin ||
         r.postData() ||
         r.url().includes("adults"))
     )
@@ -402,7 +403,12 @@ test("keyboard skip link moves focus to content and queue is keyboard operable",
 
 test("service-worker update waits for home and keeps existing request snapshot", async ({
   page,
+  baseURL,
 }) => {
+  test.skip(
+    !["localhost", "127.0.0.1"].includes(new URL(baseURL!).hostname),
+    "This update test modifies local dist/sw.js; remote deployments are immutable.",
+  );
   const { readFile, writeFile } = await import("node:fs/promises");
   await prepared(page);
   await card(page);

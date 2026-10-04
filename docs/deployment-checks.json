@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-10-04T05:07:03.882Z",
+  "recordedAt": "2026-10-04T06:49:22.251Z",
   "origin": "https://localrelay-test.vercel.app",
   "environment": "Desktop Playwright Chromium, fresh browser context, 360x800",
   "physicalSms": false,
@@ -54,22 +54,27 @@
       "path": "/simulate",
       "status": 200,
       "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/demo",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
     }
   ],
   "assets": [
     {
-      "path": "/assets/index-CP6o_ci8.css",
-      "bytes": 3620,
-      "sha256": "153950fea4f8237bca014f4e8f7c3afa5d373159032a49167150ba179f74344c",
-      "contentType": "text/css; charset=utf-8",
+      "path": "/assets/index-1X2_Mk5o.js",
+      "bytes": 484347,
+      "sha256": "2493343a4466d472565a2b7f7095d0a295d18313ead932f976d6b5cfbb6c4107",
+      "contentType": "application/javascript; charset=utf-8",
       "cacheControl": "public, max-age=31536000, immutable",
       "contentEncoding": "br"
     },
     {
-      "path": "/assets/index-cfpDdIMD.js",
-      "bytes": 441388,
-      "sha256": "696cbfb6879f54744abfe18953c5e9ba86fc1684f5f2ccc82b03028a3549b623",
-      "contentType": "application/javascript; charset=utf-8",
+      "path": "/assets/index-B8aWa7SZ.css",
+      "bytes": 19054,
+      "sha256": "a08c704cdc4321c80f79b32749640ac36742a8346f7fd3728cdd861a4c85d9a4",
+      "contentType": "text/css; charset=utf-8",
       "cacheControl": "public, max-age=31536000, immutable",
       "contentEncoding": "br"
     },
@@ -124,7 +129,7 @@
     {
       "path": "/index.html",
       "bytes": 560,
-      "sha256": "40333f993131e768ee41be842a07a6502811deeb6b5ade027688de9f6a3e57c6",
+      "sha256": "99267a0adf922afbefe03270a4d16824d1ff29a8a26b7bf641172ed2d1c8d3d6",
       "contentType": "text/html; charset=utf-8",
       "cacheControl": "public, max-age=0, must-revalidate",
       "contentEncoding": null
@@ -172,16 +177,16 @@
     "acceptEncoding": "br, gzip, deflate",
     "files": [
       {
-        "path": "/assets/index-CP6o_ci8.css",
+        "path": "/assets/index-1X2_Mk5o.js",
         "encoding": "br",
-        "encodedBytes": 1462,
-        "decodedBytes": 3620
+        "encodedBytes": 150472,
+        "decodedBytes": 484347
       },
       {
-        "path": "/assets/index-cfpDdIMD.js",
+        "path": "/assets/index-B8aWa7SZ.css",
         "encoding": "br",
-        "encodedBytes": 139801,
-        "decodedBytes": 441388
+        "encodedBytes": 5368,
+        "decodedBytes": 19054
       },
       {
         "path": "/assets/inference.worker-CuESR5mf.js",
@@ -252,14 +257,14 @@
       {
         "path": "/offline-assets.json",
         "encoding": "br",
-        "encodedBytes": 863,
-        "decodedBytes": 2110
+        "encodedBytes": 862,
+        "decodedBytes": 2111
       },
       {
         "path": "/sw.js",
         "encoding": "br",
-        "encodedBytes": 1154,
-        "decodedBytes": 2418
+        "encodedBytes": 1159,
+        "decodedBytes": 2423
       },
       {
         "path": "/workbox-9c191d2f.js",
@@ -268,8 +273,8 @@
         "decodedBytes": 15112
       }
     ],
-    "encodedPayloadBytes": 377829,
-    "decodedPayloadBytes": 997255,
+    "encodedPayloadBytes": 392410,
+    "decodedPayloadBytes": 1055654,
     "note": "Actual encoded response bodies for each static offline file once, measured with a desktop HTTPS client. Excludes HTTP/TLS overhead, duplicate requests, cache negotiation and browser-specific install traffic; not a handset transfer measurement."
   },
   "onlineReadiness": "passed",

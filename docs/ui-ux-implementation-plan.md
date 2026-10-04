@@ -2,7 +2,7 @@
 
 Research date: 4 October 2026. Code baseline: `164b762`, branch `codex/localrelay`.
 
-Status: implemented locally after the user requested the complete UI/UX pass. See [implementation and QA](ui-ux-qa.md) for the final component mapping, checks, and limits. Scope is the existing visitor journey before the demo video; the hosted site has not been redeployed.
+Status: implemented locally after the user requested the complete UI/UX pass. See [implementation and QA](ui-ux-qa.md) for the final component mapping, checks, and limits. Scope is the existing visitor journey before the demo video; the redesign and interactive demo are now deployed to the existing test origin; hosted verification is recorded in deployment-checks.json.
 
 ## 1. Recommended direction
 
